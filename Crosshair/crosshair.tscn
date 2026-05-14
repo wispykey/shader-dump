@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dntwdlmk1mv2a"]
 
-[ext_resource type="Script" uid="uid://dn4kqawie8xth" path="res://crosshair.gd" id="1_4sp0m"]
-[ext_resource type="Shader" uid="uid://y1g4mueajoa0" path="res://crosshair.gdshader" id="1_ly6fr"]
+[ext_resource type="Script" uid="uid://dn4kqawie8xth" path="res://Crosshair/crosshair.gd" id="1_4sp0m"]
+[ext_resource type="Shader" uid="uid://y1g4mueajoa0" path="res://Crosshair/crosshair.gdshader" id="1_ly6fr"]
 [ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_4sp0m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p7w1k"]
