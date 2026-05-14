@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7h8211ux0dde"]
+
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="1_c2ywn"]
+[ext_resource type="Shader" uid="uid://cb3j5uaesrt2s" path="res://4 Code/diagonal_reveal.gdshader" id="1_ss7rr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2das7"]
+shader = ExtResource("1_ss7rr")
+shader_parameter/speed = 5.0
+
+[node name="Code" type="Node2D" unique_id=1540110660]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=2060813687]
+material = SubResource("ShaderMaterial_2das7")
+texture = ExtResource("1_c2ywn")
+
+[node name="Camera2D" type="Camera2D" parent="Icon" unique_id=260959701]
+zoom = Vector2(5, 5)

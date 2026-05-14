@@ -1,0 +1,53 @@
+[gd_resource type="VisualShader" format=3 uid="uid://n2rnk2nnox8r"]
+
+[sub_resource type="VisualShaderNodeVectorDistance" id="VisualShaderNodeVectorDistance_cvjee"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.5, 0.5)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_kbyg1"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_r4o8m"]
+parameter_name = "Radius"
+hint = 1
+max = 0.5
+default_value_enabled = true
+default_value = 0.2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bv1lk"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_cvjee"]
+parameter_name = "xShift"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_kbyg1"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_r4o8m"]
+expanded_output_ports = [0]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_bv1lk"]
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(460, 160)
+nodes/vertex/2/node = SubResource("VisualShaderNodeFloatParameter_cvjee")
+nodes/vertex/2/position = Vector2(-500, 160)
+nodes/vertex/3/node = SubResource("VisualShaderNodeVectorCompose_kbyg1")
+nodes/vertex/3/position = Vector2(160, 200)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_r4o8m")
+nodes/vertex/4/position = Vector2(-420, 460)
+nodes/vertex/5/node = SubResource("VisualShaderNodeFloatOp_bv1lk")
+nodes/vertex/5/position = Vector2(-100, 200)
+nodes/vertex/connections = PackedInt32Array(3, 0, 0, 0, 4, 2, 3, 1, 5, 0, 3, 0, 4, 1, 5, 1, 2, 0, 5, 0)
+nodes/fragment/2/node = SubResource("VisualShaderNodeVectorDistance_cvjee")
+nodes/fragment/2/position = Vector2(-180, 400)
+nodes/fragment/3/node = SubResource("VisualShaderNodeStep_kbyg1")
+nodes/fragment/3/position = Vector2(100, 220)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatParameter_r4o8m")
+nodes/fragment/4/position = Vector2(-280, 100)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_bv1lk")
+nodes/fragment/5/position = Vector2(-580, 420)
+nodes/fragment/connections = PackedInt32Array(4, 0, 3, 1, 2, 0, 3, 0, 5, 0, 2, 0, 3, 0, 0, 1)

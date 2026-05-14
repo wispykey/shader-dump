@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://vc1ppxjksbug"]
+
+[ext_resource type="Shader" uid="uid://n2rnk2nnox8r" path="res://3 Variables/variables.tres" id="1_aftx6"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="1_pt4l5"]
+[ext_resource type="Script" uid="uid://ywpgr45qwbo0" path="res://3 Variables/variables.gd" id="1_wmm2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmm2v"]
+shader = ExtResource("1_aftx6")
+shader_parameter/xShift = 0.0
+shader_parameter/Radius = 0.2
+
+[node name="Variables" type="Node2D" unique_id=2125727057]
+script = ExtResource("1_wmm2v")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=98449204]
+material = SubResource("ShaderMaterial_wmm2v")
+texture = ExtResource("1_pt4l5")
+
+[node name="Camera2D" type="Camera2D" parent="Icon" unique_id=569361223]
+zoom = Vector2(5, 5)
