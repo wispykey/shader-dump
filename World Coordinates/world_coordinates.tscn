@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c4fgdc4idwnsf"]
+
+[ext_resource type="Shader" uid="uid://d3ppvk0yqvevd" path="res://World Coordinates/vertex.gdshader" id="1_ner24"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_f4hol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj2v2"]
+shader = ExtResource("1_ner24")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1pat"]
+shader = ExtResource("1_ner24")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fbd6f"]
+size = Vector2(128, -128)
+subdivide_depth = 100
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5usaj"]
+shader = ExtResource("1_ner24")
+
+[node name="WorldCoordinates" type="Node2D" unique_id=1666281883]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1122686663]
+material = SubResource("ShaderMaterial_pj2v2")
+position = Vector2(487, 255)
+texture = ExtResource("2_f4hol")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=1375885761]
+zoom = Vector2(5, 5)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1489582025]
+visible = false
+material = SubResource("ShaderMaterial_p1pat")
+position = Vector2(260, 2)
+mesh = SubResource("PlaneMesh_fbd6f")
+texture = ExtResource("2_f4hol")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=999616487]
+visible = false
+material = SubResource("ShaderMaterial_5usaj")
+position = Vector2(449, -51)
+texture = ExtResource("2_f4hol")
+polygon = PackedVector2Array(19.5, 42, 66.5, 12, 103.5, 41, 97.5, 106, 31.5, 104)
+uv = PackedVector2Array(19.5, 42, 66.5, 12, 103.5, 41, 97.5, 106, 31.5, 104)

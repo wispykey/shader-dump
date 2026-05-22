@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c34bvb3naikbs"]
+
+[ext_resource type="Shader" uid="uid://b2yno0m2f46pt" path="res://UVControl/uv_control.gdshader" id="1_16xki"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_lpgnl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edtbo"]
+shader = ExtResource("1_16xki")
+shader_parameter/pixellation_intensity = 0.8250000391875
+
+[node name="UVControl" type="Node2D" unique_id=410913179]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=834953456]
+material = SubResource("ShaderMaterial_edtbo")
+position = Vector2(64, 82)
+texture = ExtResource("2_lpgnl")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=1127633032]
+zoom = Vector2(5, 5)
