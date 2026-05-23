@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dy4rujg12mhts"]
+
+[ext_resource type="Shader" uid="uid://wt8i2kvwe28o" path="res://2D/UltimateIntro/Orbit/orbit.gdshader" id="1_f83ej"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_hxqea"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm7hk"]
+shader = ExtResource("1_f83ej")
+shader_parameter/planet_size = 0.5010000205376199
+shader_parameter/moon_size = 0.51000002096512
+shader_parameter/moon_distance = 0.60200002533512
+shader_parameter/planet_color = Color(0, 0.627451, 0.80784315, 1)
+shader_parameter/moon_color = Color(0, 0.5921569, 0, 1)
+shader_parameter/asteroid_color = Color(0.654902, 0.4392157, 0, 1)
+
+[node name="Orbit" type="Node2D" unique_id=1625244583]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=218062474]
+material = SubResource("ShaderMaterial_cm7hk")
+texture = ExtResource("2_hxqea")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=561296496]
+zoom = Vector2(5, 5)

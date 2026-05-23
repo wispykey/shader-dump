@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c241nrh4552xp"]
+
+[ext_resource type="Shader" uid="uid://crt2w0u7h742s" path="res://2D/UltimateIntro/Flag/flag.gdshader" id="1_4io66"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_3pf0b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbeji"]
+shader = ExtResource("1_4io66")
+shader_parameter/speed = 2.0
+shader_parameter/frequency_y = 4.0
+shader_parameter/amplitude_y = 40.0
+shader_parameter/frequency_x = 4.0
+shader_parameter/amplitude_x = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4io66"]
+shader = ExtResource("1_4io66")
+shader_parameter/speed = 2.0
+shader_parameter/frequency_y = 4.0
+shader_parameter/amplitude_y = 40.0
+shader_parameter/frequency_x = 4.0
+shader_parameter/amplitude_x = 20.0
+
+[node name="Flag" type="Node2D" unique_id=327210568]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1720324187]
+material = SubResource("ShaderMaterial_cbeji")
+texture = ExtResource("2_3pf0b")
+polygon = PackedVector2Array(9.450989, -16.765999, 28.450989, -15.765999, 53.45099, -18.765999, 78.27313, -9.414154, 103.45099, -17.765999, 122.45099, -17.765999, 134.45099, -18.765999, 146.23077, -14.238983, 146.23077, 0.30647278, 155.45099, 11.234001, 141.45099, 18.234001, 148.04895, 33.942833, 148.95801, 61.215553, 149.45099, 80.234, 158.45099, 92.234, 164.45099, 112.234, 160.45099, 115.234, 149.45099, 135.23401, 140.45099, 137.23401, 126.45099, 140.23401, 110.45099, 143.23401, 96.45099, 133.23401, 70.45099, 134.23401, 52.45099, 144.23401, 36.45099, 134.23401, 14.450989, 146.23401, -13.549011, 139.23401, -27.549011, 103.234, -37.54901, 93.234, -23.549011, 70.234, -12.549011, 53.234, -28.549011, 29.234001, -29.549011, 14.234001, -12.549011, 4.234001, -12.549011, -15.765999, -0.54901123, -18.765999, 31.685303, -15.148079)
+uv = PackedVector2Array(9.450989, -16.765999, 28.450989, -15.765999, 53.45099, -18.765999, 77.45099, -19.765999, 103.45099, -17.765999, 122.45099, -17.765999, 134.45099, -18.765999, 150.45099, -16.765999, 160.45099, 0.23400116, 155.45099, 11.234001, 141.45099, 18.234001, 156.45099, 38.234, 167.45099, 62.234, 149.45099, 80.234, 158.45099, 92.234, 164.45099, 112.234, 160.45099, 115.234, 149.45099, 135.23401, 140.45099, 137.23401, 126.45099, 140.23401, 110.45099, 143.23401, 96.45099, 133.23401, 70.45099, 134.23401, 52.45099, 144.23401, 36.45099, 134.23401, 14.450989, 146.23401, -13.549011, 139.23401, -27.549011, 103.234, -37.54901, 93.234, -23.549011, 70.234, -12.549011, 53.234, -28.549011, 29.234001, -29.549011, 14.234001, -12.549011, 4.234001, -12.549011, -15.765999, -0.54901123, -18.765999, 31.685303, -15.148079)
+
+[node name="Camera2D" type="Camera2D" parent="Polygon2D" unique_id=1656780672]
+zoom = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=637287275]
+material = SubResource("ShaderMaterial_4io66")
+position = Vector2(334, 70)
+texture = ExtResource("2_3pf0b")
