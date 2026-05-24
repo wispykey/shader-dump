@@ -149,4 +149,4 @@ libraries/ = SubResource("AnimationLibrary_t60qf")
 autoplay = &"SpinningLoop"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=136493497]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6938562, 6.2043934, 8.330284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0817919, 5.424606, 10.09622)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://btloarrx383t1"]
+
+[ext_resource type="Shader" uid="uid://bqlrd8whs1h41" path="res://2D/UltimateIntro/Matrix/matrix.gdshader" id="1_u7inb"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_b37rg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6x40l"]
+shader = ExtResource("1_u7inb")
+shader_parameter/x_offset = 50.0
+shader_parameter/scale_factor = 1.0
+shader_parameter/x_rotation = 0.9150000434625
+shader_parameter/y_rotation = 0.650000030875
+shader_parameter/z_rotation = 0.4550000216125
+shader_parameter/pivot = Vector2(64, 0)
+
+[node name="Matrix" type="Node2D" unique_id=1148117923]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2065721985]
+material = SubResource("ShaderMaterial_6x40l")
+texture = ExtResource("2_b37rg")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=1141394462]
+zoom = Vector2(5, 5)
