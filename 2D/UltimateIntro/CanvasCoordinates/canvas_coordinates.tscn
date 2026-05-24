@@ -17,5 +17,5 @@ texture = ExtResource("1_umk7j")
 
 [node name="Icon" type="Sprite2D" parent="Node2D" unique_id=29675976]
 material = SubResource("ShaderMaterial_2bkgu")
-position = Vector2(305, 822)
+position = Vector2(840, 475)
 texture = ExtResource("3_d4kc1")

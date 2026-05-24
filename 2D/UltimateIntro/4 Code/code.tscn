@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="1_c2ywn"]
 [ext_resource type="Shader" uid="uid://cb3j5uaesrt2s" path="res://2D/UltimateIntro/4 Code/diagonal_reveal.gdshader" id="1_ss7rr"]
 
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2das7"]
 shader = ExtResource("1_ss7rr")
 shader_parameter/speed = 5.0
