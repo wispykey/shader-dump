@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dt22wkb71e2ac"]
+
+[ext_resource type="Texture2D" uid="uid://cw51ffvweg0y6" path="res://2D/UltimateIntro/2D shader assets/Demo.png" id="1_fu221"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_pua83"]
+
+[node name="WaterReflection" type="Node2D" unique_id=2088084632]
+
+[node name="Demo" type="Node2D" parent="." unique_id=356728672]
+
+[node name="Sprite2D" type="Sprite2D" parent="Demo" unique_id=46981653]
+
+[node name="Demo" type="Sprite2D" parent="Demo" unique_id=552391458]
+texture = ExtResource("1_fu221")
+centered = false
+
+[node name="Icon" type="Sprite2D" parent="Demo" unique_id=1797308374]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(223, 241)
+texture = ExtResource("2_pua83")
+
+[node name="Icon2" type="Sprite2D" parent="Demo" unique_id=107925151]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(414, 404)
+texture = ExtResource("2_pua83")
+
+[node name="Icon3" type="Sprite2D" parent="Demo" unique_id=28998517]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(567, 191)
+texture = ExtResource("2_pua83")

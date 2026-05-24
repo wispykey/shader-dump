@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bd58schyewiun"]
+
+[ext_resource type="Texture2D" uid="uid://cw51ffvweg0y6" path="res://2D/UltimateIntro/2D shader assets/Demo.png" id="1_umk7j"]
+[ext_resource type="Shader" uid="uid://c44aveivmg32q" path="res://2D/UltimateIntro/CanvasCoordinates/canvas_intro_demo.gdshader" id="2_kwp1n"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="3_d4kc1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bkgu"]
+shader = ExtResource("2_kwp1n")
+
+[node name="CanvasCoordinates" type="Node2D" unique_id=151777859]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=450504393]
+
+[node name="Demo" type="Sprite2D" parent="Node2D" unique_id=48463204]
+position = Vector2(461, 258)
+texture = ExtResource("1_umk7j")
+
+[node name="Icon" type="Sprite2D" parent="Node2D" unique_id=29675976]
+material = SubResource("ShaderMaterial_2bkgu")
+position = Vector2(305, 822)
+texture = ExtResource("3_d4kc1")
