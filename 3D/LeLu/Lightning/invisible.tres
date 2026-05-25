@@ -1,0 +1,8 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cqag7xsoltvdr"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_egx5c"]
+
+[resource]
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatConstant_egx5c")
+nodes/fragment/2/position = Vector2(-19.139994, 219.37001)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 1)

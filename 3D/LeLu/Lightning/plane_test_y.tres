@@ -1,0 +1,13 @@
+[gd_resource type="VisualShader" format=3 uid="uid://cnf43a17vxwf0"]
+
+[ext_resource type="Texture2D" uid="uid://bqdkuqv33idks" path="res://3D/LeLu/Lightning/lightning_2.png" id="1_bp0jv"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_7c133"]
+texture = ExtResource("1_bp0jv")
+
+[resource]
+modes/cull = 2
+flags/unshaded = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_7c133")
+nodes/fragment/2/position = Vector2(9.935014, 350.72498)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
