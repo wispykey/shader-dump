@@ -1,144 +1,58 @@
 [gd_scene format=3 uid="uid://b15xnhpujreg6"]
 
-[ext_resource type="Gradient" uid="uid://3bg6kcb05wjn" path="res://3D/Elfire/fire_gradient.tres" id="2_c6hko"]
 [ext_resource type="Texture2D" uid="uid://6tve8wwk06ip" path="res://3D/Elfire/elfire_attempt_1.png" id="2_t0uaq"]
 
-[sub_resource type="Shader" id="Shader_6fqp6"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.6.stable's StandardMaterial3D.
+[sub_resource type="Environment" id="Environment_c6hko"]
+glow_enabled = true
 
-shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx, unshaded;
-
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-uniform ivec2 albedo_texture_size;
-uniform float point_size : hint_range(0.1, 128.0, 0.1);
-
-uniform float roughness : hint_range(0.0, 1.0);
-uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
-
-uniform float specular : hint_range(0.0, 1.0, 0.01);
-uniform float metallic : hint_range(0.0, 1.0, 0.01);
-
-uniform int particles_anim_h_frames : hint_range(1, 128);
-uniform int particles_anim_v_frames : hint_range(1, 128);
-uniform bool particles_anim_loop;
-
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
-
-uniform sampler2D flame_color;
-
-void vertex() {
-	// Vertex Color is sRGB: Enabled
-	if (!OUTPUT_IS_SRGB) {
-		COLOR.rgb = mix(
-				pow((COLOR.rgb + vec3(0.055)) * (1.0 / (1.0 + 0.055)), vec3(2.4)),
-				COLOR.rgb * (1.0 / 12.92),
-				lessThan(COLOR.rgb, vec3(0.04045)));
-	}
-
-	UV = UV * uv1_scale.xy + uv1_offset.xy;
-
-	// Billboard Mode: Particles
-	mat4 mat_world = mat4(
-			normalize(INV_VIEW_MATRIX[0]),
-			normalize(INV_VIEW_MATRIX[1]),
-			normalize(INV_VIEW_MATRIX[2]),
-			MODEL_MATRIX[3]);
-	mat_world = mat_world * mat4(
-			vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0),
-			vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0),
-			vec4(0.0, 0.0, 1.0, 0.0),
-			vec4(0.0, 0.0, 0.0, 1.0));
-	MODELVIEW_MATRIX = VIEW_MATRIX * mat_world;
-
-	// Billboard Keep Scale: Enabled
-	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(
-			vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),
-			vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0),
-			vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
-			vec4(0.0, 0.0, 0.0, 1.0));
-
-	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
-
-	float h_frames = float(particles_anim_h_frames);
-	float v_frames = float(particles_anim_v_frames);
-	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
-	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
-	if (!particles_anim_loop) {
-		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
-	} else {
-		particle_frame = mod(particle_frame, particle_total_frames);
-	}
-	UV /= vec2(h_frames, v_frames);
-	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
-}
-
-void fragment() {
-	vec2 base_uv = UV;
-
-	vec4 albedo_tex = texture(texture_albedo, base_uv);
-	vec4 original_albedo_tex = albedo_tex;
-
-	// Albedo Texture Force sRGB: Enabled
-	albedo_tex.rgb = mix(
-			pow((albedo_tex.rgb + vec3(0.055)) * (1.0 / (1.0 + 0.055)), vec3(2.4)),
-			albedo_tex.rgb.rgb * (1.0 / 12.92),
-			lessThan(albedo_tex.rgb, vec3(0.04045)));
-
-	// Vertex Color Use as Albedo: Enabled
-	albedo_tex *= COLOR;
-	vec4 sampled_color = texture(flame_color, vec2(original_albedo_tex.r));
-	
-	//ALBEDO.rgb = sampled_color.rgb
-
-	ALBEDO = sampled_color.rgb * albedo.rgb;
-
-	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	SPECULAR = specular;
-
-	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-	ALPHA *= albedo.a * albedo_tex.a;
-}
-"
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_t0uaq"]
-gradient = ExtResource("2_c6hko")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6hko"]
-render_priority = 0
-shader = SubResource("Shader_6fqp6")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_t0uaq")
-shader_parameter/albedo_texture_size = Vector2i(1080, 1080)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/particles_anim_h_frames = 1
-shader_parameter/particles_anim_v_frames = 1
-shader_parameter/particles_anim_loop = false
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/flame_color = SubResource("GradientTexture1D_t0uaq")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v46m7"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("2_t0uaq")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_6fqp6"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7650131, 1), 0.0, 0.0, 0, 0, Vector2(0.97127944, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2245431, 1), 0.0, 0.0, 0, 0, Vector2(0.62924284, 1), 0.0, 0.0, 0, 0, Vector2(0.9921672, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_t0uaq"]
 curve = SubResource("Curve_6fqp6")
+
+[sub_resource type="Curve" id="Curve_v46m7"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.37859008, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6fqp6"]
+curve = SubResource("Curve_v46m7")
+
+[sub_resource type="Curve" id="Curve_dc5jk"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.17232376, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_falpi"]
+curve = SubResource("Curve_dc5jk")
+
+[sub_resource type="Curve" id="Curve_c6hko"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.19736844), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dc5jk"]
+curve = SubResource("Curve_c6hko")
+
+[sub_resource type="Curve" id="Curve_t0uaq"]
+_data = [Vector2(0.75718015, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c6hko"]
+curve = SubResource("Curve_t0uaq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1d7c"]
 lifetime_randomness = 0.1
@@ -150,11 +64,24 @@ emission_ring_inner_radius = 0.1
 emission_ring_cone_angle = 90.0
 angle_min = -179.99998
 angle_max = 180.00002
-direction = Vector3(0, 0.01, 0)
+direction = Vector3(0, 0.1, 0)
 spread = 15.0
-initial_velocity_min = 0.01
-initial_velocity_max = 0.049999997
+initial_velocity_min = 0.19999999
+initial_velocity_max = 0.39999998
+angular_velocity_min = 29.999983
+angular_velocity_max = 49.99998
+angular_velocity_curve = SubResource("CurveTexture_6fqp6")
+radial_velocity_curve = SubResource("CurveTexture_dc5jk")
 gravity = Vector3(0, 0.1, 0)
+linear_accel_min = -2.0000021
+linear_accel_max = -2.2351742e-06
+linear_accel_curve = SubResource("CurveTexture_falpi")
+radial_accel_min = 0.99999774
+radial_accel_max = 1.1999978
+scale_min = 1.1999999
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_c6hko")
+color = Color(1.9749981, 1.2366359, 1.0861734, 1)
 alpha_curve = SubResource("CurveTexture_t0uaq")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dc5jk"]
@@ -173,10 +100,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFX/Spiral:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_t0uaq"]
 resource_name = "init"
-length = 3.0
+length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -202,6 +141,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VFX/Spiral:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2, 0.5, 0), Vector3(2, 0.5, 0), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6hko"]
 _data = {
@@ -209,10 +160,10 @@ _data = {
 &"init": SubResource("Animation_t0uaq")
 }
 
-[sub_resource type="Environment" id="Environment_c6hko"]
-glow_enabled = true
+[node name="Elfire" type="Node3D" unique_id=1272849628]
 
-[node name="Elfire" type="Node" unique_id=1918757983]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1978618187]
+environment = SubResource("Environment_c6hko")
 
 [node name="Geyser" type="GPUParticles3D" parent="." unique_id=1581399234]
 emitting = false
@@ -224,21 +175,15 @@ emitting = false
 emitting = false
 
 [node name="VFX" type="Node3D" parent="." unique_id=1686161751]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Spiral" type="GPUParticles3D" parent="VFX" unique_id=522809133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-material_override = SubResource("ShaderMaterial_c6hko")
-amount = 35
-lifetime = 1.5
+material_override = SubResource("StandardMaterial3D_v46m7")
+amount = 40
+lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_m1d7c")
 draw_pass_1 = SubResource("QuadMesh_dc5jk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1002350754]
 libraries/ = SubResource("AnimationLibrary_c6hko")
 autoplay = &"init"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1978618187]
-environment = SubResource("Environment_c6hko")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=2047613767]
-transform = Transform3D(0.37625417, -0.49035355, 0.786121, 0, 0.8484695, 0.5292443, -0.92651653, -0.19913036, 0.31924018, 3.1390262, 2.113303, 1.2747443)
