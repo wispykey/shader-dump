@@ -1,8 +1,6 @@
-[gd_scene format=4 uid="uid://clxxo0prv2fdb"]
+[gd_scene format=3 uid="uid://clxxo0prv2fdb"]
 
 [ext_resource type="ArrayMesh" uid="uid://3n2c1yksimg3" path="res://3D/LeLu/Lightning/good_thunder_editable.tres" id="1_viw4g"]
-[ext_resource type="Shader" uid="uid://bu1vkke88dpy1" path="res://3D/LeLu/Lightning/rotated_plane_test.tres" id="2_aypkg"]
-[ext_resource type="Shader" uid="uid://cnf43a17vxwf0" path="res://3D/LeLu/Lightning/plane_test_y.tres" id="3_tehw4"]
 
 [sub_resource type="Environment" id="Environment_viw4g"]
 glow_enabled = true
@@ -18,104 +16,96 @@ glow_levels/6 = 0.5
 gradient = SubResource("Gradient_tehw4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1q348"]
+particle_flag_rotate_y = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 0.3
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_1q348")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tehw4"]
-render_priority = 0
-shader = ExtResource("2_aypkg")
+[sub_resource type="Animation" id="Animation_viw4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_10vei"]
-_surfaces = [{
-"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
-"format": 34359742465,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
-"name": "Plane",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AACAPwAAgL8AAAAAAACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAvwAAgD8AAAAA")
-}]
-blend_shape_mode = 0
+[sub_resource type="Animation" id="Animation_aypkg"]
+resource_name = "init"
+length = 3.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.62, 0.9533334, 1.34, 1.6733334, 1.94, 2.3666666, 2.59, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 1.2333333, 1.8, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 1, 3, 1]
+}
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_1q348"]
-_surfaces = [{
-"aabb": AABB(-1, -1, 0, 2, 2, 1e-05),
-"attribute_data": PackedByteArray("AACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAA="),
-"format": 34359742487,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
-"material": SubResource("ShaderMaterial_tehw4"),
-"name": "Plane",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AACAPwAAgL8AAAAAAACAvwAAgL8AAAAAAACAPwAAgD8AAAAAAACAvwAAgD8AAAAA/3//f////7//f/9/////v/9//3////+//3//f////78=")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_10vei")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tehw4"]
+_data = {
+&"RESET": SubResource("Animation_viw4g"),
+&"init": SubResource("Animation_aypkg")
+}
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1q348"]
-render_priority = 0
-shader = ExtResource("3_tehw4")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_cvta8"]
-_surfaces = [{
-"aabb": AABB(0, -1, -1, 1e-05, 2, 2),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
-"name": "Plane",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_uev2v"]
-_surfaces = [{
-"aabb": AABB(0, -1, -1, 1e-05, 2, 2),
-"attribute_data": PackedByteArray("/////wAA/////wAAAAAAAA=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
-"material": SubResource("ShaderMaterial_1q348"),
-"name": "Plane",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAP//VNUAAP////9U1QAAAAAAAFTVAAD//wAAVNWqqlRVqqpUVaqqVFWqqlRV")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_cvta8")
-
-[node name="Node3D" type="Node" unique_id=1708370921]
+[node name="LightningLeLu" type="Node3D" unique_id=1530353930]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=923855393]
 environment = SubResource("Environment_viw4g")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1104247405]
-transform = Transform3D(-0.6838876, -0.021700706, 0.72926456, 0, 0.99955755, 0.029743807, -0.7295874, 0.02034142, -0.68358505, 8.789351, 8.164473, -8.202679)
-current = true
 
 [node name="LightningMeshRotated" type="MeshInstance3D" parent="." unique_id=179363423]
 visible = false
 mesh = ExtResource("1_viw4g")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1994255690]
-amount = 1
+emitting = false
+amount = 2
 lifetime = 0.25
 process_material = SubResource("ParticleProcessMaterial_1q348")
 draw_pass_1 = ExtResource("1_viw4g")
 
-[node name="PlaneRotated90x" type="MeshInstance3D" parent="." unique_id=1159189748]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5735245, 0, 7.043556)
-visible = false
-mesh = SubResource("ArrayMesh_1q348")
-
-[node name="PlaneRotated90y" type="MeshInstance3D" parent="." unique_id=630506203]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8236694, 0, 8.230233)
-visible = false
-mesh = SubResource("ArrayMesh_uev2v")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=580104753]
+libraries/ = SubResource("AnimationLibrary_tehw4")
+autoplay = &"init"

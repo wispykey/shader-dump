@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cki3qt18dg0sx"]
 
-[ext_resource type="Texture2D" uid="uid://1y135ugymh5g" path="res://3D/LeLu/Fire/fire_explosion2.png" id="1_i3chl"]
+[ext_resource type="Texture2D" uid="uid://1y135ugymh5g" path="res://3D/LeLu/Fire/fire_explosion2.png" id="1_yhixh"]
 [ext_resource type="Texture2D" uid="uid://mulbfkrv4832" path="res://3D/LeLu/Fire/glow_circle.png" id="2_y1gf6"]
+[ext_resource type="Gradient" uid="uid://ct8ahk7clgffu" path="res://3D/LeLu/Fire/lelu_fire_gradient.tres" id="2_yorb7"]
 
 [sub_resource type="Environment" id="Environment_ufe0f"]
 glow_enabled = true
@@ -12,7 +13,7 @@ transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
-albedo_texture = ExtResource("1_i3chl")
+albedo_texture = ExtResource("1_yhixh")
 albedo_texture_force_srgb = true
 billboard_mode = 3
 billboard_keep_scale = true
@@ -27,12 +28,8 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_yorb7"]
 curve = SubResource("Curve_yhixh")
 
-[sub_resource type="Gradient" id="Gradient_eqxgl"]
-offsets = PackedFloat32Array(0, 0.54901963, 0.719888)
-colors = PackedColorArray(1, 1, 1, 1, 0.46, 0.25300002, 0.25300002, 1, 0.093916185, 0.045571364, 0.045569442, 1)
-
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_4jcac"]
-gradient = SubResource("Gradient_eqxgl")
+gradient = ExtResource("2_yorb7")
 
 [sub_resource type="Curve" id="Curve_qrrq7"]
 _data = [Vector2(0, 0.49524564), 0.0, 1.5410465, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -44,6 +41,7 @@ curve = SubResource("Curve_qrrq7")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2pqqt"]
 lifetime_randomness = 0.1
 particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 0.4, 0)
 emission_shape = 1
 emission_sphere_radius = 0.2
 angle_min = -179.99998
@@ -58,7 +56,7 @@ gravity = Vector3(0, 1, 0)
 scale_min = 0.9
 scale_max = 1.4
 scale_curve = SubResource("CurveTexture_qwimt")
-color = Color(1.753959, 1.2895739, 0.6394345, 1)
+color = Color(1.753959, 1.0412011, 0.6377534, 1)
 color_ramp = SubResource("GradientTexture1D_4jcac")
 alpha_curve = SubResource("CurveTexture_yorb7")
 
@@ -104,10 +102,7 @@ color = Color(1.685791, 1.0032248, 0.4812626, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_qrrq7"]
 
-[node name="Node3D" type="Node" unique_id=1214244597]
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1068726525]
-transform = Transform3D(-0.71203846, -0.07824124, 0.69776756, 0, 0.99377203, 0.11143245, -0.7021405, 0.07934419, -0.7076039, 2.0648236, 1.9523352, -2.2489579)
+[node name="FireLeLu" type="Node3D" unique_id=361957385]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=968679131]
 environment = SubResource("Environment_ufe0f")

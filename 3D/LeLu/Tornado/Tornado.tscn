@@ -118,16 +118,9 @@ _data = {
 &"SpinningLoop": SubResource("Animation_rawal")
 }
 
-[node name="Tornado" type="Node" unique_id=189150725]
-
-[node name="Floor" type="CSGBox3D" parent="." unique_id=1481901490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3705988, -1.1077805, -2.388094)
-visible = false
-cast_shadow = 0
-size = Vector3(13.912048, 1, 16.408447)
+[node name="TornadoLeLu" type="Node3D" unique_id=1063602833]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=788848853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4071617, 0, -1.9263)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D" unique_id=507556989]
 material_override = SubResource("ShaderMaterial_xmt2h")
@@ -147,6 +140,3 @@ mesh = ExtResource("1_oowju")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_t60qf")
 autoplay = &"SpinningLoop"
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=136493497]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0817919, 5.424606, 10.09622)
