@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dsa48par2atgj"]
 
 [ext_resource type="Script" uid="uid://dvtpkpm1t3b85" path="res://Breakables/pot_pieces.gd" id="1_6n88h"]
+[ext_resource type="Material" uid="uid://ha0ujjn7murj" path="res://pot_basic_color_material.tres" id="2_nu6i3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50t8g"]
 
@@ -1023,7 +1024,6 @@ points = PackedVector3Array(-0.00012270804, -0.00051071635, 0.0033666193, -0.000
 
 [node name="SM_Pot_Pieces" type="Node3D" unique_id=1757221683]
 script = ExtResource("1_6n88h")
-INTENSITY = 3.0
 
 [node name="Cylinder0-rigid" type="RigidBody3D" parent="." unique_id=389803115]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49682775, 0.3172794, 0.442479)
@@ -1031,6 +1031,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder0-rigid" type="MeshInstance3D" parent="Cylinder0-rigid" unique_id=1463009799]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_bxf4a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder0-rigid" unique_id=1553092236]
@@ -1042,6 +1043,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder1-rigid" type="MeshInstance3D" parent="Cylinder1-rigid" unique_id=2125685101]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_rthk6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder1-rigid" unique_id=130316202]
@@ -1053,6 +1055,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder2-rigid" type="MeshInstance3D" parent="Cylinder2-rigid" unique_id=347613101]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_ctvve")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder2-rigid" unique_id=1545870388]
@@ -1064,6 +1067,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder3-rigid" type="MeshInstance3D" parent="Cylinder3-rigid" unique_id=1340696676]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_lcrg3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder3-rigid" unique_id=1923271885]
@@ -1075,6 +1079,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder4-rigid" type="MeshInstance3D" parent="Cylinder4-rigid" unique_id=909630318]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_57k8x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder4-rigid" unique_id=1485037374]
@@ -1086,6 +1091,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder5-rigid" type="MeshInstance3D" parent="Cylinder5-rigid" unique_id=1942000777]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_k5q8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder5-rigid" unique_id=2072929334]
@@ -1097,6 +1103,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder6-rigid" type="MeshInstance3D" parent="Cylinder6-rigid" unique_id=818428265]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_8cby4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder6-rigid" unique_id=1295329335]
@@ -1108,6 +1115,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder7-rigid" type="MeshInstance3D" parent="Cylinder7-rigid" unique_id=296289385]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_n7t4e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder7-rigid" unique_id=53557813]
@@ -1119,6 +1127,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder8-rigid" type="MeshInstance3D" parent="Cylinder8-rigid" unique_id=1572188989]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_tp75c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder8-rigid" unique_id=80831647]
@@ -1130,6 +1139,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder9-rigid" type="MeshInstance3D" parent="Cylinder9-rigid" unique_id=758841012]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_mtvfu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder9-rigid" unique_id=578137900]
@@ -1141,6 +1151,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder10-rigid" type="MeshInstance3D" parent="Cylinder10-rigid" unique_id=2039432901]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_d1s3y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder10-rigid" unique_id=1871819651]
@@ -1152,6 +1163,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder11-rigid" type="MeshInstance3D" parent="Cylinder11-rigid" unique_id=1374130795]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_3dmrx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder11-rigid" unique_id=455162096]
@@ -1163,6 +1175,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder12-rigid" type="MeshInstance3D" parent="Cylinder12-rigid" unique_id=574466265]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_qlxo6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder12-rigid" unique_id=1641867767]
@@ -1174,6 +1187,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder13-rigid" type="MeshInstance3D" parent="Cylinder13-rigid" unique_id=1644749083]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_agjf4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder13-rigid" unique_id=1104156294]
@@ -1185,6 +1199,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder14-rigid" type="MeshInstance3D" parent="Cylinder14-rigid" unique_id=1726885899]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_lreol")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder14-rigid" unique_id=784760547]
@@ -1196,6 +1211,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder15-rigid" type="MeshInstance3D" parent="Cylinder15-rigid" unique_id=694060264]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_yrqqr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder15-rigid" unique_id=2053825075]
@@ -1207,6 +1223,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder16-rigid" type="MeshInstance3D" parent="Cylinder16-rigid" unique_id=1174101096]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_l3xpi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder16-rigid" unique_id=1447458415]
@@ -1218,6 +1235,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder17-rigid" type="MeshInstance3D" parent="Cylinder17-rigid" unique_id=6134651]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_lkqkv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder17-rigid" unique_id=1462714186]
@@ -1229,6 +1247,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder18-rigid" type="MeshInstance3D" parent="Cylinder18-rigid" unique_id=684346088]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_xn6lu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder18-rigid" unique_id=2075965735]
@@ -1240,6 +1259,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder19-rigid" type="MeshInstance3D" parent="Cylinder19-rigid" unique_id=947521853]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_05c0n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder19-rigid" unique_id=1913788017]
@@ -1251,6 +1271,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder20-rigid" type="MeshInstance3D" parent="Cylinder20-rigid" unique_id=741247015]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_n1r3d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder20-rigid" unique_id=216799147]
@@ -1262,6 +1283,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder21-rigid" type="MeshInstance3D" parent="Cylinder21-rigid" unique_id=1079665927]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_n640d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder21-rigid" unique_id=413758287]
@@ -1273,6 +1295,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder22-rigid" type="MeshInstance3D" parent="Cylinder22-rigid" unique_id=1313411528]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_ndt1l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder22-rigid" unique_id=1476507209]
@@ -1284,6 +1307,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder23-rigid" type="MeshInstance3D" parent="Cylinder23-rigid" unique_id=1816909840]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_ffygm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder23-rigid" unique_id=2064675152]
@@ -1295,6 +1319,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Cylinder24-rigid" type="MeshInstance3D" parent="Cylinder24-rigid" unique_id=700406779]
+material_override = ExtResource("2_nu6i3")
 mesh = SubResource("ArrayMesh_ytusu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder24-rigid" unique_id=286197000]

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dxyo880ug4wwp"]
 
 [ext_resource type="Script" uid="uid://5gdhw6bw25po" path="res://Breakables/sm_pot_modified.gd" id="1_3abjl"]
+[ext_resource type="Material" uid="uid://ha0ujjn7murj" path="res://pot_basic_color_material.tres" id="2_gi8ln"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft7ij"]
 
@@ -46,6 +47,7 @@ size = Vector3(2, 2, 2)
 script = ExtResource("1_3abjl")
 
 [node name="Cylinder" type="MeshInstance3D" parent="." unique_id=856966421]
+material_override = ExtResource("2_gi8ln")
 mesh = SubResource("ArrayMesh_n1a1r")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" unique_id=511888336]
