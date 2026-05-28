@@ -50,6 +50,11 @@ ui_down={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Breakables"
+3d_physics/layer_2="Attacks"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

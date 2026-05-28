@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3D/LeLu/Earth/earth.tscn" id="3_xis5h"]
 [ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]
 [ext_resource type="PackedScene" uid="uid://b15xnhpujreg6" path="res://3D/Elfire/elfire.tscn" id="6_ofcdo"]
+[ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="6_yjjny"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofcdo"]
 albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
@@ -40,5 +41,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8556137, 0, 0)
 
 [node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.374931, -9.536743e-07, -22.592045)
+
+[node name="Pot" parent="." unique_id=403097360 instance=ExtResource("6_yjjny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0183306, 1.0378418, -1.8693638)
 
 [editable path="Earth"]

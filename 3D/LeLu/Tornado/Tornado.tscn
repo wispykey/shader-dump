@@ -85,7 +85,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/SmTornadoLelu:rotation")
+tracks/0/path = NodePath("VFX/SmTornadoLelu:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +102,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/SmTornadoLelu:rotation")
+tracks/0/path = NodePath("VFX/SmTornadoLelu:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,11 +118,14 @@ _data = {
 &"SpinningLoop": SubResource("Animation_rawal")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oo4ee"]
+size = Vector3(6, 8, 6)
+
 [node name="TornadoLeLu" type="Node3D" unique_id=1063602833]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=788848853]
+[node name="VFX" type="Node3D" parent="." unique_id=788848853]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D" unique_id=507556989]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="VFX" unique_id=507556989]
 material_override = SubResource("ShaderMaterial_xmt2h")
 cast_shadow = 0
 lifetime = 0.5
@@ -130,13 +133,21 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_0kh3p")
 draw_pass_1 = ExtResource("4_oo4ee")
 
-[node name="SmTornadoLelu" type="MeshInstance3D" parent="Node3D" unique_id=1734275805]
+[node name="SmTornadoLelu" type="MeshInstance3D" parent="VFX" unique_id=1734275805]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0.655, 0)
 material_override = SubResource("ShaderMaterial_oo4ee")
 cast_shadow = 0
 mesh = ExtResource("1_oowju")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D" unique_id=2037951090]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VFX" unique_id=2037951090]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_t60qf")
 autoplay = &"SpinningLoop"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=134989235]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1112509203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_oo4ee")
