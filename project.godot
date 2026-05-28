@@ -13,6 +13,7 @@ config_version=5
 config/name="ShaderDump"
 run/main_scene="uid://cyye5q6cal2k0"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [input]

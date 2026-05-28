@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cyye5q6cal2k0"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_42bif"]
+[ext_resource type="Script" uid="uid://bl7b415eiryk2" path="res://demo_map.gd" id="1_yjjny"]
 [ext_resource type="PackedScene" uid="uid://clxxo0prv2fdb" path="res://3D/LeLu/Lightning/lightning.tscn" id="2_kbhvk"]
 [ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3D/LeLu/Earth/earth.tscn" id="3_xis5h"]
 [ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]
@@ -14,9 +15,10 @@ albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 glow_enabled = true
 
 [node name="DemoMap" type="Node3D" unique_id=2133232385]
+script = ExtResource("1_yjjny")
+skill_loadout = Array[PackedScene]([ExtResource("4_ywkik")])
 
 [node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.192247, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01732254, -0.4621582, -0.010160446)
@@ -28,21 +30,21 @@ material = SubResource("StandardMaterial3D_ofcdo")
 environment = SubResource("Environment_xis5h")
 
 [node name="LightningLeLu" parent="." unique_id=1530353930 instance=ExtResource("2_kbhvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2419376, 0, 15.554506)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.926453, 0, -16.134224)
 
 [node name="Earth" parent="." unique_id=1712225740 instance=ExtResource("3_xis5h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -10.055442)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -10.210161, 0, -8.164591)
 
 [node name="Floor" parent="Earth" index="2" unique_id=153234413]
 visible = false
 
 [node name="Tornado" parent="." unique_id=189150725 instance=ExtResource("4_ywkik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8556137, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4857025)
 
 [node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.374931, -9.536743e-07, -22.592045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
 
 [node name="Pot" parent="." unique_id=403097360 instance=ExtResource("6_yjjny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0183306, 1.0378418, -1.8693638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4076319, 1.0378418, 14.9807415)
 
 [editable path="Earth"]
