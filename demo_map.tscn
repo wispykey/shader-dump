@@ -17,11 +17,12 @@ glow_enabled = true
 [node name="DemoMap" type="Node3D" unique_id=2133232385]
 script = ExtResource("1_yjjny")
 skill_loadout = Array[PackedScene]([ExtResource("4_ywkik")])
+pot = ExtResource("6_yjjny")
 
 [node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01732254, -0.4621582, -0.010160446)
+transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_ofcdo")
@@ -43,8 +44,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4857025)
 
 [node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
-
-[node name="Pot" parent="." unique_id=403097360 instance=ExtResource("6_yjjny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4076319, 1.0378418, 14.9807415)
 
 [editable path="Earth"]

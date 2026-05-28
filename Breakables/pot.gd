@@ -2,13 +2,13 @@ extends Node3D
 
 @export var broken_model: PackedScene
 
-@onready var pot_mesh = $Pot
+@onready var pot_mesh = $PotMesh
+
+const despawn_time: float = 5.
 
 
 func _ready() -> void:
 	pot_mesh.broken.connect(_on_pot_mesh_broken)
-
-	$AudioStreamPlayer3D.finished.connect(queue_free)
 
 
 func _on_pot_mesh_broken():
@@ -16,9 +16,13 @@ func _on_pot_mesh_broken():
 
 
 func shatter():
+	pot_mesh.visible = false
+
 	var broken_model_inst: Node3D = broken_model.instantiate()
 
 	add_child(broken_model_inst)
-	broken_model_inst.transform = self.transform
 
-	$AudioStreamPlayer3D.play()
+	SFX.play_pot_shatter()
+
+	await get_tree().create_timer(despawn_time).timeout;
+	queue_free()

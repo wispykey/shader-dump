@@ -2,11 +2,14 @@ extends Node3D
 
 
 @export var skill_loadout: Array[PackedScene] = []
+@export var pot: PackedScene
 
 @onready var player: ProtoController = $ProtoController
 
+
 func _ready() -> void:
 	$ProtoController.skill_used.connect(_on_skill_used)
+	spawn_pots()
 
 func _on_skill_used(skill_index: int):
 	if skill_index >= len(skill_loadout):
@@ -32,3 +35,12 @@ func _on_skill_used(skill_index: int):
 	skill_inst.position = spawn_position
 
 	add_child(skill_inst)
+
+
+func spawn_pots():
+	const spacing = 2
+	for x in range(5):
+		for z in range(5):
+			var pot_inst = pot.instantiate()
+			pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
+			add_child(pot_inst)
