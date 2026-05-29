@@ -82,9 +82,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 	# Skills
-	if Input.is_key_pressed(KEY_1):
+	if Input.is_action_just_pressed("hotbar_1_skill_1"):
 		skill_used.emit(0)
-	if Input.is_key_pressed(KEY_2):
+	if Input.is_action_just_pressed("hotbar_1_skill_2"):
 		skill_used.emit(1)
 		
 
