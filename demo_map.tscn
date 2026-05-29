@@ -5,35 +5,53 @@
 [ext_resource type="PackedScene" uid="uid://clxxo0prv2fdb" path="res://3D/LeLu/Lightning/lightning.tscn" id="2_kbhvk"]
 [ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3D/LeLu/Earth/earth.tscn" id="3_xis5h"]
 [ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="5_i1pmm"]
 [ext_resource type="PackedScene" uid="uid://b15xnhpujreg6" path="res://3D/Elfire/elfire.tscn" id="6_ofcdo"]
 [ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="6_yjjny"]
 [ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3D/MagicCircle/magic_circle.tscn" id="8_n3c11"]
 [ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="9_vipss"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofcdo"]
-albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7gilj"]
+shader = ExtResource("5_i1pmm")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 1
+
+[sub_resource type="Sky" id="Sky_vipss"]
+sky_material = SubResource("ShaderMaterial_7gilj")
 
 [sub_resource type="Environment" id="Environment_xis5h"]
+background_mode = 2
+sky = SubResource("Sky_vipss")
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofcdo"]
+albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 
 [node name="DemoMap" type="Node3D" unique_id=2133232385]
 script = ExtResource("1_yjjny")
 skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss")])
 pot = ExtResource("6_yjjny")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1445595343]
+environment = SubResource("Environment_xis5h")
+
 [node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
 
 [node name="MagicCircle" parent="ProtoController" unique_id=198085887 instance=ExtResource("8_n3c11")]
-visible = false
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_ofcdo")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1445595343]
-environment = SubResource("Environment_xis5h")
 
 [node name="LightningLeLu" parent="." unique_id=1530353930 instance=ExtResource("2_kbhvk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.926453, 0, -16.134224)

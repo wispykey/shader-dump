@@ -5,7 +5,7 @@ extends Node3D
 @export var pot: PackedScene
 
 @onready var player: ProtoController = $ProtoController
-
+@onready var magic_circle: MagicCircle = $ProtoController/MagicCircle
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_spawn_pots"):
@@ -20,20 +20,25 @@ func _on_skill_used(skill_index: int):
 		print("Skill index out of range")
 		return
 	
+	# Eventually make this a lookup with other per-skill info
+	match skill_index:
+		0:
+			magic_circle.play_cast_finish(Color.SKY_BLUE)
+		1:
+			magic_circle.play_cast_finish(Color.PALE_GREEN)
+		_:
+			magic_circle.play_cast_finish()
+	
 	var skill_inst = skill_loadout[skill_index].instantiate()
 
 	var angle = -1 * player.look_rotation.y
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
 
-	
+	# Could make this per-skill instead
 	var skill_distance = 10.
 
 	var offset = player_facing_dir * skill_distance
 	var spawn_position = player.position + offset
-
-	# Could look this up by skill instead
-	# var skill_position = player.position + Vector3(-player_facing_dir.x, 0, player_facing_dir.y).normalized() * skill_distance
-
 
 	skill_inst.position = spawn_position
 
