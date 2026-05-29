@@ -7,6 +7,10 @@ extends Node3D
 @onready var player: ProtoController = $ProtoController
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug_spawn_pots"):
+		spawn_pots()
+
 func _ready() -> void:
 	$ProtoController.skill_used.connect(_on_skill_used)
 	spawn_pots()

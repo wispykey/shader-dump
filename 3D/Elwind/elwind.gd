@@ -2,6 +2,7 @@ extends Node3D
 
 func _ready() -> void:
 	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
+	SFX.play_elwind()
 	
 	
 func _on_animation_finished(_anim_name: String):
