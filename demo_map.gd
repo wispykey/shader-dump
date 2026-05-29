@@ -41,6 +41,12 @@ func spawn_pots():
 	const spacing = 2
 	for x in range(5):
 		for z in range(5):
-			var pot_inst = pot.instantiate()
+			var pot_inst: Node3D = pot.instantiate()
 			pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
+			pot_inst.rotation.y = randf_range(0., TAU)
 			add_child(pot_inst)
+			var pot_inst2 = pot.instantiate()
+			pot_inst2.position = Vector3(-x - 1, 0, z + 1) * spacing
+			pot_inst2.rotation.y = randf_range(0., TAU)
+			add_child(pot_inst2)
+			

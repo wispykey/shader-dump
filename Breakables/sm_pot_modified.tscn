@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dxyo880ug4wwp"]
 
 [ext_resource type="Script" uid="uid://5gdhw6bw25po" path="res://Breakables/sm_pot_modified.gd" id="1_3abjl"]
-[ext_resource type="Material" uid="uid://ha0ujjn7murj" path="res://pot_basic_color_material.tres" id="2_gi8ln"]
+[ext_resource type="Material" uid="uid://ha0ujjn7murj" path="res://Breakables/pot_basic_color_material.tres" id="2_gi8ln"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft7ij"]
 

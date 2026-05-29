@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dr2lr4ojv3dbr"]
+
+[ext_resource type="PackedScene" uid="uid://cgli6bvrc2y0w" path="res://3D/Elwind/CurvedWind.tscn" id="1_ctsrc"]
+
+[node name="WindBlades" type="Node3D" unique_id=769546946]
+
+[node name="CurvedWind1" parent="." unique_id=1180467606 instance=ExtResource("1_ctsrc")]
+
+[node name="CurvedWind2" parent="." unique_id=1025240039 instance=ExtResource("1_ctsrc")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
+
+[node name="CurvedWind3" parent="." unique_id=45769318 instance=ExtResource("1_ctsrc")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 0, 0, 0)
+
+[node name="CurvedWind4" parent="." unique_id=761318363 instance=ExtResource("1_ctsrc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CurvedWind5" parent="." unique_id=1812559976 instance=ExtResource("1_ctsrc")]
+transform = Transform3D(-0.4999999, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.4999999, 0, 0, 0)
+
+[node name="CurvedWind6" parent="." unique_id=489074025 instance=ExtResource("1_ctsrc")]
+transform = Transform3D(0.4999999, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.4999999, 0, 0, 0)

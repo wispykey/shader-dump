@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]
 [ext_resource type="PackedScene" uid="uid://b15xnhpujreg6" path="res://3D/Elfire/elfire.tscn" id="6_ofcdo"]
 [ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="6_yjjny"]
+[ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3D/MagicCircle/magic_circle.tscn" id="8_n3c11"]
+[ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="9_vipss"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofcdo"]
 albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
@@ -16,10 +18,13 @@ glow_enabled = true
 
 [node name="DemoMap" type="Node3D" unique_id=2133232385]
 script = ExtResource("1_yjjny")
-skill_loadout = Array[PackedScene]([ExtResource("4_ywkik")])
+skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss")])
 pot = ExtResource("6_yjjny")
 
 [node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
+
+[node name="MagicCircle" parent="ProtoController" unique_id=198085887 instance=ExtResource("8_n3c11")]
+visible = false
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)

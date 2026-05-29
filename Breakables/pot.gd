@@ -16,7 +16,7 @@ func _on_pot_mesh_broken():
 
 
 func shatter():
-	pot_mesh.visible = false
+	pot_mesh.queue_free()
 
 	var broken_model_inst: Node3D = broken_model.instantiate()
 

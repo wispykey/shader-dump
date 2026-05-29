@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dbubugulykh38"]
+
+[ext_resource type="Script" uid="uid://baqgum2ssxm67" path="res://3D/Elwind/elwind.gd" id="1_rcpjp"]
+[ext_resource type="PackedScene" uid="uid://dr2lr4ojv3dbr" path="res://3D/Elwind/wind_blades.tscn" id="2_rcpjp"]
+
+[node name="Elwind" type="Node3D" unique_id=743673702]
+script = ExtResource("1_rcpjp")
+
+[node name="Blades" parent="." unique_id=769546946 instance=ExtResource("2_rcpjp")]

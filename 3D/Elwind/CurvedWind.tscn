@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cgli6bvrc2y0w"]
+
+[ext_resource type="PackedScene" uid="uid://dwsxvuqen2f47" path="res://3D/Elwind/wind_blade.tscn" id="1_74i17"]
+[ext_resource type="Script" uid="uid://krkscb1lqa2b" path="res://3D/Elwind/curved_wind.gd" id="1_fyxqe"]
+
+[sub_resource type="Curve3D" id="Curve3D_rcpjp"]
+bake_interval = 7.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 1.1232595, 0, 4, 0, 0, 0, 0, 0, 0, -1.0739913, 0, 1.9378157, 0, 0, 0, 0, 0, 0, -1.1693606, 0, -0.8815379, 0, 0, 0, 0, 0, 0, 1, 0, -3.764124, 0, 0, 0, 0, 0, 0, 4.7422247, -9.536743e-07, -5.6029587),
+"tilts": PackedFloat32Array(0.2617994, 0.2617994, 0.2617994, 0.2617994, 0.2617994, 0)
+}
+point_count = 6
+
+[node name="CurvedWind" type="Path3D" unique_id=1180467606]
+curve = SubResource("Curve3D_rcpjp")
+script = ExtResource("1_fyxqe")
+
+[node name="Path1" type="PathFollow3D" parent="." unique_id=1120472653]
+transform = Transform3D(0.24126226, 0.064649366, 0.9683045, -0.2588194, 0.96597695, 0, -0.93531156, -0.25062892, 0.24977273, 5, 0, 5)
+rotation_mode = 4
+
+[node name="WindBlade" parent="Path1" unique_id=1341833671 instance=ExtResource("1_74i17")]
+
+[node name="Path2" type="PathFollow3D" parent="." unique_id=578894229]
+transform = Transform3D(0.24126226, 0.06464846, 0.9683045, -0.2588194, 0.96596336, 0, -0.93531156, -0.2506254, 0.24977273, 5, 0, 5)
+rotation_mode = 4
+
+[node name="WindBlade" parent="Path2" unique_id=1251067131 instance=ExtResource("1_74i17")]
+
+[node name="Path3" type="PathFollow3D" parent="." unique_id=267528351]
+transform = Transform3D(0.24126226, 0.06464846, 0.9683045, -0.2588194, 0.96596336, 0, -0.93531156, -0.2506254, 0.24977273, 5, 0, 5)
+rotation_mode = 4
+
+[node name="WindBlade" parent="Path3" unique_id=1283431123 instance=ExtResource("1_74i17")]
+
+[node name="Path4" type="PathFollow3D" parent="." unique_id=868427321]
+transform = Transform3D(0.24126226, 0.06464846, 0.9683045, -0.2588194, 0.96596336, 0, -0.93531156, -0.2506254, 0.24977273, 5, 0, 5)
+rotation_mode = 4
+
+[node name="WindBlade" parent="Path4" unique_id=1568739031 instance=ExtResource("1_74i17")]
+
+[node name="Path5" type="PathFollow3D" parent="." unique_id=2102941857]
+transform = Transform3D(0.24126226, 0.06464846, 0.9683045, -0.2588194, 0.96596336, 0, -0.93531156, -0.2506254, 0.24977273, 5, 0, 5)
+rotation_mode = 4
+
+[node name="WindBlade" parent="Path5" unique_id=1703316875 instance=ExtResource("1_74i17")]
