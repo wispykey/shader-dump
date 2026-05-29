@@ -9,7 +9,5 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area3D):
-	print("area detected", area)
 	hitbox.set_deferred("monitoring", false)
-
 	broken.emit()

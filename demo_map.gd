@@ -19,7 +19,6 @@ func _on_skill_used(skill_index: int):
 	var skill_inst = skill_loadout[skill_index].instantiate()
 
 	var angle = -1 * player.look_rotation.y
-	print("Player angle:", angle)
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
 
 	
