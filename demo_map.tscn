@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="6_yjjny"]
 [ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3D/MagicCircle/magic_circle.tscn" id="8_n3c11"]
 [ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="9_vipss"]
+[ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3D/SoulFreeze/soul_freeze.tscn" id="11_7gilj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gilj"]
 shader = ExtResource("5_i1pmm")
@@ -64,8 +65,12 @@ visible = false
 
 [node name="Tornado" parent="." unique_id=189150725 instance=ExtResource("4_ywkik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4857025)
+visible = false
 
 [node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
+
+[node name="SoulFreeze" parent="." unique_id=1774289186 instance=ExtResource("11_7gilj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.8733387)
 
 [editable path="Earth"]
