@@ -1,6 +1,7 @@
 extends Node3D
 
 
+@export var skill_distance: float = 8.
 @export var skill_loadout: Array[PackedScene] = []
 @export var pot: PackedScene
 
@@ -26,8 +27,7 @@ func _on_skill_used(skill_index: int):
 	var angle = -1 * player.look_rotation.y
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
 
-	# Could make this per-skill instead
-	var skill_distance = 10.
+
 
 	var offset = player_facing_dir * skill_distance
 	var spawn_position = player.position + offset

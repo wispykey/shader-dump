@@ -70,7 +70,4 @@ visible = false
 [node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
 
-[node name="SoulFreeze" parent="." unique_id=1774289186 instance=ExtResource("11_7gilj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.8733387)
-
 [editable path="Earth"]

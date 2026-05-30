@@ -218,6 +218,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector3(-0.9578401, -7.3098316, 0.7403381)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LargeShard/LargeShard-rigid:material_override:albedo_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.2377636, 1.384157, 1.9919585, 0.20483756)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SmallShards/Shard2/SmallShard-rigid:material_override:albedo_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.1323519, 1.2669139, 1.8251296, 0.13694364)]
+}
 
 [sub_resource type="Animation" id="Animation_m4dvh"]
 resource_name = "init"
@@ -390,10 +414,10 @@ tracks/13/path = NodePath("SmallShards/Shard2/SmallShard-rigid:material_override
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.16666667, 0.43333334),
-"transitions": PackedFloat32Array(1.2745613, 1),
+"times": PackedFloat32Array(0.16666667, 0.43333334, 1.8698463, 2.7666667, 2.9666667),
+"transitions": PackedFloat32Array(1.2745613, 0.7845841, 0.43527526, 2.0000007, 1),
 "update": 0,
-"values": [Color(1.4319261, 1.5980874, 2.2977145, 0), Color(1.4279907, 1.6019355, 2.2977145, 0.42745098)]
+"values": [Color(1.4319261, 1.5980874, 2.2977145, 0), Color(1.4279907, 1.6019355, 2.2977145, 0.42745098), Color(1.0037289, 1.1220398, 1.6201918, 0.32941177), Color(1.0037289, 1.1220398, 1.6201918, 0.32941177), Color(1.0448701, 1.1677785, 1.6852883, 0.015686275)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -402,10 +426,10 @@ tracks/14/path = NodePath("LargeShard/LargeShard-rigid:material_override:albedo_
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0.04418792, 0.26666668, 0.36978304),
-"transitions": PackedFloat32Array(1.2311445, 1, 1),
+"times": PackedFloat32Array(0.04418792, 0.26666668, 0.36666667, 1.8698463, 2.7666667, 2.9333334),
+"transitions": PackedFloat32Array(1.2311445, 1, 0.7845841, 0.43527526, 2.0000007, 1),
 "update": 0,
-"values": [Color(1.4314969, 1.5976101, 2.2970352, 0), Color(1.4418361, 1.6091049, 2.3133948, 0.6666667), Color(1.4275625, 1.6014571, 2.2970352, 0.5019608)]
+"values": [Color(1.4314969, 1.5976101, 2.2970352, 0), Color(1.4418361, 1.6091049, 2.3133948, 0.6666667), Color(1.4275625, 1.6014571, 2.2970352, 0.5019608), Color(1.0037289, 1.1220398, 1.6201918, 0.32941177), Color(1.0037289, 1.1220398, 1.6201918, 0.32941177), Color(1.1795623, 1.3175224, 1.8984075, 0.05490196)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1vsm"]
