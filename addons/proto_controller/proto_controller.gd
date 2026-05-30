@@ -86,6 +86,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		skill_used.emit(0)
 	if Input.is_action_just_pressed("hotbar_1_skill_2"):
 		skill_used.emit(1)
+	if Input.is_action_just_pressed("hotbar_1_skill_3"):
+		skill_used.emit(2)
 		
 
 func _physics_process(delta: float) -> void:
