@@ -46,7 +46,7 @@ environment = SubResource("Environment_xis5h")
 [node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
 
 [node name="MagicCircle" parent="ProtoController" unique_id=198085887 instance=ExtResource("8_n3c11")]
-transform = Transform3D(0.547, 0, 0, 0, 0.547, 0, 0, 0, 0.547, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)

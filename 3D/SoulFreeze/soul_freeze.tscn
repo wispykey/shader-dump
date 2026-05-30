@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://csoq50ilhwyvg" path="res://3D/SoulFreeze/large_shard_material.tres" id="1_m4dvh"]
 [ext_resource type="Material" uid="uid://c67ryr3w0dajc" path="res://3D/SoulFreeze/small_shard_material.tres" id="2_m4dvh"]
 [ext_resource type="PackedScene" uid="uid://b3ekfvbo0c2q8" path="res://3D/SoulFreeze/tiny_shards.tscn" id="2_o3xu1"]
+[ext_resource type="PackedScene" uid="uid://ieiym5frefq7" path="res://3D/SoulFreeze/cold_pulse_wave.tscn" id="3_qi1tl"]
 
 [sub_resource type="Gradient" id="Gradient_o3xu1"]
 offsets = PackedFloat32Array(0.36969697, 0.5272727, 0.74848485, 0.8636364)
@@ -220,7 +221,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_m4dvh"]
 resource_name = "init"
-length = 4.3
+length = 3.6333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -228,7 +229,7 @@ tracks/0/path = NodePath("SmallShards/Shard1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.13333333, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.3, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(-2.4798565, -5.774605, -2.290897), Vector3(2.0646582, -0.97159284, 0.28204647), Vector3(1.9088326, -1.1362817, 0.19382367), Vector3(1.9088326, -1.1362817, 0.19382367), Vector3(-2.4798565, -5.774605, -2.290897)]
@@ -240,7 +241,7 @@ tracks/1/path = NodePath("SmallShards/Shard2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.066666655, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.23333333, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(0.3820777, -3.8690891, -4.719986), Vector3(1.7055544, -0.79943943, 0.031981617), Vector3(1.6556773, -0.9151234, -0.14710292), Vector3(1.6556773, -0.9151234, -0.14710292), Vector3(0.3820777, -3.8690891, -4.719986)]
@@ -252,7 +253,7 @@ tracks/2/path = NodePath("SmallShards/Shard4:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-0.06666667, -7.450581e-09, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.16666667, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(6.2855663, -4.462281, -0.73613787), Vector3(0.83983266, -0.6693387, 0.023869487), Vector3(1.0084202, -0.7867595, 0.0003414452), Vector3(1.0084202, -0.7867595, 0.0003414452), Vector3(6.2855663, -4.462281, -0.73613787)]
@@ -264,7 +265,7 @@ tracks/3/path = NodePath("SmallShards/Shard3:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.13333333, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.3, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(4.438156, -6.0452766, -4.396067), Vector3(0.8069125, -0.8725052, 0.34566915), Vector3(0.9209589, -1.0349667, 0.1967456), Vector3(0.9209589, -1.0349667, 0.1967456), Vector3(4.438156, -6.0452766, -4.396067)]
@@ -276,7 +277,7 @@ tracks/4/path = NodePath("SmallShards/Shard5:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.16666663, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.3333333, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(5.490912, -5.7485943, 2.265768), Vector3(0.6374265, -0.40831256, -0.5363934), Vector3(0.8052102, -0.5929248, -0.43952355), Vector3(0.8052102, -0.5929248, -0.43952355), Vector3(5.490912, -5.7485943, 2.265768)]
@@ -288,7 +289,7 @@ tracks/5/path = NodePath("SmallShards/Shard6:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.13333333, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.3, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(2.7249084, -6.589891, 2.452193), Vector3(0.8292957, -1.1392972, -0.5022002), Vector3(0.8968735, -1.3336086, -0.39687735), Vector3(0.8968735, -1.3336086, -0.39687735), Vector3(2.7249084, -6.589891, 2.452193)]
@@ -300,7 +301,7 @@ tracks/6/path = NodePath("SmallShards/Shard8:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.19999999, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.36666667, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(-1.5198159, -6.2727704, 1.7818778), Vector3(2.5059402, -0.6236012, -0.5423936), Vector3(2.3452916, -0.8490326, -0.4496432), Vector3(2.3452916, -0.8490326, -0.4496432), Vector3(-1.5198159, -6.2727704, 1.7818778)]
@@ -312,7 +313,7 @@ tracks/7/path = NodePath("SmallShards/Shard7:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(-0.06666667, 0.066666655, 0.29999995, 2.766667, 3.4666667),
+"times": PackedFloat32Array(0.13333338, 0.23333333, 0.46666664, 2.766667, 3.4666667),
 "transitions": PackedFloat32Array(0.482969, 1, 1, 1, 0.482969),
 "update": 0,
 "values": [Vector3(-0.9578401, -7.3098316, 0.7403381), Vector3(1.9838792, -0.5171903, -1.1352465), Vector3(1.8901578, -0.7335994, -1.0754915), Vector3(1.8901578, -0.7335994, -1.0754915), Vector3(-0.9578401, -7.3098316, 0.7403381)]
@@ -324,7 +325,7 @@ tracks/8/path = NodePath("LargeShard:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(-0.20000005, 0.033333294, 2.864245, 3.3333335),
+"times": PackedFloat32Array(0, 0.19999997, 2.864245, 3.3333335),
 "transitions": PackedFloat32Array(1.1487008, 1, 1, 1.1487008),
 "update": 0,
 "values": [Vector3(0.05567956, -6.439067, -1.0149705), Vector3(0.007244095, 0.20466268, -0.031129628), Vector3(0.007244095, 0.20466268, -0.031129628), Vector3(0.05567956, -6.439067, -1.0149705)]
@@ -336,11 +337,14 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.16666663),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.23333338, 0.33333337),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"spawn_particles"
+"method": &"spawn_cold_pulse_wave"
+}, {
+"args": [],
+"method": &"spawn_tiny_shards"
 }]
 }
 tracks/10/type = "value"
@@ -350,10 +354,10 @@ tracks/10/path = NodePath("ColdPulseSphere:mesh:radius")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.23333333, 0.38358364),
+"times": PackedFloat32Array(0.16666667, 0.26666668, 0.33333334, 0.48358366),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [2.0, 2.0, 3.5, 4.0]
+"values": [2.0, 2.0, 2.8, 4.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -362,10 +366,10 @@ tracks/11/path = NodePath("ColdPulseSphere:mesh:height")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.15833335, 0.23333333, 0.38358364),
+"times": PackedFloat32Array(0.16666667, 0.25833336, 0.33333334, 0.48358366),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [4.0, 4.0, 7.0, 8.0]
+"values": [4.0, 4.0, 5.6000000000000005, 8.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -374,10 +378,34 @@ tracks/12/path = NodePath("ColdPulseSphere:material_override:albedo_color")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.36666667),
+"times": PackedFloat32Array(0.19999996, 0.29999998, 0.46666667),
 "transitions": PackedFloat32Array(1.515715, 0.68302, 1),
 "update": 0,
-"values": [Color(0.456, 0.7359333, 0.95, 0), Color(0.456, 0.7359333, 0.95, 0.1882353), Color(0.456, 0.7359333, 0.95, 0)]
+"values": [Color(0.456, 0.7359333, 0.95, 0), Color(0.8313972, 1.3165625, 1.6852883, 0.1882353), Color(0.456, 0.7359333, 0.95, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SmallShards/Shard2/SmallShard-rigid:material_override:albedo_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.16666667, 0.43333334),
+"transitions": PackedFloat32Array(1.2745613, 1),
+"update": 0,
+"values": [Color(1.4319261, 1.5980874, 2.2977145, 0), Color(1.4279907, 1.6019355, 2.2977145, 0.42745098)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("LargeShard/LargeShard-rigid:material_override:albedo_color")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.04418792, 0.26666668, 0.36978304),
+"transitions": PackedFloat32Array(1.2311445, 1, 1),
+"update": 0,
+"values": [Color(1.4314969, 1.5976101, 2.2970352, 0), Color(1.4418361, 1.6091049, 2.3133948, 0.6666667), Color(1.4275625, 1.6014571, 2.2970352, 0.5019608)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1vsm"]
@@ -388,18 +416,19 @@ _data = {
 
 [node name="SoulFreeze" type="Node3D" unique_id=1774289186]
 script = ExtResource("1_m1vsm")
-one_shot_particles = ExtResource("2_o3xu1")
+tiny_shards = ExtResource("2_o3xu1")
+cold_pulse_wave = ExtResource("3_qi1tl")
 
 [node name="ColdPulseSphere" type="MeshInstance3D" parent="." unique_id=1364139342]
 transform = Transform3D(1, 3.7252903e-09, 0, 0, 1, 1.4901161e-08, 0, 0, 0.99999994, 0, 1.4901161e-08, 0)
 material_override = SubResource("StandardMaterial3D_c6yhx")
 mesh = SubResource("SphereMesh_fqosr")
 
-[node name="LargeShard" type="RigidBody3D" parent="." unique_id=1171687372]
-transform = Transform3D(-0.97449875, -0.0072115716, 0.22427721, 0.025902767, 0.9891867, 0.14435619, -0.22289307, 0.14648433, -0.9637744, 0.05567956, -6.439067, -1.0149705)
-collision_layer = 0
+[node name="LargeShard" type="Area3D" parent="." unique_id=2035108897]
+transform = Transform3D(-0.9744987, -0.0072115846, 0.22427727, 0.025902767, 0.9891867, 0.1443562, -0.22289313, 0.14648435, -0.9637743, 0.05567956, -6.439067, -1.0149705)
+collision_layer = 2
 collision_mask = 0
-gravity_scale = 0.0
+monitoring = false
 
 [node name="LargeShard-rigid" type="MeshInstance3D" parent="LargeShard" unique_id=749315373]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.2, 0)
@@ -415,10 +444,11 @@ metadata/_edit_lock_ = true
 [node name="SmallShards" type="Node3D" parent="." unique_id=1039248268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43, 0.2, 0)
 
-[node name="Shard1" type="AnimatableBody3D" parent="SmallShards" unique_id=1092332448]
+[node name="Shard1" type="Area3D" parent="SmallShards" unique_id=1517316352]
 transform = Transform3D(0.14710169, 0.64050734, -0.75373155, -0.5716126, 0.6769402, 0.46369275, 0.80722994, 0.36263257, 0.4657012, -2.4798565, -5.774605, -2.290897)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard1" unique_id=1067276846]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -431,10 +461,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard2" type="AnimatableBody3D" parent="SmallShards" unique_id=1679224773]
+[node name="Shard2" type="Area3D" parent="SmallShards" unique_id=1247850361]
 transform = Transform3D(0.8241317, 0.20501529, -0.2979518, -0.36164868, 0.4755093, -0.67312735, 0.004086092, 0.73611104, 0.51780653, 0.3820777, -3.8690891, -4.719986)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard2" unique_id=1334606929]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -447,10 +478,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard3" type="AnimatableBody3D" parent="SmallShards" unique_id=1965020791]
+[node name="Shard3" type="Area3D" parent="SmallShards" unique_id=841687197]
 transform = Transform3D(0.8517088, -0.4687783, 0.3086087, 0.5596926, 0.667783, -0.530293, 0.041672856, 0.61213815, 0.81483144, 4.438156, -6.0452766, -4.396067)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard3" unique_id=42608735]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -463,10 +495,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard4" type="AnimatableBody3D" parent="SmallShards" unique_id=1334602788]
+[node name="Shard4" type="Area3D" parent="SmallShards" unique_id=29300922]
 transform = Transform3D(0.3514232, -0.6929636, -0.34467852, 0.36814547, 0.4826476, -0.5949961, 0.68078697, 0.09671011, 0.4996764, 6.2855663, -4.462281, -0.73613787)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard4" unique_id=858852536]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -479,10 +512,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard5" type="AnimatableBody3D" parent="SmallShards" unique_id=60657486]
+[node name="Shard5" type="Area3D" parent="SmallShards" unique_id=145203177]
 transform = Transform3D(-0.6571676, -0.6896599, 0.5500001, -0.7963507, 0.75883174, 3.7252903e-08, -0.379416, -0.3981754, -0.95262796, 5.490912, -5.7485943, 2.265768)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard5" unique_id=582528876]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -495,10 +529,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard6" type="AnimatableBody3D" parent="SmallShards" unique_id=1919729573]
+[node name="Shard6" type="Area3D" parent="SmallShards" unique_id=1614509992]
 transform = Transform3D(-0.28608164, -0.2777727, 0.8622642, -0.5065736, 0.79870015, 0.089225195, -0.7510263, -0.43292063, -0.38863763, 2.7249084, -6.589891, 2.452193)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard6" unique_id=229586482]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -511,10 +546,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard7" type="AnimatableBody3D" parent="SmallShards" unique_id=1512688127]
+[node name="Shard7" type="Area3D" parent="SmallShards" unique_id=283660002]
 transform = Transform3D(0.057857487, 0.38523352, 0.9210035, -0.28891802, 0.8895319, -0.3539199, -0.9556039, -0.24561758, 0.162767, -0.9578401, -7.3098316, 0.7403381)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard7" unique_id=1243191121]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)
@@ -527,10 +563,11 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_heqd4")
 metadata/_edit_lock_ = true
 
-[node name="Shard8" type="AnimatableBody3D" parent="SmallShards" unique_id=1664297172]
+[node name="Shard8" type="Area3D" parent="SmallShards" unique_id=2058894421]
 transform = Transform3D(-0.93014836, 0.6603319, 0.37254, 0.39712608, 0.92661524, -0.6509034, -0.6458444, -0.38124284, -0.93677056, -1.5198159, -6.2727704, 1.7818778)
 collision_layer = 2
 collision_mask = 0
+monitoring = false
 
 [node name="SmallShard-rigid" type="MeshInstance3D" parent="SmallShards/Shard8" unique_id=1736286830]
 transform = Transform3D(0.90099376, 0, 0.43383205, 0, 0.7, 0, -0.43383205, 0, 0.90099376, 0, 0, 0)

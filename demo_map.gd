@@ -20,18 +20,8 @@ func _on_skill_used(skill_index: int):
 		print("Skill index out of range")
 		return
 	
-	# Eventually make this a lookup with other per-skill info
-	match skill_index:
-		0:
-			magic_circle.play_cast_finish(Color.SKY_BLUE)
-		1:
-			magic_circle.play_cast_finish(Color.PALE_GREEN)
-		2: 
-			magic_circle.play_cast_finish(Color.POWDER_BLUE)
-		_:
-			magic_circle.play_cast_finish()
-	
-	var skill_inst = skill_loadout[skill_index].instantiate()
+
+	var skill_inst: Node3D = skill_loadout[skill_index].instantiate()
 
 	var angle = -1 * player.look_rotation.y
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
@@ -43,8 +33,25 @@ func _on_skill_used(skill_index: int):
 	var spawn_position = player.position + offset
 
 	skill_inst.position = spawn_position
+	skill_inst.rotation.y = player.look_rotation.y
 
+	
+	# Eventually make this a lookup with other per-skill info
+	match skill_index:
+		0:
+			magic_circle.play_cast_finish(Color.SKY_BLUE)
+		1:
+			magic_circle.play_cast_finish(Color.PALE_GREEN)
+		2: 
+			magic_circle.play_cast_finish(Color.POWDER_BLUE)
+			# Should rotation be random?
+		_:
+			magic_circle.play_cast_finish()
+			
+			
 	add_child(skill_inst)
+	
+	
 
 
 func spawn_pots():
