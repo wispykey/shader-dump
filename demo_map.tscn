@@ -40,6 +40,7 @@ script = ExtResource("1_yjjny")
 skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj")])
 pot = ExtResource("6_yjjny")
 periodic_spawn_skill_index = 2
+pots_respawn_interval = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1445595343]
 environment = SubResource("Environment_xis5h")
@@ -70,9 +71,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.926453, 0, -16.134224)
 [node name="Earth" parent="SkillShowcase" unique_id=1712225740 instance=ExtResource("3_xis5h")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -10.210161, 0, -8.164591)
 
-[node name="Floor" parent="SkillShowcase/Earth" index="2" unique_id=153234413]
-visible = false
-
 [node name="Tornado" parent="SkillShowcase" unique_id=189150725 instance=ExtResource("4_ywkik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4857025)
 visible = false
@@ -81,6 +79,6 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
 
 [node name="Pots" type="Node3D" parent="." unique_id=1371580669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.530467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.959396)
 
 [editable path="SkillShowcase/Earth"]

@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://qebiiroo4h2y"]
+
+[ext_resource type="Texture2D" uid="uid://dbwedabxuhv7" path="res://3D/SoulFreeze/Aurora.png" id="1_kcpqd"]
+
+[resource]
+render_priority = 3
+transparency = 4
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.08203208, 0.43191126, 0.5782025, 0.29803923)
+albedo_texture = ExtResource("1_kcpqd")
+billboard_keep_scale = true
+proximity_fade_enabled = true
+proximity_fade_distance = 0.3

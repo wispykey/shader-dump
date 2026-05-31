@@ -17,11 +17,6 @@ background_mode = 2
 sky = SubResource("Sky_m8g47")
 tonemap_mode = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6q70"]
-albedo_color = Color(0.24687636, 0.20062551, 0.18741065, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ev14i"]
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_ogvme"]
 _surfaces = [{
 "aabb": AABB(-0.32726824, -0.3157264, -0.3587677, 0.63533527, 1.1777973, 0.66079736),
@@ -945,11 +940,6 @@ environment = SubResource("Environment_t6q70")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=633772062]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=153234413]
-transform = Transform3D(19.985807, 0.05540442, -0.09992922, -0.101570874, 10.886431, 0.013387041, 0.1490062, -0.010453057, 13.412366, -0.008555174, 0.0019683838, -0.01229763)
-material_override = SubResource("StandardMaterial3D_t6q70")
-mesh = SubResource("PlaneMesh_ev14i")
 
 [node name="Spikes" type="Node3D" parent="." unique_id=725343792]
 
