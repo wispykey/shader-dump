@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b3ekfvbo0c2q8"]
 
+[ext_resource type="ArrayMesh" uid="uid://d06445x3i1bod" path="res://3D/LeLu/Earth/models/static_mesh_debris.obj" id="1_l1h41"]
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_o3xu1"]
 frequency = 0.0025
 offset = Vector3(50, 200, 0)
@@ -12,8 +14,17 @@ render_priority = 1
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(0.33465475, 0.49115133, 0.7397559, 1)
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.56263024, 0.6912477, 0.9659532, 1)
 albedo_texture = SubResource("NoiseTexture2D_qi1tl")
+
+[sub_resource type="Curve" id="Curve_l1h41"]
+_data = [Vector2(0, 0.59701496), 0.0, 0.0, 0, 0, Vector2(0.25872093, 0.12686563), 0.0, 0.0, 0, 0, Vector2(1, 0.059701443), -0.090605795, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w2i3b"]
+curve = SubResource("Curve_l1h41")
 
 [sub_resource type="Curve" id="Curve_dbn7j"]
 _data = [Vector2(0, 0.98684216), 0.0, -3.4754999, 0, 0, Vector2(0.38903394, 0), 0.0, 0.0, 0, 0, Vector2(0.6684073, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -46,11 +57,10 @@ gravity = Vector3(0, -45, 0)
 scale_min = 0.19999999
 scale_max = 0.29999998
 scale_curve = SubResource("CurveTexture_m8g47")
+alpha_curve = SubResource("CurveTexture_w2i3b")
 collision_mode = 1
 collision_friction = 0.8
 collision_bounce = 0.3
-
-[sub_resource type="SphereMesh" id="SphereMesh_s4tdt"]
 
 [node name="TinyShards" type="GPUParticles3D" unique_id=862576586]
 transform = Transform3D(-0.5357142, 0.04800189, 0.84303397, -0.0054062456, 0.99816775, -0.060270526, -0.8443822, -0.03684543, -0.534473, 0, 0, 0)
@@ -60,4 +70,4 @@ lifetime = 8.0
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_m8g47")
-draw_pass_1 = SubResource("SphereMesh_s4tdt")
+draw_pass_1 = ExtResource("1_l1h41")
