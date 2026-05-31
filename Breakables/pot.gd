@@ -4,7 +4,7 @@ extends Node3D
 
 @onready var pot_mesh = $PotMesh
 
-const despawn_time: float = 5.
+@export var despawn_time: float = 5.
 
 
 func _ready() -> void:

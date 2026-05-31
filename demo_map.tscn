@@ -39,6 +39,7 @@ albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 script = ExtResource("1_yjjny")
 skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj")])
 pot = ExtResource("6_yjjny")
+periodic_spawn_skill_index = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1445595343]
 environment = SubResource("Environment_xis5h")
@@ -69,5 +70,11 @@ visible = false
 
 [node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
+
+[node name="SkillAutoSpawner" type="Timer" parent="." unique_id=2063127331]
+one_shot = true
+
+[node name="PotsAutoSpawner" type="Timer" parent="." unique_id=1330754934]
+one_shot = true
 
 [editable path="Earth"]

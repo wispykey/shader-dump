@@ -8,6 +8,7 @@ offset = Vector3(50, 200, 0)
 noise = SubResource("FastNoiseLite_o3xu1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i667s"]
+render_priority = 1
 transparency = 1
 blend_mode = 1
 shading_mode = 0

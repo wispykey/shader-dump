@@ -4,17 +4,33 @@ extends Node3D
 @export var skill_distance: float = 8.
 @export var skill_loadout: Array[PackedScene] = []
 @export var pot: PackedScene
+@export var pot_scale: float = 0.8
+@export var periodic_spawn_skill_index = 0
+@export var subsequent_skill_spawn_time_interval = 4.
+@export var pots_respawn_interval = 5.
+
+const spacing = 2
+const num_pots_row = 5
+const num_pots_col = 5
+const pots_per_quadrant = num_pots_col * num_pots_row
 
 @onready var player: ProtoController = $ProtoController
 @onready var magic_circle: MagicCircle = $ProtoController/MagicCircle
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug_spawn_pots"):
-		spawn_pots()
+var spawned_pots: Array[Node3D] = []
 
 func _ready() -> void:
 	$ProtoController.skill_used.connect(_on_skill_used)
-	spawn_pots()
+	
+	$SkillAutoSpawner.timeout.connect(_on_skill_auto_spawner_timeout)
+	$SkillAutoSpawner.start()
+	
+	$PotsAutoSpawner.wait_time = pots_respawn_interval
+	$PotsAutoSpawner.timeout.connect(_on_pots_auto_spawner_timeout)
+	$PotsAutoSpawner.start()
+	
+	init_pots()
+
 
 func _on_skill_used(skill_index: int):
 	if skill_index >= len(skill_loadout):
@@ -26,8 +42,6 @@ func _on_skill_used(skill_index: int):
 
 	var angle = -1 * player.look_rotation.y
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
-
-
 
 	var offset = player_facing_dir * skill_distance
 	var spawn_position = player.position + offset
@@ -50,20 +64,52 @@ func _on_skill_used(skill_index: int):
 			
 			
 	add_child(skill_inst)
-	
-	
 
 
-func spawn_pots():
-	const spacing = 2
-	for x in range(5):
-		for z in range(5):
-			var pot_inst: Node3D = pot.instantiate()
-			pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
-			pot_inst.rotation.y = randf_range(0., TAU)
-			add_child(pot_inst)
-			var pot_inst2 = pot.instantiate()
-			pot_inst2.position = Vector3(-x - 1, 0, z + 1) * spacing
-			pot_inst2.rotation.y = randf_range(0., TAU)
-			add_child(pot_inst2)
+func init_pots():
+	for i in range(pots_per_quadrant):
+		var x = i / num_pots_row
+		var z = i % num_pots_row
+		
+		var pot_inst: Node3D = pot.instantiate()
+		pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
+		# Vary rotation to add more entropy to impact
+		pot_inst.rotation.y = randf_range(0., TAU)
+		pot_inst.scale *= pot_scale
+		add_child(pot_inst)
+		
+		spawned_pots.append(pot_inst)
+	
+	
+func respawn_pots():
+	for i in range(pots_per_quadrant):
+		var x = i / num_pots_row
+		var z = i % num_pots_row
+		print('respawning')
+		
+		if spawned_pots[i] :
+			continue
+		
+		var pot_inst: Node3D = pot.instantiate()
+		pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
+		# Vary rotation to add more entropy to impact
+		pot_inst.rotation.y = randf_range(0., TAU)
+		pot_inst.scale *= pot_scale
+		add_child(pot_inst)
+		
+		spawned_pots[i] = pot_inst
+
 			
+func _on_skill_auto_spawner_timeout():
+	_on_skill_used(periodic_spawn_skill_index)
+	# Set here because I am impatient and want the first spawn to happen faster
+	# (first spawn is set on Timer node, then subsequent intervals are different)
+	$SkillAutoSpawner.wait_time = subsequent_skill_spawn_time_interval	
+	$SkillAutoSpawner.start()
+	
+
+func _on_pots_auto_spawner_timeout():
+	respawn_pots()
+	$PotsAutoSpawner.start()
+	
+	

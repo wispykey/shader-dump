@@ -16,8 +16,7 @@ noise = SubResource("FastNoiseLite_vo6yo")
 color_ramp = SubResource("Gradient_vo6yo")
 
 [resource]
-transparency = 4
 shading_mode = 0
-albedo_color = Color(1.2377636, 1.384157, 1.9919585, 0.20483756)
+albedo_color = Color(1.4314969, 1.5976101, 2.2970352, 0)
 albedo_texture = SubResource("NoiseTexture2D_m4dvh")
 refraction_enabled = true

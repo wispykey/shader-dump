@@ -7,6 +7,7 @@
 [node name="Pot" type="Node3D" unique_id=403097360]
 script = ExtResource("1_xh2hh")
 broken_model = ExtResource("2_v8r0c")
+despawn_time = 2.0
 
 [node name="PotMesh" parent="." unique_id=458921749 instance=ExtResource("4_ei45b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

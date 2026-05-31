@@ -1029,6 +1029,7 @@ script = ExtResource("1_6n88h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49682775, 0.3172794, 0.442479)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder0-rigid" type="MeshInstance3D" parent="Cylinder0-rigid" unique_id=1463009799]
 material_override = ExtResource("2_nu6i3")
@@ -1041,6 +1042,7 @@ shape = SubResource("ConvexPolygonShape3D_qu70h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6959185, -0.48501092, 0.2407669)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder1-rigid" type="MeshInstance3D" parent="Cylinder1-rigid" unique_id=2125685101]
 material_override = ExtResource("2_nu6i3")
@@ -1053,6 +1055,7 @@ shape = SubResource("ConvexPolygonShape3D_23tdh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108490035, -0.05342269, -0.8603119)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder2-rigid" type="MeshInstance3D" parent="Cylinder2-rigid" unique_id=347613101]
 material_override = ExtResource("2_nu6i3")
@@ -1065,6 +1068,7 @@ shape = SubResource("ConvexPolygonShape3D_t7ja8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6741251, 0.16411985, -0.46645626)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder3-rigid" type="MeshInstance3D" parent="Cylinder3-rigid" unique_id=1340696676]
 material_override = ExtResource("2_nu6i3")
@@ -1077,6 +1081,7 @@ shape = SubResource("ConvexPolygonShape3D_kje04")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5086019, -0.28858256, -0.66395307)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder4-rigid" type="MeshInstance3D" parent="Cylinder4-rigid" unique_id=909630318]
 material_override = ExtResource("2_nu6i3")
@@ -1089,6 +1094,7 @@ shape = SubResource("ConvexPolygonShape3D_tpcwh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85103863, -0.16939595, -0.11280678)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder5-rigid" type="MeshInstance3D" parent="Cylinder5-rigid" unique_id=1942000777]
 material_override = ExtResource("2_nu6i3")
@@ -1101,6 +1107,7 @@ shape = SubResource("ConvexPolygonShape3D_3dux7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18557885, 0.85588104, 0.5455138)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder6-rigid" type="MeshInstance3D" parent="Cylinder6-rigid" unique_id=818428265]
 material_override = ExtResource("2_nu6i3")
@@ -1113,6 +1120,7 @@ shape = SubResource("ConvexPolygonShape3D_s71u5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.679319, 0.5170375, 0.0042994916)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder7-rigid" type="MeshInstance3D" parent="Cylinder7-rigid" unique_id=296289385]
 material_override = ExtResource("2_nu6i3")
@@ -1125,6 +1133,7 @@ shape = SubResource("ConvexPolygonShape3D_6bo4j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77972573, 0.095127136, 0.31874394)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder8-rigid" type="MeshInstance3D" parent="Cylinder8-rigid" unique_id=1572188989]
 material_override = ExtResource("2_nu6i3")
@@ -1137,6 +1146,7 @@ shape = SubResource("ConvexPolygonShape3D_7plyh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10693454, 0.7486755, 0.53881586)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder9-rigid" type="MeshInstance3D" parent="Cylinder9-rigid" unique_id=758841012]
 material_override = ExtResource("2_nu6i3")
@@ -1149,6 +1159,7 @@ shape = SubResource("ConvexPolygonShape3D_f8rrc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23832598, 0.94614404, 0.5723067)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder10-rigid" type="MeshInstance3D" parent="Cylinder10-rigid" unique_id=2039432901]
 material_override = ExtResource("2_nu6i3")
@@ -1161,6 +1172,7 @@ shape = SubResource("ConvexPolygonShape3D_x27u0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105161905, 0.8010556, -0.5553795)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder11-rigid" type="MeshInstance3D" parent="Cylinder11-rigid" unique_id=1374130795]
 material_override = ExtResource("2_nu6i3")
@@ -1173,6 +1185,7 @@ shape = SubResource("ConvexPolygonShape3D_lggpn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42468396, 0.84720963, -0.3554901)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder12-rigid" type="MeshInstance3D" parent="Cylinder12-rigid" unique_id=574466265]
 material_override = ExtResource("2_nu6i3")
@@ -1185,6 +1198,7 @@ shape = SubResource("ConvexPolygonShape3D_njxa4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42210692, -0.700408, 0.14956081)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder13-rigid" type="MeshInstance3D" parent="Cylinder13-rigid" unique_id=1644749083]
 material_override = ExtResource("2_nu6i3")
@@ -1197,6 +1211,7 @@ shape = SubResource("ConvexPolygonShape3D_p8a42")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46133345, 0.49480045, 0.5403294)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder14-rigid" type="MeshInstance3D" parent="Cylinder14-rigid" unique_id=1726885899]
 material_override = ExtResource("2_nu6i3")
@@ -1209,6 +1224,7 @@ shape = SubResource("ConvexPolygonShape3D_6wi1s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39913738, 0.44776964, -0.5426572)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder15-rigid" type="MeshInstance3D" parent="Cylinder15-rigid" unique_id=694060264]
 material_override = ExtResource("2_nu6i3")
@@ -1221,6 +1237,7 @@ shape = SubResource("ConvexPolygonShape3D_dbg1r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50026506, 0.8139243, 0.3058895)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder16-rigid" type="MeshInstance3D" parent="Cylinder16-rigid" unique_id=1174101096]
 material_override = ExtResource("2_nu6i3")
@@ -1233,6 +1250,7 @@ shape = SubResource("ConvexPolygonShape3D_l2nsk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3045676, 0.7792766, -0.48801807)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder17-rigid" type="MeshInstance3D" parent="Cylinder17-rigid" unique_id=6134651]
 material_override = ExtResource("2_nu6i3")
@@ -1245,6 +1263,7 @@ shape = SubResource("ConvexPolygonShape3D_c1tdd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24320173, -0.7661436, 0.23660105)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder18-rigid" type="MeshInstance3D" parent="Cylinder18-rigid" unique_id=684346088]
 material_override = ExtResource("2_nu6i3")
@@ -1257,6 +1276,7 @@ shape = SubResource("ConvexPolygonShape3D_pdvp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48839098, 0.8433951, 0.17850833)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder19-rigid" type="MeshInstance3D" parent="Cylinder19-rigid" unique_id=947521853]
 material_override = ExtResource("2_nu6i3")
@@ -1269,6 +1289,7 @@ shape = SubResource("ConvexPolygonShape3D_s6aew")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09758013, 0.90056455, 0.56919086)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder20-rigid" type="MeshInstance3D" parent="Cylinder20-rigid" unique_id=741247015]
 material_override = ExtResource("2_nu6i3")
@@ -1281,6 +1302,7 @@ shape = SubResource("ConvexPolygonShape3D_vww44")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6727659, -0.46490186, -0.42807564)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder21-rigid" type="MeshInstance3D" parent="Cylinder21-rigid" unique_id=1079665927]
 material_override = ExtResource("2_nu6i3")
@@ -1293,6 +1315,7 @@ shape = SubResource("ConvexPolygonShape3D_d0muo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17179516, -0.659388, -0.626631)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder22-rigid" type="MeshInstance3D" parent="Cylinder22-rigid" unique_id=1313411528]
 material_override = ExtResource("2_nu6i3")
@@ -1305,6 +1328,7 @@ shape = SubResource("ConvexPolygonShape3D_caq4d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074670196, 0.19684806, 0.7570602)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder23-rigid" type="MeshInstance3D" parent="Cylinder23-rigid" unique_id=1816909840]
 material_override = ExtResource("2_nu6i3")
@@ -1317,6 +1341,7 @@ shape = SubResource("ConvexPolygonShape3D_pd2jb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4938513, 0.72340596, -0.13144317)
 collision_layer = 0
 collision_mask = 2
+gravity_scale = 2.0
 
 [node name="Cylinder24-rigid" type="MeshInstance3D" parent="Cylinder24-rigid" unique_id=700406779]
 material_override = ExtResource("2_nu6i3")
