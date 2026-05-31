@@ -9,10 +9,11 @@ extends Node3D
 @export var subsequent_skill_spawn_time_interval = 4.
 @export var pots_respawn_interval = 5.
 
-const spacing = 2
-const num_pots_row = 5
-const num_pots_col = 5
-const pots_per_quadrant = num_pots_col * num_pots_row
+# Pot spawning info
+const spacing: float = 2.
+const num_pots_row: int = 10
+const num_pots_col: int = 10
+const num_pots: int = num_pots_col * num_pots_row
 
 @onready var player: ProtoController = $ProtoController
 @onready var magic_circle: MagicCircle = $ProtoController/MagicCircle
@@ -67,31 +68,51 @@ func _on_skill_used(skill_index: int):
 
 
 func init_pots():
-	for i in range(pots_per_quadrant):
+	var offset = $Pots.position + Vector3(
+		-0.5 * (num_pots_row - 1) * spacing,
+		0,
+		-0.5 * (num_pots_col - 1) * spacing
+	)
+		
+	for i in range(num_pots):
 		var x = i / num_pots_row
-		var z = i % num_pots_row
+		var z = i % num_pots_row 
 		
 		var pot_inst: Node3D = pot.instantiate()
-		pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
+		pot_inst.position = Vector3(
+			offset.x + x * spacing,
+			0, 
+			offset.z + z * spacing,
+		)
+		
 		# Vary rotation to add more entropy to impact
 		pot_inst.rotation.y = randf_range(0., TAU)
 		pot_inst.scale *= pot_scale
-		add_child(pot_inst)
+		$Pots.add_child(pot_inst)
 		
 		spawned_pots.append(pot_inst)
 	
 	
 func respawn_pots():
-	for i in range(pots_per_quadrant):
+	var offset = $Pots.position + 0.5 * Vector3(
+		-(num_pots_row + spacing), 
+		0, 
+		num_pots_col + spacing)
+	
+	for i in range(num_pots):
 		var x = i / num_pots_row
 		var z = i % num_pots_row
-		print('respawning')
 		
-		if spawned_pots[i] :
+		if spawned_pots[i]:
 			continue
 		
 		var pot_inst: Node3D = pot.instantiate()
-		pot_inst.position = Vector3(x + 1, 0, z + 1) * spacing
+		pot_inst.position = Vector3(
+			offset.x + x * spacing,
+			0, 
+			offset.z - z * spacing,
+		)
+		
 		# Vary rotation to add more entropy to impact
 		pot_inst.rotation.y = randf_range(0., TAU)
 		pot_inst.scale *= pot_scale

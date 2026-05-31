@@ -44,32 +44,16 @@ periodic_spawn_skill_index = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1445595343]
 environment = SubResource("Environment_xis5h")
 
-[node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
-
-[node name="MagicCircle" parent="ProtoController" unique_id=198085887 instance=ExtResource("8_n3c11")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_ofcdo")
 
-[node name="LightningLeLu" parent="." unique_id=1530353930 instance=ExtResource("2_kbhvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.926453, 0, -16.134224)
+[node name="ProtoController" parent="." unique_id=725154141 instance=ExtResource("1_42bif")]
 
-[node name="Earth" parent="." unique_id=1712225740 instance=ExtResource("3_xis5h")]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -10.210161, 0, -8.164591)
-
-[node name="Floor" parent="Earth" index="2" unique_id=153234413]
-visible = false
-
-[node name="Tornado" parent="." unique_id=189150725 instance=ExtResource("4_ywkik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4857025)
-visible = false
-
-[node name="Elfire" parent="." unique_id=1272849628 instance=ExtResource("6_ofcdo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
+[node name="MagicCircle" parent="ProtoController" unique_id=198085887 instance=ExtResource("8_n3c11")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="SkillAutoSpawner" type="Timer" parent="." unique_id=2063127331]
 one_shot = true
@@ -77,4 +61,26 @@ one_shot = true
 [node name="PotsAutoSpawner" type="Timer" parent="." unique_id=1330754934]
 one_shot = true
 
-[editable path="Earth"]
+[node name="SkillShowcase" type="Node3D" parent="." unique_id=1284024176]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="LightningLeLu" parent="SkillShowcase" unique_id=1530353930 instance=ExtResource("2_kbhvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.926453, 0, -16.134224)
+
+[node name="Earth" parent="SkillShowcase" unique_id=1712225740 instance=ExtResource("3_xis5h")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -10.210161, 0, -8.164591)
+
+[node name="Floor" parent="SkillShowcase/Earth" index="2" unique_id=153234413]
+visible = false
+
+[node name="Tornado" parent="SkillShowcase" unique_id=189150725 instance=ExtResource("4_ywkik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4857025)
+visible = false
+
+[node name="Elfire" parent="SkillShowcase" unique_id=1272849628 instance=ExtResource("6_ofcdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
+
+[node name="Pots" type="Node3D" parent="." unique_id=1371580669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.530467)
+
+[editable path="SkillShowcase/Earth"]
