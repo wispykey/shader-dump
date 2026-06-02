@@ -48,6 +48,7 @@ func _on_skill_used(skill_index: int):
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
 
 	var offset = player_facing_dir * skill_distance
+	# TODO: How to project onto uneven terrain?
 	var spawn_position = Vector3(player.position.x, 0., player.position.z) + offset
 
 	skill_inst.position = spawn_position
@@ -65,6 +66,8 @@ func _on_skill_used(skill_index: int):
 			# Should rotation be random?
 		3:
 			magic_circle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
+		4:
+			magic_circle.play_cast_finish(Color.SADDLE_BROWN)
 		_:
 			magic_circle.play_cast_finish()
 			

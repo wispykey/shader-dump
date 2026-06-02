@@ -39,7 +39,7 @@ albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 
 [node name="DemoMap" type="Node3D" unique_id=2133232385]
 script = ExtResource("1_yjjny")
-skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj"), ExtResource("13_7ho6d")])
+skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj"), ExtResource("13_7ho6d"), ExtResource("3_xis5h")])
 pot = ExtResource("6_yjjny")
 auto_spawning_skills = true
 periodic_spawn_skill_index = 3
@@ -48,6 +48,10 @@ pots_respawn_interval = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1445595343]
 environment = SubResource("Environment_xis5h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=904374558]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
