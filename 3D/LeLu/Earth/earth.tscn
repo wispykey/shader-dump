@@ -303,7 +303,6 @@ tracks/11/keys = {
 [sub_resource type="Animation" id="Animation_hqymc"]
 resource_name = "init"
 length = 5.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -555,6 +554,20 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/21/type = "method"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("..")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(4.9666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_i667s"]
@@ -929,7 +942,7 @@ transform = Transform3D(0.9925624, -0.04130326, -0.105061136, 0.04519161, 2.7720
 mesh = SubResource("ArrayMesh_gqxy2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike1" unique_id=961665570]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -942,7 +955,7 @@ transform = Transform3D(-0.6635276, 0.29619777, -0.2911612, 0.25172043, 1.397033
 mesh = SubResource("ArrayMesh_gv50t")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike2Big" unique_id=2063021729]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -955,7 +968,7 @@ transform = Transform3D(-0.63278395, -0.6209722, -0.3648266, 0.25435048, 1.39857
 mesh = SubResource("ArrayMesh_7jd0s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike2Small" unique_id=1764294582]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -968,7 +981,7 @@ transform = Transform3D(0.9086345, -0.22917269, 0.35277936, -0.1121498, 3.329582
 mesh = SubResource("ArrayMesh_7jd0s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike3" unique_id=296088996]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -981,7 +994,7 @@ transform = Transform3D(-0.9413972, 0.48473886, 0.32409757, -0.033367027, 4.8261
 mesh = SubResource("ArrayMesh_585uu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike4" unique_id=716582950]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -994,7 +1007,7 @@ transform = Transform3D(-0.25534225, -0.6020442, -0.577381, 0.37071344, 1.815370
 mesh = SubResource("ArrayMesh_gv50t")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike5Big" unique_id=1785181359]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -1007,7 +1020,7 @@ transform = Transform3D(0.92598045, 0.55108136, 0.10648506, -0.27535895, 1.84599
 mesh = SubResource("ArrayMesh_gqxy2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike5Small" unique_id=573899549]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -1020,7 +1033,7 @@ transform = Transform3D(1.3787377, 1.6644145, -0.29685786, -0.1774789, 4.4663467
 mesh = SubResource("ArrayMesh_7jd0s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike6Big" unique_id=195825290]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -1033,7 +1046,7 @@ transform = Transform3D(-1.411692, -1.8575797, -0.43425298, 0.16799483, 8.279615
 mesh = SubResource("ArrayMesh_585uu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Spikes/Spike6Small" unique_id=122347323]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 metadata/_edit_lock_ = true
 
@@ -1046,37 +1059,37 @@ libraries/ = SubResource("AnimationLibrary_wu5rf")
 autoplay = &"init"
 
 [node name="Spike1Decal" type="MeshInstance3D" parent="." unique_id=1405790582]
-transform = Transform3D(-0.99910116, 0, 1.8471049, 0, 2.1, 0, -1.8471049, 0, -0.99910116, -0.08375466, 0.5832709, -1.1362698)
+transform = Transform3D(-0.99910116, 0, 1.8471049, 0, 2.1, 0, -1.8471049, 0, -0.99910116, -0.084, -0.777, -1.136)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 
 [node name="Spike2Decal" type="MeshInstance3D" parent="." unique_id=1592942145]
-transform = Transform3D(1.5563262, 0, 1.558002, 0, 2.1, 0, -1.722058, 0, 1.4080589, 0.16880974, 0.5692886, -2.5679297)
+transform = Transform3D(1.5563262, 0, 1.558002, 0, 2.1, 0, -1.722058, 0, 1.4080589, 0.16899024, -0.6073872, -2.5679965)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 
 [node name="Spike3Decal" type="MeshInstance3D" parent="." unique_id=93661874]
-transform = Transform3D(-2.1121583, 0, 1.4190819, 0, 2.38, 0, -1.5687413, 0, -1.9106563, -0.18504277, 0.6590723, -4.1538353)
+transform = Transform3D(-2.1121583, 0, 1.4190819, 0, 2.38, 0, -1.5687413, 0, -1.9106563, -0.18500462, 0.3468508, -4.153982)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 
 [node name="Spike4Decal" type="MeshInstance3D" parent="." unique_id=1602472825]
-transform = Transform3D(2.060916, 0, 0.8856268, 0, 2.46, 0, -0.74665153, 0, 2.4445171, 0.2352577, 0.6590723, -5.564828)
+transform = Transform3D(2.060916, 0, 0.8856268, 0, 2.46, 0, -0.74665153, 0, 2.4445171, 0.23505573, 0.3690266, -5.564963)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 
 [node name="Spike5Decal" type="MeshInstance3D" parent="." unique_id=346679175]
-transform = Transform3D(2.3309236, 0, -0.47751927, 0, 2.46, 0, 0.4329793, 0, 2.5707026, 0.11498182, 0.6590723, -7.3343673)
+transform = Transform3D(2.3309236, 0, -0.47751927, 0, 2.46, 0, 0.4329793, 0, 2.5707026, 0.11499607, 0.18092564, -7.3340797)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 
 [node name="Spike6SmallDecal" type="MeshInstance3D" parent="." unique_id=1424732185]
-transform = Transform3D(2.4734018, 0, -2.4904923, 0, 3.475, 0, 2.2578936, 0, 2.7282016, -0.36135054, 0.96123874, -9.8756485)
+transform = Transform3D(2.4734018, 0, -2.4904923, 0, 3.475, 0, 2.2578936, 0, 2.7282016, -0.36117056, 0.6992582, -9.875829)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 
 [node name="Spike6BigDecal" type="MeshInstance3D" parent="." unique_id=1433759002]
-transform = Transform3D(1.2400647, 0, -2.8753133, 0, 2.995, 0, 2.6071076, 0, 1.3676364, 0.5254214, 0.7505101, -9.413573)
+transform = Transform3D(1.2400647, 0, -2.8753133, 0, 2.995, 0, 2.6071076, 0, 1.3676364, 0.5252278, 0.5715748, -9.413769)
 material_override = ExtResource("2_wu5rf")
 mesh = SubResource("BoxMesh_i667s")
 

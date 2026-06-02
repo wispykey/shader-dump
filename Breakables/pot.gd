@@ -16,11 +16,13 @@ func _on_pot_mesh_broken():
 
 
 func shatter():
-	pot_mesh.queue_free()
 
 	var broken_model_inst: Node3D = broken_model.instantiate()
-
+	broken_model_inst.position = pot_mesh.position
+	
 	add_child(broken_model_inst)
+
+	pot_mesh.queue_free()
 
 	SFX.play_pot_shatter()
 

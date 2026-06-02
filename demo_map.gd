@@ -67,7 +67,7 @@ func _on_skill_used(skill_index: int):
 		3:
 			magic_circle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
 		4:
-			magic_circle.play_cast_finish(Color.SADDLE_BROWN)
+			magic_circle.play_cast_finish(Color.BURLYWOOD)
 		_:
 			magic_circle.play_cast_finish()
 			
