@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r0osx"]
 shader = ExtResource("1_xxrr5")
 shader_parameter/time_elapsed = 0.0
-shader_parameter/duration = 0.5
+shader_parameter/duration = 0.1499999966472
 
 [node name="ScreenFlash" type="ColorRect" unique_id=1114739560]
 material = SubResource("ShaderMaterial_r0osx")
