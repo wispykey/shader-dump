@@ -4,6 +4,7 @@ shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx, unshaded;
 
 uniform sampler2D albedo;
+uniform sampler2D alpha_curve;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap;
 uniform ivec2 albedo_texture_size;
 uniform float point_size : hint_range(0.1, 128.0, 0.1);
@@ -24,7 +25,8 @@ uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
 uniform float flip_speed: hint_range(0., 1., 0.01) = 1.;
-uniform float life_time = 1.;
+uniform float duration: hint_range(1., 4.);
+uniform float current_lifetime: hint_range(0., 1.) = 0.;
 
 
 void vertex() {
@@ -81,7 +83,7 @@ void fragment() {
 
 	// Vertex Color Use as Albedo: Enabled
 	//albedo_tex *= COLOR;
-	float t = clamp(albedo_tex.r, 0.001, 0.99);
+	float t = albedo_tex.r;
 	vec4 gradient_color = texture(albedo, vec2(t, 0.5));
 	ALBEDO = vec3(albedo_tex.r);
 	ALBEDO = gradient_color.rgb;
@@ -95,11 +97,16 @@ void fragment() {
 	//float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
 	//ROUGHNESS = roughness_tex * roughness;
 	
-	float segment1 = step(0.25, UV.y);
+	float segment1 = (1. - step(0.25, UV.y)) * step(0.02, fract(current_lifetime));
+	float segment2 = (1. - step(0.5, UV.y)) * step(0.1, fract(current_lifetime));
+	float segment3 = (1. - step(0.9, UV.y)) * step(0.16, fract(current_lifetime));
+	
+	float alpha_sample = texture(alpha_curve, vec2(t, 0.5)).r;
 	
 	float lightning_mask = 1. - step(albedo_tex.r, 0.005);
-	float al = smoothstep(0., albedo_tex.a * gradient_color.a, lightning_mask);
+	float al = smoothstep(0., albedo_tex.a * alpha_sample, lightning_mask);
 	
-	ALPHA = al * segment1;
+	
+	ALPHA = al * (segment1 + segment2 + segment3);
 	//ALPHA *= albedo.a * albedo_tex.a;
 }

@@ -9,5 +9,7 @@ func _on_animation_finished(anim_name: String):
 	queue_free()
 
 func call_screen_flash():
-	add_child(screen_flash_scene.instantiate())
+	#add_child(screen_flash_scene.instantiate())
+	pass
+	
 	

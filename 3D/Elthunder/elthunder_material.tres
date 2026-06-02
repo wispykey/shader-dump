@@ -5,17 +5,25 @@
 
 [sub_resource type="Gradient" id="Gradient_4ax67"]
 interpolation_color_space = 1
-offsets = PackedFloat32Array(0.027272727, 0.059895832, 0.17575757, 0.5121212, 1)
-colors = PackedColorArray(5.0615087, 0.55202055, 0, 0.39200002, 5.887183, 3.9844198, 0, 0, 7.75863, 7.182206, 0, 0, 1.3250716, 1.3250716, 1.2077664, 1, 1.353256, 1.353256, 1.353256, 1)
+offsets = PackedFloat32Array(0.018181818, 0.059895832, 0.17575757, 0.5121212, 1)
+colors = PackedColorArray(5.0615087, 1.5936065, 0, 1, 5.887183, 3.9844198, 0, 1, 7.75863, 7.182206, 0, 1, 1.3250716, 1.3250716, 1.2077664, 1, 1.353256, 1.353256, 1.353256, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jcc40"]
 gradient = SubResource("Gradient_4ax67")
 use_hdr = true
 
+[sub_resource type="Curve" id="Curve_yrpy4"]
+_data = [Vector2(0, 0.7205072), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_plxke"]
+curve = SubResource("Curve_yrpy4")
+
 [resource]
 render_priority = 1
 shader = ExtResource("1_yrpy4")
 shader_parameter/albedo = SubResource("GradientTexture1D_jcc40")
+shader_parameter/alpha_curve = SubResource("CurveTexture_plxke")
 shader_parameter/texture_albedo = ExtResource("2_plxke")
 shader_parameter/albedo_texture_size = Vector2i(293, 512)
 shader_parameter/point_size = 1.0
@@ -27,5 +35,6 @@ shader_parameter/uv1_scale = Vector3(0.83, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/flip_speed = 0.5499999877064
-shader_parameter/life_time = 1.0
+shader_parameter/flip_speed = 0.42999999038864
+shader_parameter/duration = 0.0
+shader_parameter/current_lifetime = 0.0

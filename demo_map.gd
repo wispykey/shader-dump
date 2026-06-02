@@ -126,7 +126,7 @@ func respawn_pots():
 			
 func _on_skill_auto_spawner_timeout():
 	if auto_spawning_skills:
-		(periodic_spawn_skill_index)
+		_on_skill_used(periodic_spawn_skill_index)
 	# Set here because I am impatient and want the first spawn to happen faster
 	# (first spawn is set on Timer node, then subsequent intervals are different)
 	$SkillAutoSpawner.wait_time = subsequent_skill_spawn_time_interval	
