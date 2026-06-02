@@ -110,7 +110,7 @@ shape = SubResource("SphereShape3D_jcc40")
 [node name="MediumBolts" type="Node3D" parent="." unique_id=585509651]
 
 [node name="MediumBoltMid" type="MeshInstance3D" parent="MediumBolts" unique_id=942855872]
-transform = Transform3D(-0.6308241, -0.26566982, 0.72902805, -0.26065552, 0.9575148, 0.123390555, -0.73083603, -0.11218737, -0.67327124, 1.3560472, -1.6247473, 1.2721062)
+transform = Transform3D(-0.630824, -0.26566982, 0.729028, -0.26065552, 0.95751476, 0.123390496, -0.730836, -0.11218738, -0.67327124, 1.3560472, -1.6247473, 1.2721062)
 material_override = ExtResource("1_1pjik")
 mesh = SubResource("ArrayMesh_8k5b3")
 
