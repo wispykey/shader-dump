@@ -48,7 +48,7 @@ func _on_skill_used(skill_index: int):
 	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
 
 	var offset = player_facing_dir * skill_distance
-	var spawn_position = player.position + offset
+	var spawn_position = Vector3(player.position.x, 0., player.position.z) + offset
 
 	skill_inst.position = spawn_position
 	skill_inst.rotation.y = player.look_rotation.y
