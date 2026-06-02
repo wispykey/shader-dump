@@ -12,4 +12,4 @@ shader_parameter/texture_albedo = ExtResource("2_plxke")
 shader_parameter/albedo_texture_size = Vector2i(293, 512)
 shader_parameter/point_size = 1.0
 shader_parameter/flip_speed = 0.42999999038864
-shader_parameter/current_lifetime = 1.0
+shader_parameter/current_lifetime = 0.11818144

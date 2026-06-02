@@ -63,6 +63,8 @@ func _on_skill_used(skill_index: int):
 		2: 
 			magic_circle.play_cast_finish(Color.POWDER_BLUE)
 			# Should rotation be random?
+		3:
+			magic_circle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
 		_:
 			magic_circle.play_cast_finish()
 			
