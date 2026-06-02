@@ -9,7 +9,7 @@
 [ext_resource type="Shader" uid="uid://eqojehcgdglx" path="res://3D/SoulFreeze/aurora.gdshader" id="7_5ydq1"]
 [ext_resource type="Texture2D" uid="uid://dbwedabxuhv7" path="res://3D/SoulFreeze/Aurora.png" id="8_g0pmh"]
 [ext_resource type="Shader" uid="uid://bmrds4br66oa3" path="res://3D/SoulFreeze/decal_copy.gdshader" id="9_3e3ww"]
-[ext_resource type="Texture2D" uid="uid://cgdnqo8h2qme3" path="res://3D/SoulFreeze/SoulFreezeDecalV445.png" id="10_3e3ww"]
+[ext_resource type="Texture2D" uid="uid://chaodf1ywt72l" path="res://3D/SoulFreeze/Decal_SoulFreeze_04_With_Transparency_Mask.png" id="10_3e3ww"]
 [ext_resource type="Texture2D" uid="uid://cw4a6qqg6jbyn" path="res://3D/SoulFreeze/decal_color.tres" id="11_f4ndi"]
 
 [sub_resource type="Gradient" id="Gradient_o3xu1"]

@@ -78,16 +78,10 @@ void fragment() {
 	
 	vec4 noise = texture(Subtraction, UV);
 	// if distance to center UV is beyond some threshold, multiply by 1 (no effect)
-	
-	float use_noise = step(distance(UV, vec2(0.5)), 0.1);
 
     // Apply fade to all channels (or full strength if fade disabled)
     ALBEDO = n_out3p0.rgb * Modulate.rgb * y_fade;
     ALPHA = n_out3p0.a * Albedo_Mix * Modulate.a * y_fade;
-	
-	if (use_noise <= 0.1) {
-		//ALPHA = ALPHA * noise.r;
-	}
 	
     NORMAL = normal_map;
     EMISSION = emission_map * Emission_Energy * Modulate_Emission.rgb * y_fade;

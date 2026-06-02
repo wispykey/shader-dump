@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bhymn8wnol2rm"]
+
+[ext_resource type="Shader" uid="uid://bx0kwaraqxvdj" path="res://2D/ScreenFlash/screen_flash.gdshader" id="1_xxrr5"]
+[ext_resource type="Script" uid="uid://de25a55vnhqxe" path="res://2D/ScreenFlash/screen_flash.gd" id="2_i86sd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0osx"]
+shader = ExtResource("1_xxrr5")
+shader_parameter/time_elapsed = 0.0
+shader_parameter/duration = 0.5
+
+[node name="ScreenFlash" type="ColorRect" unique_id=1114739560]
+material = SubResource("ShaderMaterial_r0osx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_i86sd")

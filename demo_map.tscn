@@ -83,6 +83,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.725, 0, -8.154983)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924337, 0, -5.512579)
 
 [node name="FullScreenExhibit" parent="." unique_id=1429498005 instance=ExtResource("12_tqj63")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0034666061, 0.061297335, -6.1696997)
+transform = Transform3D(0.5714437, 0, 1.9166251, 0, 2, 0, -1.9166251, 0, 0.5714437, -8.670925, 0.061297335, -7.249134)
 
 [editable path="SkillShowcase/Earth"]
