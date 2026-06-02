@@ -3,7 +3,7 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx, unshaded;
 
-uniform sampler2D color_gradient;
+uniform sampler2D color_gradient: repeat_disable;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap;
 uniform ivec2 albedo_texture_size;
 uniform float point_size : hint_range(0.1, 128.0, 0.1);
@@ -21,9 +21,9 @@ void vertex() {
 	}
 	
 	float base_multiplier = 1.5 * 1.6;
-	float step1 = step(0.15, fract(TIME)) * .6;
-	float step2 = step(0.25, fract(TIME)) * .3;
-	float flip = floor(sin(TIME * flip_speed * 32.)) + ceil(sin(TIME * flip_speed * 32.));
+	float step1 = step(0.15, fract(current_lifetime)) * .6;
+	float step2 = step(0.25, fract(current_lifetime)) * .3;
+	float flip = mix(-1., 1., step(current_lifetime, 0.5)) * floor(sin(TIME * flip_speed * 32.)) + ceil(sin(TIME * flip_speed * 32.));
 
 	float total_multiplier = flip * (base_multiplier - step1 - step2);
 	VERTEX.x *= total_multiplier * 1.5 * (1. - UV.y * UV.y );
@@ -46,6 +46,5 @@ void fragment() {
 	float lightning_mask = 1. - step(albedo_tex.r, 0.005);
 	float lightning = smoothstep(0., 1., lightning_mask);
 	
-	ALPHA = lightning * clamp(0., 1., segment1 + segment2 + segment3);
-	//ALPHA = 0.4;
+	ALPHA = lightning * clamp(0., 1., segment1 + segment2 + segment3) * gradient_sample.a;
 }
