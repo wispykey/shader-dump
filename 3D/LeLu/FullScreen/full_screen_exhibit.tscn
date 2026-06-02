@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b4basvojj1a5q"]
+
+[ext_resource type="Shader" uid="uid://bbep23gib7a6u" path="res://3D/LeLu/FullScreen/full_screen_basic.tres" id="1_3f0i2"]
+[ext_resource type="Texture2D" uid="uid://cd2sx5fwisbpi" path="res://3D/LeLu/FullScreen/T_Noise_Wf4.png" id="2_3wm7g"]
+[ext_resource type="Shader" uid="uid://f22s1pf2wvh" path="res://3D/LeLu/FullScreen/exhibit_border.gdshader" id="3_3wm7g"]
+
+[sub_resource type="Gradient" id="Gradient_clblv"]
+offsets = PackedFloat32Array(0.003030303, 0.26666668, 0.74848485, 0.9, 1)
+colors = PackedColorArray(0.09, 0, 0, 0, 0.03009306, 0.33420998, 0.14669536, 0.6862745, 0, 1.753959, 0.9874082, 1, 0.42032066, 1.8247963, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5dml7"]
+gradient = SubResource("Gradient_clblv")
+
+[sub_resource type="Gradient" id="Gradient_nwmhq"]
+offsets = PackedFloat32Array(0.57878786, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.6665689, 0.6665687, 0.6665684, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqsbm"]
+gradient = SubResource("Gradient_nwmhq")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_p13xg"]
+offsets = PackedFloat32Array(0.21818182, 0.56060606)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_elufl"]
+gradient = SubResource("Gradient_p13xg")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18qys"]
+render_priority = 0
+shader = ExtResource("1_3f0i2")
+shader_parameter/Zoom_Strength = 0.445
+shader_parameter/Repeat_Circle = 1.0
+shader_parameter/Offset = Vector2(0.53, 0.14)
+shader_parameter/Base_Texture = ExtResource("2_3wm7g")
+shader_parameter/Mask_Texture = SubResource("GradientTexture2D_elufl")
+shader_parameter/Edge_Texture = SubResource("GradientTexture2D_vqsbm")
+shader_parameter/Color_Gradient = SubResource("GradientTexture1D_5dml7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4myw1"]
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="Gradient" id="Gradient_882f2"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.6181818, 0.95151514)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2mitj"]
+gradient = SubResource("Gradient_882f2")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0agd"]
+render_priority = 0
+shader = ExtResource("3_3wm7g")
+shader_parameter/border_mask = SubResource("GradientTexture2D_2mitj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3wm7g"]
+size = Vector2(1.5, 1.5)
+
+[node name="FullScreenExhibit" type="Node3D" unique_id=1429498005]
+
+[node name="Basic" type="Node3D" parent="." unique_id=11990919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Effect" type="MeshInstance3D" parent="Basic" unique_id=457709644]
+material_override = SubResource("ShaderMaterial_18qys")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_4myw1")
+
+[node name="Border" type="MeshInstance3D" parent="Basic" unique_id=2964177]
+material_override = SubResource("ShaderMaterial_n0agd")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_3wm7g")

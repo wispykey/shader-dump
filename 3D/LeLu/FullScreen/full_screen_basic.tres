@@ -1,0 +1,141 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bbep23gib7a6u"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8yty2"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_x0bp4"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_14w0m"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_581x8"]
+parameter_name = "Mask_Texture"
+texture_type = 1
+texture_repeat = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_iql2u"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_o3ilo"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ebt2a"]
+parameter_name = "Edge_Texture"
+texture_type = 1
+color_default = 1
+texture_repeat = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_c4q22"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_aj107"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_hb38u"]
+parameter_name = "Color_Gradient"
+texture_type = 1
+texture_repeat = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_mamg2"]
+parameter_name = "Base_Texture"
+texture_type = 1
+texture_repeat = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_x0bp4"]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_14w0m"]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3ykcp"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_4ftyh"]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeUVPolarCoord" id="VisualShaderNodeUVPolarCoord_3aamj"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_484ga"]
+parameter_name = "Zoom_Strength"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_1wj28"]
+parameter_name = "Repeat_Circle"
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_c47gu"]
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_i8d0y"]
+parameter_name = "Offset"
+
+[resource]
+modes/cull = 2
+flags/depth_test_disabled = true
+flags/unshaded = true
+preview_params/Zoom_Strength = "0.445"
+preview_params/Repeat_Circle = "1.0"
+preview_params/Offset = "Vector2(0.53, 0.14)"
+preview_params/Base_Texture = "Resource(\"uid://cd2sx5fwisbpi\", \"res://3D/LeLu/FullScreen/T_Noise_Wf4.png\")"
+preview_params/Mask_Texture = "Object(GradientTexture2D,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"gradient\":Object(Gradient,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"interpolation_mode\":0,\"interpolation_color_space\":0,\"offsets\":PackedFloat32Array(0.21818182, 0.56060606),\"colors\":PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1),\"script\":null)
+,\"width\":64,\"height\":64,\"use_hdr\":false,\"fill\":2,\"fill_from\":Vector2(0.5, 0.5),\"fill_to\":Vector2(1, 0),\"repeat\":0,\"script\":null)
+"
+preview_params/Edge_Texture = "Object(GradientTexture2D,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"gradient\":Object(Gradient,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"interpolation_mode\":0,\"interpolation_color_space\":0,\"offsets\":PackedFloat32Array(0.57878786, 1),\"colors\":PackedColorArray(0, 0, 0, 1, 0.6665689, 0.6665687, 0.6665684, 1),\"script\":null)
+,\"width\":64,\"height\":64,\"use_hdr\":false,\"fill\":2,\"fill_from\":Vector2(0.5, 0.5),\"fill_to\":Vector2(1, 0),\"repeat\":0,\"script\":null)
+"
+preview_params/Color_Gradient = "Object(GradientTexture1D,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"gradient\":Object(Gradient,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"interpolation_mode\":0,\"interpolation_color_space\":0,\"offsets\":PackedFloat32Array(0.003030303, 0.26666668, 0.74848485, 0.9, 1),\"colors\":PackedColorArray(0.09, 0, 0, 0, 0.03009306, 0.33420998, 0.14669536, 0.6862745, 0, 1.753959, 0.9874082, 1, 0.42032066, 1.8247963, 0, 1, 0, 1, 0, 1),\"script\":null)
+,\"width\":256,\"use_hdr\":false,\"script\":null)
+"
+nodes/fragment/0/position = Vector2(2000, 240)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_mamg2")
+nodes/fragment/2/position = Vector2(-1320, 640)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_3ykcp")
+nodes/fragment/3/position = Vector2(-100, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_4ftyh")
+nodes/fragment/4/position = Vector2(-1460, -140)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVPolarCoord_3aamj")
+nodes/fragment/5/position = Vector2(-860, 20)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatParameter_484ga")
+nodes/fragment/6/position = Vector2(-1240, 40)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_1wj28")
+nodes/fragment/7/position = Vector2(-1220, 280)
+nodes/fragment/8/node = SubResource("VisualShaderNodeUVFunc_c47gu")
+nodes/fragment/8/position = Vector2(-440, 80)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVec2Parameter_i8d0y")
+nodes/fragment/9/position = Vector2(-840, 300)
+nodes/fragment/10/node = SubResource("VisualShaderNodeInput_8yty2")
+nodes/fragment/10/position = Vector2(-900, 540)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_x0bp4")
+nodes/fragment/11/position = Vector2(-520, 400)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_14w0m")
+nodes/fragment/12/position = Vector2(-400, 1000)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture2DParameter_581x8")
+nodes/fragment/13/position = Vector2(-940, 1420)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatOp_iql2u")
+nodes/fragment/14/position = Vector2(440, 260)
+nodes/fragment/15/node = SubResource("VisualShaderNodeTexture_o3ilo")
+nodes/fragment/15/position = Vector2(620, 680)
+nodes/fragment/16/node = SubResource("VisualShaderNodeTexture2DParameter_ebt2a")
+nodes/fragment/16/position = Vector2(0, 1080)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_c4q22")
+nodes/fragment/17/position = Vector2(1000, 260)
+nodes/fragment/18/node = SubResource("VisualShaderNodeTexture_aj107")
+nodes/fragment/18/position = Vector2(1440, 260)
+nodes/fragment/19/node = SubResource("VisualShaderNodeTexture2DParameter_hb38u")
+nodes/fragment/19/position = Vector2(900, 1200)
+nodes/fragment/20/node = SubResource("VisualShaderNodeInput_x0bp4")
+nodes/fragment/20/position = Vector2(-940, 1120)
+nodes/fragment/21/node = SubResource("VisualShaderNodeInput_14w0m")
+nodes/fragment/21/position = Vector2(80, 860)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 6, 0, 5, 2, 7, 0, 5, 3, 5, 0, 8, 0, 8, 0, 3, 0, 10, 0, 11, 1, 9, 0, 11, 0, 11, 0, 8, 2, 13, 0, 12, 2, 12, 1, 14, 1, 3, 1, 14, 0, 16, 0, 15, 2, 14, 0, 17, 0, 15, 1, 17, 1, 19, 0, 18, 2, 17, 0, 18, 0, 18, 0, 0, 0, 18, 4, 0, 1, 4, 0, 5, 0, 20, 0, 12, 0, 21, 0, 15, 0)
