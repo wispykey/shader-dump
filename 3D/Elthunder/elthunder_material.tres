@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://u7diodabeddh"]
+
+[ext_resource type="Shader" uid="uid://dbavw1n0t8p3b" path="res://3D/Elthunder/elthunder.gdshader" id="1_yrpy4"]
+[ext_resource type="Texture2D" uid="uid://dhahymqvip4l7" path="res://3D/Elthunder/spark_05_trimmed_2x1.png" id="2_plxke"]
+
+[sub_resource type="Gradient" id="Gradient_4ax67"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.027272727, 0.059895832, 0.17575757, 0.5121212, 1)
+colors = PackedColorArray(5.0615087, 0.55202055, 0, 0.39200002, 5.887183, 3.9844198, 0, 0, 7.75863, 7.182206, 0, 0, 1.3250716, 1.3250716, 1.2077664, 1, 1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jcc40"]
+gradient = SubResource("Gradient_4ax67")
+use_hdr = true
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_yrpy4")
+shader_parameter/albedo = SubResource("GradientTexture1D_jcc40")
+shader_parameter/texture_albedo = ExtResource("2_plxke")
+shader_parameter/albedo_texture_size = Vector2i(293, 512)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(0.83, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/flip_speed = 0.5499999877064
+shader_parameter/life_time = 1.0

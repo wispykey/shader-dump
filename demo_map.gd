@@ -5,6 +5,9 @@ extends Node3D
 @export var skill_loadout: Array[PackedScene] = []
 @export var pot: PackedScene
 @export var pot_scale: float = 0.8
+
+
+@export var auto_spawning_skills: bool = false
 @export var periodic_spawn_skill_index = 0
 @export var subsequent_skill_spawn_time_interval = 4.
 @export var pots_respawn_interval = 5.
@@ -122,7 +125,8 @@ func respawn_pots():
 
 			
 func _on_skill_auto_spawner_timeout():
-	_on_skill_used(periodic_spawn_skill_index)
+	if auto_spawning_skills:
+		(periodic_spawn_skill_index)
 	# Set here because I am impatient and want the first spawn to happen faster
 	# (first spawn is set on Timer node, then subsequent intervals are different)
 	$SkillAutoSpawner.wait_time = subsequent_skill_spawn_time_interval	

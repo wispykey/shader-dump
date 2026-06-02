@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="9_vipss"]
 [ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3D/SoulFreeze/soul_freeze.tscn" id="11_7gilj"]
 [ext_resource type="PackedScene" uid="uid://b4basvojj1a5q" path="res://3D/LeLu/FullScreen/full_screen_exhibit.tscn" id="12_tqj63"]
+[ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3D/Elthunder/elthunder.tscn" id="13_7ho6d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gilj"]
 shader = ExtResource("5_i1pmm")
@@ -38,7 +39,7 @@ albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 
 [node name="DemoMap" type="Node3D" unique_id=2133232385]
 script = ExtResource("1_yjjny")
-skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj")])
+skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj"), ExtResource("13_7ho6d")])
 pot = ExtResource("6_yjjny")
 periodic_spawn_skill_index = 2
 pots_respawn_interval = 10.0
