@@ -2,9 +2,11 @@
 
 [ext_resource type="Material" uid="uid://u7diodabeddh" path="res://3D/Elthunder/elthunder_material.tres" id="1_1pjik"]
 [ext_resource type="Script" uid="uid://daphn8ocrypv7" path="res://3D/Elthunder/elthunder.gd" id="1_4ax67"]
+[ext_resource type="Gradient" uid="uid://cfc87jei6xx3v" path="res://3D/Elthunder/elthunder_color.tres" id="3_8kxcl"]
 [ext_resource type="PackedScene" uid="uid://bhymn8wnol2rm" path="res://2D/ScreenFlash/screen_flash.tscn" id="3_jcc40"]
 [ext_resource type="Shader" uid="uid://ml3nuusq8l4d" path="res://3D/Elthunder/elthunder_large_bolt.gdshader" id="3_tdwcd"]
 [ext_resource type="Texture2D" uid="uid://bgbrnu170d1id" path="res://3D/Elthunder/spark_05_mids_raised.png" id="5_65iy1"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="7_65iy1"]
 
 [sub_resource type="Animation" id="Animation_jcc40"]
 tracks/0/type = "value"
@@ -72,6 +74,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MediumBolts/MediumBoltMid:material_override:shader_parameter/color_gradient:gradient")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_8kxcl")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MediumBolts/MediumBoltMid:material_override:shader_parameter/alpha_cutoff_threshold")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.5333333, 0.6333333),
+"transitions": PackedFloat32Array(1, 9.189583, 0.12074251, 1),
+"update": 0,
+"values": [0.053, 0.053, 0.1, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ax67"]
@@ -159,6 +185,26 @@ shadow_mesh = SubResource("ArrayMesh_ban1r")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcc40"]
 albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fy066"]
+shader = ExtResource("7_65iy1")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 1
+
+[sub_resource type="Sky" id="Sky_vipss"]
+sky_material = SubResource("ShaderMaterial_fy066")
+
+[sub_resource type="Environment" id="Environment_i0hpu"]
+background_mode = 2
+sky = SubResource("Sky_vipss")
+glow_enabled = true
+
 [node name="Elthunder" type="Node3D" unique_id=680647525]
 script = ExtResource("1_4ax67")
 screen_flash_scene = ExtResource("3_jcc40")
@@ -242,3 +288,10 @@ collision_layer = 16
 collision_mask = 0
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_jcc40")
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=311453137]
+environment = SubResource("Environment_i0hpu")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=908260966]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
