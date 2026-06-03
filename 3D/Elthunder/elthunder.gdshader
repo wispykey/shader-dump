@@ -27,14 +27,15 @@ void vertex() {
 	float base_multiplier = 1.5 * 1.6;
 	float step1 = step(0.15, fract(current_lifetime)) * .6;
 	float step2 = step(0.25, fract(current_lifetime)) * .3;
-	float flip = mix(-1., 1., step(current_lifetime, 0.5)) * floor(sin(TIME * flip_speed * 32.)) + ceil(sin(TIME * flip_speed * 32.));
+	//float flip = mix(-1., 1., step(current_lifetime, 0.5)) * floor(sin(TIME * flip_speed * 32.)) + ceil(sin(TIME * flip_speed * 32.));
+	float flip = 1.;
 
 	float total_multiplier = flip * (base_multiplier - step1 - step2);
-	VERTEX.x *= total_multiplier * 1.5 * (1. - UV.y * UV.y );
-	VERTEX.z *= total_multiplier * 1.5 * (1. - UV.y * UV.y);
+	VERTEX.x *= total_multiplier * 1.5 * (1. - pow(UV.y, 2));
+	VERTEX.z *= total_multiplier * 1.5 * (1. -  pow(UV.y, 2));
 	VERTEX.y *= base_multiplier;
 	
-	UV.x *= uv_x_scale;
+	UV.x *= (uv_x_scale);
 	UV.y *= uv_y_scale;
 }
 
