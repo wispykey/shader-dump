@@ -11,6 +11,10 @@ uniform float point_size : hint_range(0.1, 128.0, 0.1);
 uniform float flip_speed: hint_range(0., 1., 0.01) = 1.;
 uniform float current_lifetime: hint_range(0., 1.) = 0.;
 
+uniform float uv_x_scale = 1.;
+uniform float uv_y_scale = 1.;
+uniform float alpha_cutoff_threshold =  0.005;
+
 void vertex() {
 	// Vertex Color is sRGB: Enabled
 	if (!OUTPUT_IS_SRGB) {
@@ -29,6 +33,9 @@ void vertex() {
 	VERTEX.x *= total_multiplier * 1.5 * (1. - UV.y * UV.y );
 	VERTEX.z *= total_multiplier * 1.5 * (1. - UV.y * UV.y);
 	VERTEX.y *= base_multiplier;
+	
+	UV.x *= uv_x_scale;
+	UV.y *= uv_y_scale;
 }
 
 void fragment() {
@@ -43,7 +50,7 @@ void fragment() {
 	float segment2 = (1. - step(0.5, UV.y)) * step(0.1, fract(current_lifetime));
 	float segment3 = step(0.16, fract(current_lifetime));
 	
-	float lightning_mask = 1. - step(albedo_tex.r, 0.005);
+	float lightning_mask = 1. - step(albedo_tex.r, alpha_cutoff_threshold);
 	float lightning = smoothstep(0., 1., lightning_mask);
 	
 	ALPHA = lightning * clamp(0., 1., segment1 + segment2 + segment3) * gradient_sample.a;

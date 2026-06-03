@@ -1,0 +1,33 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://rqp2jgfj06md"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_no6xq"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ban1r"]
+_surfaces = [{
+"aabb": AABB(-0.95214665, -0.024529934, -1.1653694, 2.7733867, 8.435665, 3.0400531),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAFAAMABgAFAAQABgAHAAUACAAHAAYACAAJAAcACgAJAAgACgALAAkADAALAAoADAANAAsADgANAAwADgAPAA0AEAAPAA4AEAARAA8AEgARABAAEgATABEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("ehsF6wAAAADkcP//EqEAABUo//8xIwAAKVwF64SBAAAXOyPRuywAAIVnI9EqtQAAyUoJrBdzAACgNAms//8AAE5xVo78FwAAADFWjqmZAAC0mANvMyEAANQmA299ggAA//9pRl00AABqaWlGsFkAABGbrCwUWgAACACsLPppAAD+m4EW+GAAAAAAgRZBYwAAX6IAACJiAABcBgAAImIAAA==")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "sm_lightning_elthunder_2_Plane"
+_surfaces = [{
+"aabb": AABB(-0.95214665, -0.024529934, -1.1653694, 2.7733867, 8.435665, 3.0400531),
+"attribute_data": PackedByteArray("AAD/H///AAAAAAAA////HwAA///////fAAD/3/////8AAP/f////vwAA/7/////fAAD/v////58AAP+f////vwAA/5////9/AAD/f////58AAJJv////XwAA/1/+/5JvAAD/X////z8AAP8/////XwAA/z////8fAAD/H////z8AAP9//v+SbwAAkm////9/"),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEA"),
+"material": SubResource("StandardMaterial3D_no6xq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("ehsF6wAAowDkcP//EqGgABUo//8xI6QAKVwF64SBnwBfogAAImIAAAAAgRZBYwAA/puBFvhgAABcBgAAImIAAP6bgRb4YAAACACsLPppAAARm6wsFFoAAAAAgRZBYwAAEZusLBRajABqaWlGsFlnAP//aUZdNNsACACsLPppFgD//2lGXTS/AtQmA299grkCtJgDbzMh4wRqaWlGsFkmAE5xVo78F3gDoDQJrP//ZwPJSgmsF3MgBAAxVo6pmdECyUoJrBdzLAaFZyPRKrX6BRc7I9G7LFEHoDQJrP//3AQXOyPRuyyyAClcBeuEgasAehsF6wAAtwCFZyPRKrWmALSYA28zIZsBADFWjqmZTgFOcVaO/BcCAtQmA299guMAmM5wgJXOdICazmyAk853gIKAEYCBgBGAgYAQgIGAEYD3gxqA94McgPeDG4AYAPgDeYrXhnaK3IaAis2GbormhhmYX4sYmGGLfpjAiqCXH4wABUfLDQVOy30EA8uCBYrL7QW4wCQG2sCrBO+/VweZwUfLgoBBy42ATMt6gDzLlYBjqh2DUqpJg3uq4oI5qoaD")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ban1r")
