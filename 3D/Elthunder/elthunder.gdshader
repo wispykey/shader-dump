@@ -15,6 +15,8 @@ uniform float uv_x_scale = 1.;
 uniform float uv_y_scale = 1.;
 uniform float alpha_cutoff_threshold =  0.005;
 
+uniform float bolt_scale = 1.;
+
 void vertex() {
 	// Vertex Color is sRGB: Enabled
 	if (!OUTPUT_IS_SRGB) {
@@ -31,8 +33,8 @@ void vertex() {
 	float flip = 1.;
 
 	float total_multiplier = flip * (base_multiplier - step1 - step2);
-	VERTEX.x *= total_multiplier * 1.5 * (1. - pow(UV.y, 2));
-	VERTEX.z *= total_multiplier * 1.5 * (1. -  pow(UV.y, 2));
+	VERTEX.x *= total_multiplier * 1.5 * (1. - pow(UV.y, 2)) * bolt_scale;
+	VERTEX.z *= total_multiplier * 1.5 * (1. -  pow(UV.y, 2)) * bolt_scale;
 	VERTEX.y *= base_multiplier;
 	
 	UV.x *= (uv_x_scale);

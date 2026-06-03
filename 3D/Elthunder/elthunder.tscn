@@ -2,7 +2,6 @@
 
 [ext_resource type="Material" uid="uid://u7diodabeddh" path="res://3D/Elthunder/elthunder_material.tres" id="1_1pjik"]
 [ext_resource type="Script" uid="uid://daphn8ocrypv7" path="res://3D/Elthunder/elthunder.gd" id="1_4ax67"]
-[ext_resource type="Gradient" uid="uid://cfc87jei6xx3v" path="res://3D/Elthunder/elthunder_color.tres" id="3_8kxcl"]
 [ext_resource type="PackedScene" uid="uid://bhymn8wnol2rm" path="res://2D/ScreenFlash/screen_flash.tscn" id="3_jcc40"]
 [ext_resource type="Shader" uid="uid://ml3nuusq8l4d" path="res://3D/Elthunder/elthunder_large_bolt.gdshader" id="3_tdwcd"]
 [ext_resource type="Texture2D" uid="uid://bgbrnu170d1id" path="res://3D/Elthunder/spark_05_mids_raised.png" id="5_65iy1"]
@@ -20,6 +19,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.3600000171]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MediumBolts/MediumBoltRight:material_override:shader_parameter/color_gradient:gradient:colors")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(2.6034334, 0.94330215, 0, 1, 2.6034334, 1.585615, 0, 1, 2.8157141, 2.5916271, 0, 1, 1.8984075, 1.8984075, 0.64950466, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_1pjik"]
@@ -42,7 +53,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MediumBolts/MediumBoltMid:material_override:shader_parameter/current_lifetime")
+tracks/1/path = NodePath("MediumBolts/MediumBoltRight:material_override:shader_parameter/current_lifetime")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,26 +89,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MediumBolts/MediumBoltMid:material_override:shader_parameter/color_gradient:gradient")
+tracks/4/path = NodePath("MediumBolts/MediumBoltRight:material_override:shader_parameter/alpha_cutoff_threshold")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_8kxcl")]
+"times": PackedFloat32Array(0, 0.23333333, 0.26666665, 0.3, 0.43333334, 0.8333333),
+"transitions": PackedFloat32Array(1, 9.189583, 9.189583, 9.189583, 0.12074251, 1),
+"update": 0,
+"values": [0.053, 0.053, 0.2, 0.2, 0.1, 1.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MediumBolts/MediumBoltMid:material_override:shader_parameter/alpha_cutoff_threshold")
+tracks/5/path = NodePath("MediumBolts/MediumBoltRight:material_override:shader_parameter/color_gradient:gradient:colors")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.5333333, 0.6333333),
-"transitions": PackedFloat32Array(1, 9.189583, 0.12074251, 1),
+"times": PackedFloat32Array(0.56666666, 0.8333333),
+"transitions": PackedFloat32Array(0.5946034, 1),
 "update": 0,
-"values": [0.053, 0.053, 0.1, 1.0]
+"values": [PackedColorArray(2.6034334, 0.94330215, 0, 1, 2.6034334, 1.585615, 0, 1, 2.8157141, 2.5916271, 0, 1, 1.8984075, 1.8984075, 0.64950466, 1), PackedColorArray(1, 1, 1, 0, 1.2237577, 1.2237577, 1.2237577, 0, 1.1755697, 1.1755697, 1.1755697, 0, 1.0845727, 1.0845727, 1.0845727, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ax67"]
@@ -223,37 +234,37 @@ shape = SubResource("SphereShape3D_jcc40")
 
 [node name="MediumBolts" type="Node3D" parent="." unique_id=585509651]
 
-[node name="MediumBoltMid" type="MeshInstance3D" parent="MediumBolts" unique_id=942855872]
-transform = Transform3D(0.991895, -0.12706466, 0, 0.12706469, 0.9918948, 0, 0, 0, 1.0000006, 0.75, -1.28, 0)
+[node name="MediumBoltRight" type="MeshInstance3D" parent="MediumBolts" unique_id=942855872]
+transform = Transform3D(0.27932715, -0.04483684, -0.9594687, 0.076575935, -1.1942316, 0.06104854, 0.9571376, 0.10862968, 0.27512327, 3.29, 15.585, -1.875)
 material_override = ExtResource("1_1pjik")
 mesh = SubResource("ArrayMesh_8k5b3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MediumBolts/MediumBoltMid" unique_id=727391951]
+[node name="StaticBody3D" type="StaticBody3D" parent="MediumBolts/MediumBoltRight" unique_id=727391951]
 collision_layer = 0
 collision_mask = 0
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumBolts/MediumBoltMid/StaticBody3D" unique_id=45897608]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumBolts/MediumBoltRight/StaticBody3D" unique_id=45897608]
 shape = SubResource("ConcavePolygonShape3D_k6gyo")
 metadata/_edit_lock_ = true
 
-[node name="MediumBoltRight" type="MeshInstance3D" parent="MediumBolts" unique_id=513013125]
-transform = Transform3D(-0.35923764, 0.16037235, -0.8647129, 0.13774441, 0.93280333, 0.11577584, 0.868605, -0.08159826, -0.37598786, -0.075, -7.595, -1.52)
+[node name="MediumBoltMid" type="MeshInstance3D" parent="MediumBolts" unique_id=513013125]
+transform = Transform3D(-0.3263081, 0.12087876, -0.8839748, 0.12388432, 0.93826133, 0.082571864, 0.8835585, -0.08691237, -0.33803925, 0.13226253, -7.873593, -1.52)
 material_override = ExtResource("1_1pjik")
 mesh = SubResource("ArrayMesh_8k5b3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MediumBolts/MediumBoltRight" unique_id=1226472267]
+[node name="StaticBody3D" type="StaticBody3D" parent="MediumBolts/MediumBoltMid" unique_id=1226472267]
 collision_layer = 0
 collision_mask = 0
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumBolts/MediumBoltRight/StaticBody3D" unique_id=1530969808]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumBolts/MediumBoltMid/StaticBody3D" unique_id=1530969808]
 transform = Transform3D(0.9999999, 0.0001801603, 0.00038710237, -0.00018037327, 0.9999998, 0.0005074632, -0.00038701296, -0.00050753885, 0.99999976, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_k6gyo")
 metadata/_edit_lock_ = true
 
 [node name="MediumBoltLeft" type="MeshInstance3D" parent="MediumBolts" unique_id=1131825426]
-transform = Transform3D(0.5154217, -0.10824266, -0.7543368, -0.007940227, 0.90985996, -0.13598464, -0.7620219, -0.08269461, -0.5088066, -1.16, -5.37, -0.26)
+transform = Transform3D(0.5191286, -0.2005614, -0.7325849, -0.00916138, 0.885629, -0.24895263, -0.7594877, -0.14777166, -0.4977369, -0.093732, -5.37, 0.08585715)
 material_override = ExtResource("1_1pjik")
 mesh = SubResource("ArrayMesh_8k5b3")
 
@@ -267,8 +278,7 @@ shape = SubResource("ConcavePolygonShape3D_k6gyo")
 metadata/_edit_lock_ = true
 
 [node name="LargeBolt" type="MeshInstance3D" parent="." unique_id=2054106986]
-transform = Transform3D(0.96889853, -0.22510128, -0.102791965, 0.22665006, 0.9739704, 0.0034906536, 0.099330544, -0.026679872, 0.9946974, 0.335, -2.225, -0.65)
-visible = false
+transform = Transform3D(0.8124237, -0.08792406, -0.5764011, 0.11493091, 0.9933186, 0.01047179, 0.571629, -0.074753776, 0.8171005, 0.335, -2.225, -0.65)
 material_override = SubResource("ShaderMaterial_qp4dx")
 mesh = SubResource("ArrayMesh_cxk1c")
 
@@ -283,6 +293,7 @@ metadata/_edit_lock_ = true
 
 [node name="Floor2" type="CSGBox3D" parent="." unique_id=455642486]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
+visible = false
 use_collision = true
 collision_layer = 16
 collision_mask = 0

@@ -46,7 +46,7 @@ void fragment() {
 	vec4 gradient_sample = texture(color_gradient, vec2(t));
 
 	ALBEDO = gradient_sample.rgb;
-	
+
 	float segment1 = (1. - step(0.25, UV.y)) * step(0.02, fract(current_lifetime));
 	float segment2 = (1. - step(0.5, UV.y)) * step(0.1, fract(current_lifetime));
 	float segment3 = step(0.16, fract(current_lifetime));
