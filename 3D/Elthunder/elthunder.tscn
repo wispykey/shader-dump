@@ -6,6 +6,8 @@
 [ext_resource type="Shader" uid="uid://ml3nuusq8l4d" path="res://3D/Elthunder/elthunder_large_bolt.gdshader" id="3_tdwcd"]
 [ext_resource type="Texture2D" uid="uid://bgbrnu170d1id" path="res://3D/Elthunder/spark_05_mids_raised.png" id="5_65iy1"]
 [ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="7_65iy1"]
+[ext_resource type="Shader" uid="uid://bgb3dc533iawa" path="res://3D/Elthunder/lelu_decal_elthunder.gdshader" id="7_qp4dx"]
+[ext_resource type="Texture2D" uid="uid://dn7f0fqmjgi40" path="res://3D/Elthunder/T_VFX_hit22.jpg" id="8_fy066"]
 
 [sub_resource type="Animation" id="Animation_jcc40"]
 tracks/0/type = "value"
@@ -109,6 +111,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(0.5946034, 1),
 "update": 0,
 "values": [PackedColorArray(2.6034334, 0.94330215, 0, 1, 2.6034334, 1.585615, 0, 1, 2.8157141, 2.5916271, 0, 1, 1.8984075, 1.8984075, 0.64950466, 1), PackedColorArray(1, 1, 1, 0, 1.2237577, 1.2237577, 1.2237577, 0, 1.1755697, 1.1755697, 1.1755697, 0, 1.0845727, 1.0845727, 1.0845727, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Decal:material_override:shader_parameter/fade_power")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.23333333, 0.56666666, 1.0333333),
+"transitions": PackedFloat32Array(0, 1, 0.5358867, 0.5176325, 1),
+"update": 0,
+"values": [0.0, 0.0, 3.0, 2.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ax67"]
@@ -216,6 +230,34 @@ background_mode = 2
 sky = SubResource("Sky_vipss")
 glow_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_i0hpu"]
+offsets = PackedFloat32Array(0.34848484, 0.75151515)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qf1l1"]
+gradient = SubResource("Gradient_i0hpu")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6cps"]
+render_priority = 0
+shader = ExtResource("7_qp4dx")
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/Albedo = ExtResource("8_fy066")
+shader_parameter/Emission = SubResource("GradientTexture2D_qf1l1")
+shader_parameter/Albedo_Mix = 1.1
+shader_parameter/Emission_Energy = 1.0
+shader_parameter/Modulate = Color(5.471667, 5.471667, 2.7804918, 1)
+shader_parameter/Modulate_Emission = Color(1, 1, 1, 1)
+shader_parameter/cube_half_size = 0.5
+shader_parameter/enable_y_fade = true
+shader_parameter/fade_start = 0.5
+shader_parameter/fade_end = 0.51
+shader_parameter/fade_power = 2.9724243208765984
+
+[sub_resource type="BoxMesh" id="BoxMesh_gkn5c"]
+
 [node name="Elthunder" type="Node3D" unique_id=680647525]
 script = ExtResource("1_4ax67")
 screen_flash_scene = ExtResource("3_jcc40")
@@ -233,6 +275,7 @@ monitoring = false
 shape = SubResource("SphereShape3D_jcc40")
 
 [node name="MediumBolts" type="Node3D" parent="." unique_id=585509651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4426961)
 
 [node name="MediumBoltRight" type="MeshInstance3D" parent="MediumBolts" unique_id=942855872]
 transform = Transform3D(0.27932715, -0.04483684, -0.9594687, 0.076575935, -1.1942316, 0.06104854, 0.9571376, 0.10862968, 0.27512327, 3.29, 15.585, -1.875)
@@ -278,7 +321,7 @@ shape = SubResource("ConcavePolygonShape3D_k6gyo")
 metadata/_edit_lock_ = true
 
 [node name="LargeBolt" type="MeshInstance3D" parent="." unique_id=2054106986]
-transform = Transform3D(0.8124237, -0.08792406, -0.5764011, 0.11493091, 0.9933186, 0.01047179, 0.571629, -0.074753776, 0.8171005, 0.335, -2.225, -0.65)
+transform = Transform3D(0.8124237, -0.08792406, -0.5764011, 0.11493091, 0.9933186, 0.01047179, 0.571629, -0.074753776, 0.8171005, 0.335, -2.225, -0.207304)
 material_override = SubResource("ShaderMaterial_qp4dx")
 mesh = SubResource("ArrayMesh_cxk1c")
 
@@ -293,7 +336,6 @@ metadata/_edit_lock_ = true
 
 [node name="Floor2" type="CSGBox3D" parent="." unique_id=455642486]
 transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
-visible = false
 use_collision = true
 collision_layer = 16
 collision_mask = 0
@@ -306,3 +348,8 @@ environment = SubResource("Environment_i0hpu")
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=908260966]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Decal" type="MeshInstance3D" parent="." unique_id=1287089249]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -0.22677195, 0, -0.29336238)
+material_override = SubResource("ShaderMaterial_h6cps")
+mesh = SubResource("BoxMesh_gkn5c")
