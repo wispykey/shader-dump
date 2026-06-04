@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var screen_flash_scene: PackedScene
+@export var sparks_scene: PackedScene
 
 func _ready() -> void:
 	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
@@ -15,4 +16,8 @@ func call_screen_flash():
 	#add_child(screen_flash_scene.instantiate())
 	pass
 	
+	
+func spawn_sparks():
+	#add_child(sparks_scene.instantiate())
+	pass
 	

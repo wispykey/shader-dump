@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://duyo7aipov53i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i667s"]
+render_priority = 1
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(8.710439, 7.4863234, 4.390033, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_l1h41"]
+_data = [Vector2(0, 0.011170268), 0.0, 0.0, 0, 0, Vector2(0.2178478, 0.0005091429), 0.0, 0.0, 0, 0, Vector2(0.4332425, 0), -0.002363767, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w2i3b"]
+curve = SubResource("Curve_l1h41")
+
+[sub_resource type="Curve" id="Curve_dbn7j"]
+_data = [Vector2(0, 0.98684216), 0.0, -3.4754999, 0, 0, Vector2(0.38903394, 0), 0.0, 0.0, 0, 0, Vector2(0.6684073, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_i667s"]
+curve = SubResource("Curve_dbn7j")
+
+[sub_resource type="Curve" id="Curve_i667s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.08991825, 1), 0.0, 0.0, 0, 0, Vector2(0.46049047, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m8g47"]
+curve = SubResource("Curve_i667s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m8g47"]
+lifetime_randomness = 0.54
+particle_flag_align_y = true
+emission_shape_offset = Vector3(0, 1, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -134.99998
+angle_max = 135.00002
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+radial_velocity_curve = SubResource("CurveTexture_i667s")
+gravity = Vector3(0, -80, 0)
+scale_min = 0.14999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_m8g47")
+alpha_curve = SubResource("CurveTexture_w2i3b")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.009999977
+collision_mode = 1
+collision_friction = 0.8
+collision_bounce = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_04r48"]
+radius = 0.2
+
+[node name="LightningSparks" type="Node3D" unique_id=690520521]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=862576586]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000001, 0, -0.795, 0)
+material_override = SubResource("StandardMaterial3D_i667s")
+amount = 25
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_m8g47")
+draw_pass_1 = SubResource("CapsuleMesh_04r48")

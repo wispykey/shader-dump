@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://u7diodabeddh" path="res://3D/Elthunder/elthunder_material.tres" id="1_1pjik"]
 [ext_resource type="Script" uid="uid://daphn8ocrypv7" path="res://3D/Elthunder/elthunder.gd" id="1_4ax67"]
+[ext_resource type="PackedScene" uid="uid://duyo7aipov53i" path="res://3D/Elthunder/lightning_sparks.tscn" id="3_fy066"]
 [ext_resource type="PackedScene" uid="uid://bhymn8wnol2rm" path="res://2D/ScreenFlash/screen_flash.tscn" id="3_jcc40"]
 [ext_resource type="Shader" uid="uid://ml3nuusq8l4d" path="res://3D/Elthunder/elthunder_large_bolt.gdshader" id="3_tdwcd"]
 [ext_resource type="Texture2D" uid="uid://bgbrnu170d1id" path="res://3D/Elthunder/spark_05_mids_raised.png" id="5_65iy1"]
@@ -70,11 +71,14 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.099999994),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.099999994, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"call_screen_flash"
+}, {
+"args": [],
+"method": &"spawn_sparks"
 }]
 }
 tracks/1/type = "value"
@@ -223,6 +227,42 @@ tracks/12/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ColdPulseSphere2:mesh:radius")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.40833333),
+"transitions": PackedFloat32Array(0, 0.45062527, 1),
+"update": 0,
+"values": [0.001, 2.0, 4.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ColdPulseSphere2:mesh:height")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.40833333),
+"transitions": PackedFloat32Array(0, 0.59460354, 1),
+"update": 0,
+"values": [0.001, 4.0, 8.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ColdPulseSphere2:material_override:albedo_color")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.16666667, 0.3, 0.43333334),
+"transitions": PackedFloat32Array(0.16493855, 1, 1),
+"update": 0,
+"values": [Color(0.84, 0.70728004, 0.17639998, 0.06666667), Color(0.84, 0.70728004, 0.17639998, 0.02745098), Color(0.84, 0.70728004, 0.17639998, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ax67"]
 _data = {
@@ -333,8 +373,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qf1l1"]
 gradient = SubResource("Gradient_i0hpu")
 use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6cps"]
 render_priority = 0
@@ -362,9 +400,22 @@ shader_parameter/color = Color(2.4835021, 2.5025156, 1.7324802, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_qf1l1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qf1l1"]
+render_priority = 10
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.84, 0.70728004, 0.17639998, 0.06666666)
+albedo_texture_msdf = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_fqosr"]
+radius = 0.001
+height = 0.001
+
 [node name="Elthunder" type="Node3D" unique_id=680647525]
 script = ExtResource("1_4ax67")
 screen_flash_scene = ExtResource("3_jcc40")
+sparks_scene = ExtResource("3_fy066")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1936558223]
 libraries/ = SubResource("AnimationLibrary_4ax67")
@@ -456,3 +507,9 @@ transform = Transform3D(-1.6722771, -1.2283502, -0.26087338, 0.06848175, -5.1651
 material_override = SubResource("ShaderMaterial_i0hpu")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_qf1l1")
+
+[node name="ColdPulseSphere2" type="MeshInstance3D" parent="." unique_id=1717986532]
+transform = Transform3D(1, 3.7252903e-09, 0, 0, 1, 1.4901161e-08, 0, 0, 0.99999994, 0, 1.4901161e-08, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_qf1l1")
+mesh = SubResource("SphereMesh_fqosr")
