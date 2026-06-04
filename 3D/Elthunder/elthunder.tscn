@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="7_65iy1"]
 [ext_resource type="Shader" uid="uid://bgb3dc533iawa" path="res://3D/Elthunder/lelu_decal_elthunder.gdshader" id="7_qp4dx"]
 [ext_resource type="Texture2D" uid="uid://dn7f0fqmjgi40" path="res://3D/Elthunder/T_VFX_hit22.jpg" id="8_fy066"]
+[ext_resource type="Shader" uid="uid://dmth1sar5yhss" path="res://3D/Elthunder/sphere_projection.gdshader" id="9_qp4dx"]
 
 [sub_resource type="Animation" id="Animation_jcc40"]
 tracks/0/type = "value"
@@ -33,6 +34,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [PackedColorArray(2.6034334, 0.94330215, 0, 1, 2.6034334, 1.585615, 0, 1, 2.8157141, 2.5916271, 0, 1, 1.8984075, 1.8984075, 0.64950466, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LargeBolt:material_override:shader_parameter/color_gradient:gradient:colors")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(5.912981, 1.5871515, 0, 0.5172074, 5.912981, 1.9420913, 0, 0.5172074, 10.5787325, 10.5787325, 10.5787325, 0.5172074)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoltHead:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.7207943, 6.8019857, 1.7207943)]
 }
 
 [sub_resource type="Animation" id="Animation_1pjik"]
@@ -119,10 +144,84 @@ tracks/6/path = NodePath("Decal:material_override:shader_parameter/fade_power")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.23333333, 0.56666666, 1.0333333),
-"transitions": PackedFloat32Array(0, 1, 0.5358867, 0.5176325, 1),
+"times": PackedFloat32Array(0, 0.16666667, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(0, 1, 0.7578582, 1),
 "update": 0,
-"values": [0.0, 0.0, 3.0, 2.0, 0.0]
+"values": [0.0, 0.0, 2.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LargeBolt:material_override:shader_parameter/color_gradient:gradient:colors")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.26666668, 0.33333334, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 0, 1),
+"update": 0,
+"values": [PackedColorArray(5.912981, 1.5871515, 0, 1, 5.912981, 1.9420913, 0, 1, 10.5787325, 10.5787325, 10.5787325, 1), PackedColorArray(5.912981, 1.5871515, 0, 1, 5.912981, 1.9420913, 0, 1, 10.5787325, 10.5787325, 10.5787325, 1), PackedColorArray(5.912981, 1.5871515, 0, 0.5172074, 5.912981, 1.9420913, 0, 0.5172074, 10.5787325, 10.5787325, 10.5787325, 0.5172074), PackedColorArray(5.912981, 1.5871515, 0, 0, 5.912981, 1.9420913, 0, 0, 10.5787325, 10.5787325, 10.5787325, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LargeBolt:material_override:shader_parameter/alpha_cutoff_threshold")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.2, 0.23333333, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 3.1383357, 1),
+"update": 0,
+"values": [0.02, 0.02, 0.02, 0.02, 0.06]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BoltHead:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 0.16666667, 0.20869505, 0.23333333),
+"transitions": PackedFloat32Array(1, 0, -230.72049, -230.72049, -230.72049),
+"update": 0,
+"values": [Vector3(-1.36, 17.386, -2.087), Vector3(-0.52, 7.321, -1.817), Vector3(0.38, 4.886, 0.003), Vector3(0.38, 4.886, 0.003), Vector3(0.38, 2.341, 0.003)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BoltHead:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 0.16666667, 0.20869505, 0.23333333),
+"transitions": PackedFloat32Array(1, 0, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.70685834, -0.20071286, -3.1939526), Vector3(-0.5235988, 1.1239921, -3.3510323), Vector3(-0.02617994, -0.23561946, -3.2183871), Vector3(-0.02617994, -0.23561946, -3.2183871), Vector3(-0.02617994, -0.23561946, -3.2183871)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BoltHead:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.033333335, 0.1, 0.16666667, 0.2, 0.23333333),
+"transitions": PackedFloat32Array(1, 0, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 5, 1), Vector3(1.721, 10, 1.721), Vector3(6, 10, 6), Vector3(3, 10, 3), Vector3(6, 5, 6)]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BoltHead")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ax67"]
@@ -171,7 +270,7 @@ data = PackedVector3Array(-0.6544511, 7.7200217, -1.1653694, 0.27088672, 8.41113
 
 [sub_resource type="Gradient" id="Gradient_xldwv"]
 offsets = PackedFloat32Array(0, 0.3212121, 1)
-colors = PackedColorArray(5.912981, 1.5871515, 0, 1, 5.912981, 1.9420913, 0, 1, 10.5787325, 10.5787325, 10.5787325, 1)
+colors = PackedColorArray(5.912981, 1.5871515, 0, 0.5172074, 5.912981, 1.9420913, 0, 0.5172074, 10.5787325, 10.5787325, 10.5787325, 0.5172074)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tdwcd"]
 gradient = SubResource("Gradient_xldwv")
@@ -206,9 +305,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ban1r")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcc40"]
-albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fy066"]
 shader = ExtResource("7_65iy1")
@@ -254,9 +350,17 @@ shader_parameter/cube_half_size = 0.5
 shader_parameter/enable_y_fade = true
 shader_parameter/fade_start = 0.5
 shader_parameter/fade_end = 0.51
-shader_parameter/fade_power = 2.0983915
+shader_parameter/fade_power = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_gkn5c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0hpu"]
+render_priority = 5
+shader = ExtResource("9_qp4dx")
+shader_parameter/tex = ExtResource("8_fy066")
+shader_parameter/color = Color(2.4835021, 2.5025156, 1.7324802, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qf1l1"]
 
 [node name="Elthunder" type="Node3D" unique_id=680647525]
 script = ExtResource("1_4ax67")
@@ -270,6 +374,7 @@ autoplay = &"init"
 collision_layer = 2
 collision_mask = 0
 monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=728928251]
 shape = SubResource("SphereShape3D_jcc40")
@@ -334,14 +439,6 @@ metadata/_edit_lock_ = true
 shape = SubResource("ConcavePolygonShape3D_k6gyo")
 metadata/_edit_lock_ = true
 
-[node name="Floor2" type="CSGBox3D" parent="." unique_id=455642486]
-transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
-use_collision = true
-collision_layer = 16
-collision_mask = 0
-size = Vector3(100, 1, 100)
-material = SubResource("StandardMaterial3D_jcc40")
-
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=311453137]
 environment = SubResource("Environment_i0hpu")
 
@@ -353,3 +450,9 @@ shadow_enabled = true
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -0.22677195, 0, -0.29336238)
 material_override = SubResource("ShaderMaterial_h6cps")
 mesh = SubResource("BoxMesh_gkn5c")
+
+[node name="BoltHead" type="MeshInstance3D" parent="." unique_id=571388094]
+transform = Transform3D(-1.6722771, -1.2283502, -0.26087338, 0.06848175, -5.165182, 1.1175665, -0.39991578, 4.251948, 1.2822336, -1.36, 17.386, -2.087)
+material_override = SubResource("ShaderMaterial_i0hpu")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_qf1l1")

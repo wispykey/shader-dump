@@ -27,10 +27,12 @@ void vertex() {
 	float base_multiplier = 1.5 * 1.6;
 	float step1 = step(0.15, fract(current_lifetime)) * .6;
 	float step2 = step(0.25, fract(current_lifetime)) * .3;
+	float step3 = step(0.2, fract(current_lifetime)) * 3.2;
+	float step4 = step(0.2, fract(current_lifetime)) * -2.5;
 	//float flip = mix(-1., 1., step(current_lifetime, 0.5)) * floor(sin(TIME * flip_speed * 32.)) + ceil(sin(TIME * flip_speed * 32.));
 	float flip = 1.;
 
-	float total_multiplier = flip * (base_multiplier - step1 - step2);
+	float total_multiplier = flip * (base_multiplier - step1 - step2 - step3 - step4);
 	VERTEX.x *= total_multiplier * 1.5 * (1. - pow(UV.y, 2));
 	VERTEX.z *= total_multiplier * 1.5 * (1. -  pow(UV.y, 2));
 	VERTEX.y *= base_multiplier;

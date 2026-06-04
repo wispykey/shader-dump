@@ -54,7 +54,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1044718296]
-transform = Transform3D(0.99999815, 0.0016169095, -0.0010314098, -0.0016160911, 0.9999984, 0.0007979993, 0.0010326918, -0.0007963396, 0.99999917, 0.01732254, -0.4621582, -0.010160446)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01732254, -0.4621582, -0.010160446)
 use_collision = true
 collision_layer = 16
 collision_mask = 0
