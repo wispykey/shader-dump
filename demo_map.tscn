@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3D/SoulFreeze/soul_freeze.tscn" id="11_7gilj"]
 [ext_resource type="PackedScene" uid="uid://b4basvojj1a5q" path="res://3D/LeLu/FullScreen/full_screen_exhibit.tscn" id="12_tqj63"]
 [ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3D/Elthunder/elthunder.tscn" id="13_7ho6d"]
+[ext_resource type="PackedScene" uid="uid://bphcglb2qcwhk" path="res://Fireball (LeLu)/fireball_le_lu.tscn" id="14_3epoi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gilj"]
 shader = ExtResource("5_i1pmm")
@@ -96,5 +97,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.924337, 0, -5.512579)
 
 [node name="FullScreenExhibit" parent="." unique_id=1429498005 instance=ExtResource("12_tqj63")]
 transform = Transform3D(0.5714437, 0, 1.9166251, 0, 2, 0, -1.9166251, 0, 0.5714437, -8.670925, 0.061297335, -7.249134)
+
+[node name="FireballLeLu" parent="." unique_id=1386186370 instance=ExtResource("14_3epoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.408801, 1.1671159, -10.861657)
 
 [editable path="SkillShowcase/Earth"]

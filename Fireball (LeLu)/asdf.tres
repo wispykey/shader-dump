@@ -1,0 +1,64 @@
+[gd_resource type="VisualShader" format=3 uid="uid://dasc4gri1mwhy"]
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_37dhh"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_37dhh"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_37dhh"]
+parameter_name = "ColorParameter"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_0l3hf"]
+parameter_name = "Noise"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_asra3"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_0l3hf"]
+function = 5
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_asra3"]
+constant = Color(2, 1.3, 0.6, 1)
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_i6t17"]
+parameter_name = "Subtraction"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6x2mu"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_biepf"]
+
+[sub_resource type="VisualShaderNodeColorFunc" id="VisualShaderNodeColorFunc_katws"]
+function = 5
+
+[resource]
+modes/cull = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/ambient_light_disabled = true
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorConstant_biepf")
+nodes/vertex/2/position = Vector2(-560, 300)
+nodes/vertex/3/node = SubResource("VisualShaderNodeColorFunc_katws")
+nodes/vertex/3/position = Vector2(-260, 320)
+nodes/vertex/connections = PackedInt32Array(2, 0, 3, 0)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_37dhh")
+nodes/fragment/2/position = Vector2(-355.1089, 292.589)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_0l3hf")
+nodes/fragment/3/position = Vector2(-780, 620)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_asra3")
+nodes/fragment/4/position = Vector2(-340, 620)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorFunc_0l3hf")
+nodes/fragment/5/position = Vector2(-620, 140)
+nodes/fragment/6/node = SubResource("VisualShaderNodeColorConstant_asra3")
+nodes/fragment/6/position = Vector2(-840, 140)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_i6t17")
+nodes/fragment/7/position = Vector2(-1237.7983, 731.0785)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_6x2mu")
+nodes/fragment/8/position = Vector2(-775.64044, 1009.3164)
+nodes/fragment/10/node = SubResource("VisualShaderNodeClamp_37dhh")
+nodes/fragment/10/position = Vector2(160, 780)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_37dhh")
+nodes/fragment/11/position = Vector2(-61.8574, 1014.6487)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 2, 6, 0, 5, 0, 7, 0, 8, 2, 10, 0, 0, 1, 4, 1, 11, 0, 11, 0, 10, 0, 8, 1, 11, 1, 2, 0, 0, 0)
