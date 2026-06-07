@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b4basvojj1a5q" path="res://3D/LeLu/FullScreen/full_screen_exhibit.tscn" id="12_tqj63"]
 [ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3D/Elthunder/elthunder.tscn" id="13_7ho6d"]
 [ext_resource type="PackedScene" uid="uid://bphcglb2qcwhk" path="res://Fireball (LeLu)/fireball_le_lu.tscn" id="14_3epoi"]
+[ext_resource type="PackedScene" uid="uid://dq0ib4li3i04" path="res://book.tscn" id="15_aqgly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gilj"]
 shader = ExtResource("5_i1pmm")
@@ -42,7 +43,6 @@ albedo_color = Color(0.12225223, 0.12225223, 0.12225223, 1)
 script = ExtResource("1_yjjny")
 skill_loadout = Array[PackedScene]([ExtResource("4_ywkik"), ExtResource("9_vipss"), ExtResource("11_7gilj"), ExtResource("13_7ho6d"), ExtResource("3_xis5h")])
 pot = ExtResource("6_yjjny")
-auto_spawning_skills = true
 periodic_spawn_skill_index = 3
 subsequent_skill_spawn_time_interval = 1.3
 pots_respawn_interval = 10.0
@@ -69,6 +69,9 @@ collision_mask = 48
 [node name="MagicCircle" parent="ProtoController" unique_id=198085887 instance=ExtResource("8_n3c11")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 cast_rotation_speed_increase_per_frame = 0.835
+
+[node name="Book" parent="ProtoController" unique_id=179891422 instance=ExtResource("15_aqgly")]
+transform = Transform3D(0.5004138, 0.08560989, 0.04781214, -0.06454839, 0.4330977, -0.16128501, -0.08815955, 0.1688371, 0.38948172, -1.1192112, 0.44372547, -2.3568234)
 
 [node name="SkillAutoSpawner" type="Timer" parent="." unique_id=2063127331]
 one_shot = true
