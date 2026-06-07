@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://gtao0dxl56gh"]
+
+[ext_resource type="Shader" uid="uid://4a5if2jdpjb3" path="res://3D/SpiritFireBrand/spirit_fire_dots.gdshader" id="1_8bph8"]
+[ext_resource type="CompressedTexture2DArray" uid="uid://bqswhffxleuxj" path="res://3D/SpiritFireBrand/SpiritFireBrand_Dots_00.png" id="2_ti3w0"]
+
+[sub_resource type="Gradient" id="Gradient_knqxd"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.19546743, 0.509915)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.63529414, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d6my6"]
+gradient = SubResource("Gradient_knqxd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bph8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.2716998, 0, 0.30353206, 1)
+albedo_texture = SubResource("GradientTexture2D_d6my6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ti3w0"]
+
+[sub_resource type="Gradient" id="Gradient_yytpf"]
+colors = PackedColorArray(0, 1.7543014, 1.8984075, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3i5ll"]
+gradient = SubResource("Gradient_yytpf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3pwlp"]
+render_priority = 0
+shader = ExtResource("1_8bph8")
+shader_parameter/particle_texture = ExtResource("2_ti3w0")
+shader_parameter/gradient = SubResource("GradientTexture1D_3i5ll")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ybvwf"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mg77f"]
+
+[sub_resource type="Gradient" id="Gradient_nf523"]
+offsets = PackedFloat32Array(0.036827195, 0.26062322)
+colors = PackedColorArray(3.5629182, 3.5629182, 3.5629182, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k773a"]
+gradient = SubResource("Gradient_nf523")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_424q6"]
+render_priority = 1
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.74608815, 1.4954206, 1.4954206, 1)
+albedo_texture = SubResource("GradientTexture2D_k773a")
+
+[sub_resource type="Curve" id="Curve_8bph8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4904632, 0.44680846), 0.0, 0.0, 0, 0, Vector2(1, 0.15638292), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ti3w0"]
+curve = SubResource("Curve_8bph8")
+
+[sub_resource type="Gradient" id="Gradient_8bph8"]
+offsets = PackedFloat32Array(0, 0.21407625, 0.40762463, 0.6099707, 0.8005865, 1)
+colors = PackedColorArray(0.916, 1.825, 1.825, 1, 0.44165248, 0.46485072, 1.3219208, 1, 0.91624427, 0.5662589, 1.8248181, 1, 0.91627353, 0.41551143, 1.8247963, 1, 0.50636953, 0.47867912, 1.3904977, 1, 0.9161036, 1.2912292, 1.8249229, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ti3w0"]
+gradient = SubResource("Gradient_8bph8")
+
+[sub_resource type="Curve" id="Curve_ti3w0"]
+_data = [Vector2(0, 0.7856382), 0.0, 0.0, 0, 0, Vector2(0.22615805, 0.87553185), 0.0, 0.0, 0, 0, Vector2(0.4523161, 0.7510638), 0.0, 0.0, 0, 0, Vector2(0.6539509, 0.8202127), 0.0, 0.0, 0, 0, Vector2(0.8501362, 0.737234), 0.0, 0.0, 0, 0, Vector2(1, 0.88244677), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_yytpf"]
+curve = SubResource("Curve_ti3w0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xnx22"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_yytpf")
+color_ramp = SubResource("GradientTexture1D_ti3w0")
+alpha_curve = SubResource("CurveTexture_ti3w0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x7vrk"]
+
+[node name="SpiritFire" type="Node3D" unique_id=220647144]
+
+[node name="DarkGlow" type="MeshInstance3D" parent="." unique_id=1119292656]
+material_override = SubResource("StandardMaterial3D_8bph8")
+mesh = SubResource("QuadMesh_ti3w0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1203349695]
+visible = false
+material_override = SubResource("ShaderMaterial_3pwlp")
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_ybvwf")
+draw_pass_1 = SubResource("QuadMesh_mg77f")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=464172864]
+material_override = SubResource("StandardMaterial3D_424q6")
+amount = 4
+lifetime = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_xnx22")
+draw_pass_1 = SubResource("QuadMesh_x7vrk")

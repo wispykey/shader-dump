@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3D/MagicCircle/magic_circle.tscn" id="8_n3c11"]
 [ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="9_vipss"]
 [ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3D/SoulFreeze/soul_freeze.tscn" id="11_7gilj"]
+[ext_resource type="PackedScene" uid="uid://gtao0dxl56gh" path="res://3D/SpiritFireBrand/SpiritFire.tscn" id="12_0g4bf"]
 [ext_resource type="PackedScene" uid="uid://b4basvojj1a5q" path="res://3D/LeLu/FullScreen/full_screen_exhibit.tscn" id="12_tqj63"]
 [ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3D/Elthunder/elthunder.tscn" id="13_7ho6d"]
 [ext_resource type="PackedScene" uid="uid://bphcglb2qcwhk" path="res://Fireball (LeLu)/fireball_le_lu.tscn" id="14_3epoi"]
@@ -72,6 +73,9 @@ cast_rotation_speed_increase_per_frame = 0.835
 
 [node name="Book" parent="ProtoController" unique_id=179891422 instance=ExtResource("15_aqgly")]
 transform = Transform3D(0.5004138, 0.08560989, 0.04781214, -0.06454839, 0.4330977, -0.16128501, -0.08815955, 0.1688371, 0.38948172, -1.1192112, 0.44372547, -2.3568234)
+
+[node name="SpiritFire" parent="ProtoController" unique_id=220647144 instance=ExtResource("12_0g4bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81782013, 0.5378418, -2.1698031)
 
 [node name="SkillAutoSpawner" type="Timer" parent="." unique_id=2063127331]
 one_shot = true
