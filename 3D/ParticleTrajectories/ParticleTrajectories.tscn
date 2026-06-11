@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://du2asqptne6yy"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_j70y4"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="2_0ianp"]
+[ext_resource type="Texture2D" uid="uid://cer5q0hgrmhto" path="res://3D/ParticleTrajectories/Up_Arrow.png" id="3_d1oew"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv3fo"]
+albedo_color = Color(0.5931336, 0.59313357, 0.5931336, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1oew"]
+shader = ExtResource("2_0ianp")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 1
+
+[sub_resource type="Sky" id="Sky_7ho6d"]
+sky_material = SubResource("ShaderMaterial_d1oew")
+
+[sub_resource type="Environment" id="Environment_q62l0"]
+background_mode = 2
+sky = SubResource("Sky_7ho6d")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ianp"]
+shading_mode = 0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ianp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_d1oew"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q62l0"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_d1oew")
+
+[sub_resource type="Curve" id="Curve_jkq1w"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -0.009574413), 0.0, 0.0, 0, 0, Vector2(0.15258855, -0.009574413), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cycj6"]
+curve = SubResource("Curve_jkq1w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d1oew"]
+particle_flag_rotate_y = true
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+angular_velocity_min = 499.99997
+angular_velocity_max = 899.99994
+angular_velocity_curve = SubResource("CurveTexture_cycj6")
+gravity = Vector3(0, 1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q62l0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1oew"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_d1oew")
+use_particle_trails = true
+
+[sub_resource type="Curve" id="Curve_d1oew"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_q62l0"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_n5oa3"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jkq1w"]
+curve_x = SubResource("Curve_d1oew")
+curve_y = SubResource("Curve_q62l0")
+curve_z = SubResource("Curve_n5oa3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q62l0"]
+particle_flag_align_y = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.1
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 5, 0)
+spread = 0.0
+orbit_velocity_min = 0.5000001
+orbit_velocity_max = 0.5000001
+orbit_velocity_curve = SubResource("CurveXYZTexture_jkq1w")
+gravity = Vector3(0, 1, 0)
+linear_accel_min = 1.9999977
+linear_accel_max = 1.9999977
+tangential_accel_min = 3.9999976
+tangential_accel_max = 49.999996
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_d1oew"]
+shape = 0
+
+[node name="ParticleTrajectories" type="Node3D" unique_id=1325924089]
+
+[node name="ProtoController" parent="." unique_id=2018465170 instance=ExtResource("1_j70y4")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=407110344]
+transform = Transform3D(34.447544, 0, 0, 0, 1, 0, 0, 0, 6.4261093, 0, 0, 0)
+use_collision = true
+size = Vector3(1, 1, 5.022217)
+material = SubResource("StandardMaterial3D_jv3fo")
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=1937803991]
+environment = SubResource("Environment_q62l0")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=819970160]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Particles" type="Node3D" parent="." unique_id=705136141]
+
+[node name="DefaultQuad" type="GPUParticles3D" parent="Particles" unique_id=1243205772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.680307, 3.9651499, -8.961241)
+material_override = SubResource("StandardMaterial3D_0ianp")
+process_material = SubResource("ParticleProcessMaterial_0ianp")
+draw_pass_1 = SubResource("QuadMesh_d1oew")
+
+[node name="AngularAccelerationRotateY" type="GPUParticles3D" parent="Particles" unique_id=1348488539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8856368, -8.65786)
+material_override = SubResource("StandardMaterial3D_q62l0")
+cast_shadow = 0
+amount = 20
+lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_d1oew")
+draw_pass_1 = SubResource("QuadMesh_q62l0")
+
+[node name="WindWispTrails" type="GPUParticles3D" parent="Particles" unique_id=1135681172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.924159, 3.343917, -9.6500845)
+material_override = SubResource("StandardMaterial3D_d1oew")
+amount = 5
+lifetime = 8.0
+trail_enabled = true
+trail_lifetime = 1.6500000000000001
+process_material = SubResource("ParticleProcessMaterial_q62l0")
+draw_passes = 2
+draw_pass_1 = SubResource("RibbonTrailMesh_d1oew")
+draw_pass_2 = null

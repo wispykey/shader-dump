@@ -29,12 +29,12 @@ shader_parameter/layer_scale = 20.0
 shader_parameter/layer_scale_step = 10.0
 shader_parameter/layers_count = 1
 
-[sub_resource type="Sky" id="Sky_7ho6d"]
+[sub_resource type="Sky" id="Sky_0g4bf"]
 sky_material = SubResource("ShaderMaterial_7gilj")
 
 [sub_resource type="Environment" id="Environment_xis5h"]
 background_mode = 2
-sky = SubResource("Sky_7ho6d")
+sky = SubResource("Sky_0g4bf")
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofcdo"]
