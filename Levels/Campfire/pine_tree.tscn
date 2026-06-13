@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://copatq6msjvqq"]
+
+[ext_resource type="PackedScene" uid="uid://0g2trcchoj05" path="res://Levels/Campfire/sm_pine_tree.glb" id="1_m7p82"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frons"]
+albedo_color = Color(0, 0.7313913, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pte31"]
+albedo_color = Color(0.6090358, 0.2303893, 7.70092e-07, 1)
+
+[node name="PineTree" unique_id=1314316725 instance=ExtResource("1_m7p82")]
+
+[node name="foliage" parent="." index="0" unique_id=1594250591]
+material_override = SubResource("StandardMaterial3D_frons")
+
+[node name="trunk" parent="." index="1" unique_id=1781501866]
+material_override = SubResource("StandardMaterial3D_pte31")

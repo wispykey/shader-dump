@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dnnthc87bei7j"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_gk7yw"]
-[ext_resource type="MeshLibrary" uid="uid://bdvp4tiwhlyfn" path="res://Levels/tileset_dungeon.tres" id="2_n1138"]
+[ext_resource type="MeshLibrary" uid="uid://bdvp4tiwhlyfn" path="res://Levels/Dungeon/tileset_dungeon.tres" id="2_n1138"]
 [ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="3_rvcha"]
 
 [sub_resource type="Environment" id="Environment_hbn5l"]

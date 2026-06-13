@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dc14vwfqf3jno"]
+
+[ext_resource type="PackedScene" uid="uid://copatq6msjvqq" path="res://Levels/Campfire/pine_tree.tscn" id="1_1vyra"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_mmue3"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="3_ut61h"]
+[ext_resource type="PackedScene" uid="uid://cki3qt18dg0sx" path="res://3D/LeLu/Fire/fire.tscn" id="4_js6ts"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ut61h"]
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_js6ts"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_js6ts"]
+shader = ExtResource("3_ut61h")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_r852y"]
+sky_material = SubResource("ShaderMaterial_js6ts")
+
+[sub_resource type="Environment" id="Environment_mmue3"]
+background_mode = 2
+sky = SubResource("Sky_r852y")
+glow_enabled = true
+
+[node name="Campfire" type="Node3D" unique_id=687467483]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2110554946]
+mesh = SubResource("PlaneMesh_ut61h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=239800454]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1440011263]
+shape = SubResource("ConcavePolygonShape3D_js6ts")
+
+[node name="ProtoController" parent="MeshInstance3D" unique_id=2018465170 instance=ExtResource("1_mmue3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017076373, 4.7683716e-07, 0.04227352)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D/ProtoController" unique_id=1401040011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017076373, 0.4253831, -0.04227352)
+light_energy = 5.719
+spot_range = 16.407
+
+[node name="Trees" type="Node3D" parent="." unique_id=694618766]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="PineTree" parent="Trees" unique_id=1314316725 instance=ExtResource("1_1vyra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.498572, 2.3841858e-07, 6.0240035)
+
+[node name="PineTree2" parent="Trees" unique_id=1346263470 instance=ExtResource("1_1vyra")]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 4.0644584, 0, -6.290557)
+
+[node name="PineTree3" parent="Trees" unique_id=1929996143 instance=ExtResource("1_1vyra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2351947, 0, 2.7717867)
+
+[node name="PineTree4" parent="Trees" unique_id=396629084 instance=ExtResource("1_1vyra")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -4.2581015, 0, 3.5158634)
+
+[node name="PineTree5" parent="Trees" unique_id=883463622 instance=ExtResource("1_1vyra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0434325, 0, -9.144239)
+
+[node name="PineTree6" parent="Trees" unique_id=502138504 instance=ExtResource("1_1vyra")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -2.0324745, 4.7683716e-07, -2.0970907)
+
+[node name="PineTree7" parent="Trees" unique_id=820143857 instance=ExtResource("1_1vyra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3751826, 0, -4.3279753)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1335413739]
+environment = SubResource("Environment_mmue3")
+
+[node name="FireLeLu" parent="." unique_id=361957385 instance=ExtResource("4_js6ts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06315464, -9.536743e-07, 0.39095783)
