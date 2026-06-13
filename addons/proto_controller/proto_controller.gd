@@ -17,6 +17,15 @@ extends CharacterBody3D
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly: bool = false
 
+@export_group("Skills")
+@export var skill_distance: float = 8.
+@export var skill_loadout: Array[PackedScene] = []
+@export var auto_spawning_skills: bool = false
+@export var periodic_spawn_skill_index = 0
+@export var subsequent_skill_spawn_time_interval = 4.
+
+
+
 @export_group("Speeds")
 ## Look around rotation speed.
 @export var look_speed: float = 0.002
@@ -50,17 +59,19 @@ var look_rotation: Vector2
 var move_speed: float = 0.0
 var freeflying: bool = false
 
-signal skill_used(skill_index: int)
-
-
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var magic_circle: MagicCircle = $MagicCircle
 
 func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	
+	$SkillAutoSpawner.timeout.connect(_on_skill_auto_spawner_timeout)
+	$SkillAutoSpawner.start()
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -83,15 +94,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# Skills
 	if Input.is_action_just_pressed("hotbar_1_skill_1"):
-		skill_used.emit(0)
+		use_skill(0)
 	if Input.is_action_just_pressed("hotbar_1_skill_2"):
-		skill_used.emit(1)
+		use_skill(1)
 	if Input.is_action_just_pressed("hotbar_1_skill_3"):
-		skill_used.emit(2)
+		use_skill(2)
 	if Input.is_action_just_pressed("hotbar_1_skill_4"):
-		skill_used.emit(3)
+		use_skill(3)
 	if Input.is_action_just_pressed("hotbar_1_skill_5"):
-		skill_used.emit(4)
+		use_skill(4)
 		
 
 func _physics_process(delta: float) -> void:
@@ -194,3 +205,52 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+		
+		
+
+func _on_skill_auto_spawner_timeout():
+	if auto_spawning_skills:
+		use_skill(periodic_spawn_skill_index)
+	# Set here because I am impatient and want the first spawn to happen faster
+	# (first spawn is set on Timer node, then subsequent intervals are different)
+	$SkillAutoSpawner.wait_time = subsequent_skill_spawn_time_interval	
+	$SkillAutoSpawner.start()
+	
+
+
+func use_skill(skill_index: int):
+	if skill_index >= len(skill_loadout):
+		print("Skill index out of range")
+		return
+	
+	var skill_inst: Node3D = skill_loadout[skill_index].instantiate()
+
+	var angle = -1 * look_rotation.y
+	var player_facing_dir = Vector3(sin(angle), 0, -cos(angle))
+
+	var offset = player_facing_dir * skill_distance
+	# TODO: How to project onto uneven terrain?
+	var spawn_position = Vector3(position.x, 0., position.z) + offset
+
+	skill_inst.position = spawn_position
+	skill_inst.rotation.y = look_rotation.y
+
+	
+	# Eventually make this a lookup with other per-skill info
+	match skill_index:
+		0:
+			magic_circle.play_cast_finish(Color.SKY_BLUE)
+		1:
+			magic_circle.play_cast_finish(Color.PALE_GREEN)
+		2: 
+			magic_circle.play_cast_finish(Color.POWDER_BLUE)
+			# Should rotation be random?
+		3:
+			magic_circle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
+		4:
+			magic_circle.play_cast_finish(Color.BURLYWOOD)
+		_:
+			magic_circle.play_cast_finish()
+			
+	# WARNING: Depends on parent being the root of a level node
+	owner.add_child(skill_inst)

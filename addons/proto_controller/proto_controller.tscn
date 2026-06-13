@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://iqbq0jj363sw" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="2_ujot4"]
+[ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3D/MagicCircle/magic_circle.tscn" id="2_wr06p"]
+[ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="3_1tksx"]
+[ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3D/SoulFreeze/soul_freeze.tscn" id="4_ths8c"]
+[ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3D/Elthunder/elthunder.tscn" id="5_x436g"]
+[ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3D/LeLu/Earth/earth.tscn" id="6_q1ipm"]
+[ext_resource type="PackedScene" uid="uid://dq0ib4li3i04" path="res://book.tscn" id="8_1tksx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -14,7 +21,10 @@ radius = 0.4
 height = 1.8
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=2018465170]
+collision_layer = 0
+collision_mask = 48
 script = ExtResource("1_ucva2")
+skill_loadout = Array[PackedScene]([ExtResource("2_ujot4"), ExtResource("3_1tksx"), ExtResource("4_ths8c"), ExtResource("5_x436g"), ExtResource("6_q1ipm")])
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1800948656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -30,3 +40,12 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1880452834]
+
+[node name="SkillAutoSpawner" type="Timer" parent="." unique_id=132442263]
+one_shot = true
+
+[node name="MagicCircle" parent="." unique_id=198085887 instance=ExtResource("2_wr06p")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Book" parent="." unique_id=179891422 instance=ExtResource("8_1tksx")]
+transform = Transform3D(0.5004138, 0.08560989, 0.04781214, -0.06454839, 0.4330977, -0.16128501, -0.08815955, 0.1688371, 0.38948172, -1.1192112, 0.44372547, -2.3568234)
