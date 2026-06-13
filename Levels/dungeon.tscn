@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dnnthc87bei7j"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_vja0m"]
-[ext_resource type="MeshLibrary" uid="uid://bdvp4tiwhlyfn" path="res://Levels/tileset_dungeon.tres" id="2_hbn5l"]
-[ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="3_vx7tg"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_gk7yw"]
+[ext_resource type="MeshLibrary" uid="uid://bdvp4tiwhlyfn" path="res://Levels/tileset_dungeon.tres" id="2_n1138"]
+[ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="3_rvcha"]
 
 [sub_resource type="Environment" id="Environment_hbn5l"]
 ambient_light_color = Color(1, 0.92941177, 0.8117647, 1)
@@ -12,9 +12,9 @@ fog_light_color = Color(1, 0.92941177, 0.8117647, 1)
 fog_light_energy = 0.02
 fog_density = 0.1
 
-[node name="Temple" type="Node3D" unique_id=1885469918]
+[node name="Dungeon" type="Node3D" unique_id=1885469918]
 
-[node name="ProtoController" parent="." unique_id=2018465170 instance=ExtResource("1_vja0m")]
+[node name="ProtoController" parent="." unique_id=2018465170 instance=ExtResource("1_gk7yw")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="ProtoController" unique_id=1508453390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2765268, 0.32238013)
@@ -26,7 +26,7 @@ spot_angle = 74.87
 
 [node name="GridMap" type="GridMap" parent="." unique_id=929019994]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-mesh_library = ExtResource("2_hbn5l")
+mesh_library = ExtResource("2_n1138")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 collision_layer = 16
@@ -40,11 +40,29 @@ environment = SubResource("Environment_hbn5l")
 
 [node name="Pots" type="Node3D" parent="." unique_id=1991643052]
 
-[node name="Pot" parent="Pots" unique_id=403097360 instance=ExtResource("3_vx7tg")]
+[node name="Pot" parent="Pots" unique_id=403097360 instance=ExtResource("3_rvcha")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.383609, 0, -10.184721)
 
-[node name="Pot2" parent="Pots" unique_id=455381597 instance=ExtResource("3_vx7tg")]
+[node name="Pot2" parent="Pots" unique_id=455381597 instance=ExtResource("3_rvcha")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.8696752, 0, -9.51012)
 
-[node name="Pot3" parent="Pots" unique_id=1726402632 instance=ExtResource("3_vx7tg")]
+[node name="Pot3" parent="Pots" unique_id=1726402632 instance=ExtResource("3_rvcha")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 7.5547304, 0, -10.387066)
+
+[node name="Pot4" parent="Pots" unique_id=1612420482 instance=ExtResource("3_rvcha")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.881899, 0, 0.73472404)
+
+[node name="Pot5" parent="Pots" unique_id=1032901110 instance=ExtResource("3_rvcha")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.3679647, 0, 1.4093246)
+
+[node name="Pot6" parent="Pots" unique_id=391866034 instance=ExtResource("3_rvcha")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.491217, 0, 0.53237915)
+
+[node name="Pot7" parent="Pots" unique_id=1561332848 instance=ExtResource("3_rvcha")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 7.651228, 0, -0.5916481)
+
+[node name="Pot8" parent="Pots" unique_id=857604829 instance=ExtResource("3_rvcha")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.491217, 0, -1.7836065)
+
+[node name="Pot9" parent="Pots" unique_id=1953724235 instance=ExtResource("3_rvcha")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.491217, 0, 2.3082943)
