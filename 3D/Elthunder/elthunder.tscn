@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bhymn8wnol2rm" path="res://2D/ScreenFlash/screen_flash.tscn" id="3_jcc40"]
 [ext_resource type="Shader" uid="uid://ml3nuusq8l4d" path="res://3D/Elthunder/elthunder_large_bolt.gdshader" id="3_tdwcd"]
 [ext_resource type="Texture2D" uid="uid://bgbrnu170d1id" path="res://3D/Elthunder/spark_05_mids_raised.png" id="5_65iy1"]
-[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="7_65iy1"]
 [ext_resource type="Shader" uid="uid://bgb3dc533iawa" path="res://3D/Elthunder/lelu_decal_elthunder.gdshader" id="7_qp4dx"]
 [ext_resource type="Texture2D" uid="uid://dn7f0fqmjgi40" path="res://3D/Elthunder/T_VFX_hit22.jpg" id="8_fy066"]
 [ext_resource type="Shader" uid="uid://dmth1sar5yhss" path="res://3D/Elthunder/sphere_projection.gdshader" id="9_qp4dx"]
@@ -346,26 +345,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ban1r")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fy066"]
-shader = ExtResource("7_65iy1")
-shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
-shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
-shader_parameter/star_hue_offset = 0.6
-shader_parameter/star_intensity = 0.08
-shader_parameter/star_twinkle_speed = 0.8
-shader_parameter/star_twinkle_intensity = 0.2
-shader_parameter/layer_scale = 20.0
-shader_parameter/layer_scale_step = 10.0
-shader_parameter/layers_count = 1
-
-[sub_resource type="Sky" id="Sky_vipss"]
-sky_material = SubResource("ShaderMaterial_fy066")
-
-[sub_resource type="Environment" id="Environment_i0hpu"]
-background_mode = 2
-sky = SubResource("Sky_vipss")
-glow_enabled = true
-
 [sub_resource type="Gradient" id="Gradient_i0hpu"]
 offsets = PackedFloat32Array(0.34848484, 0.75151515)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -386,8 +365,8 @@ shader_parameter/Modulate = Color(5.471667, 5.471667, 2.7804918, 1)
 shader_parameter/Modulate_Emission = Color(1, 1, 1, 1)
 shader_parameter/cube_half_size = 0.5
 shader_parameter/enable_y_fade = true
-shader_parameter/fade_start = 0.5
-shader_parameter/fade_end = 0.51
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
 shader_parameter/fade_power = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_gkn5c"]
@@ -490,26 +469,23 @@ metadata/_edit_lock_ = true
 shape = SubResource("ConcavePolygonShape3D_k6gyo")
 metadata/_edit_lock_ = true
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=311453137]
-environment = SubResource("Environment_i0hpu")
-
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=908260966]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0.62323487, -0.3505708)
+visible = false
 shadow_enabled = true
 
 [node name="Decal" type="MeshInstance3D" parent="." unique_id=1287089249]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -0.22677195, 0, -0.29336238)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -0.22677195, 0.042783976, -0.29336238)
 material_override = SubResource("ShaderMaterial_h6cps")
 mesh = SubResource("BoxMesh_gkn5c")
 
 [node name="BoltHead" type="MeshInstance3D" parent="." unique_id=571388094]
-transform = Transform3D(-1.6722771, -1.2283502, -0.26087338, 0.06848175, -5.165182, 1.1175665, -0.39991578, 4.251948, 1.2822336, -1.36, 17.386, -2.087)
+transform = Transform3D(-1.672277, -1.2283505, -0.26087338, 0.06848184, -5.165182, 1.1175665, -0.39991584, 4.2519474, 1.2822336, -1.36, 17.386, -2.087)
 material_override = SubResource("ShaderMaterial_i0hpu")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_qf1l1")
 
 [node name="ColdPulseSphere2" type="MeshInstance3D" parent="." unique_id=1717986532]
 transform = Transform3D(1, 3.7252903e-09, 0, 0, 1, 1.4901161e-08, 0, 0, 0.99999994, 0, 1.4901161e-08, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_qf1l1")
 mesh = SubResource("SphereMesh_fqosr")

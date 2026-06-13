@@ -18,6 +18,6 @@ func call_screen_flash():
 	
 	
 func spawn_sparks():
-	#add_child(sparks_scene.instantiate())
+	add_child(sparks_scene.instantiate())
 	pass
 	

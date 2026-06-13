@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_vja0m"]
 [ext_resource type="MeshLibrary" uid="uid://bdvp4tiwhlyfn" path="res://Levels/tileset_dungeon.tres" id="2_hbn5l"]
+[ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="3_vx7tg"]
 
 [sub_resource type="Environment" id="Environment_hbn5l"]
 ambient_light_color = Color(1, 0.92941177, 0.8117647, 1)
@@ -18,17 +19,32 @@ fog_density = 0.1
 [node name="SpotLight3D" type="SpotLight3D" parent="ProtoController" unique_id=1508453390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2765268, 0.32238013)
 light_color = Color(1, 0.92941177, 0.8117647, 1)
+light_energy = 3.375
 light_specular = 0.125
-spot_range = 9.968
+spot_range = 43.299
+spot_angle = 74.87
 
 [node name="GridMap" type="GridMap" parent="." unique_id=929019994]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 mesh_library = ExtResource("2_hbn5l")
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
+collision_layer = 16
+collision_mask = 0
 data = {
 "cells": PackedInt32Array(0, 65535, 2, 65535, 0, 2, 65535, 65535, 2, 0, 0, 2, 1, 65535, 2, 2, 0, 2, 1, 0, 2, 65535, 2, 655360, 0, 2, 655360, 1, 2, 655360, 65534, 2, 655360, 65532, 0, 1048576, 65532, 65534, 1048576, 65532, 65535, 1048576, 3, 0, 1441792, 3, 65535, 1441792, 3, 65534, 1441792, 1, 65532, 0, 65534, 65532, 0, 65534, 1, 2, 65535, 1, 2, 1, 1, 2, 0, 1, 2, 65534, 0, 2, 65534, 65535, 2, 65533, 65535, 2, 65533, 65534, 2, 65534, 65534, 2, 65534, 65533, 2, 65535, 65533, 2, 65535, 65534, 2, 0, 65534, 2, 0, 65533, 2, 1, 65533, 2, 1, 65534, 2, 2, 65534, 2, 2, 65535, 2, 65533, 0, 2, 65533, 1, 655363, 65532, 1, 655361, 65533, 2, 655361, 2, 2, 1441793, 3, 1, 1441793, 2, 1, 1441795, 2, 65533, 3, 65533, 65533, 1048579, 3, 65533, 1, 2, 65532, 1, 65533, 65532, 1048577, 65532, 65533, 1048577, 0, 65526, 1441792, 0, 65527, 1441792, 0, 65528, 1441792, 0, 65529, 1441792, 0, 65530, 1441792, 0, 65531, 1441792, 65535, 65526, 1048576, 65535, 65527, 1048576, 65535, 65528, 1048576, 65535, 65529, 1048576, 65535, 65530, 1048576, 65535, 65531, 1048576, 0, 65532, 3, 65535, 65532, 1048579)
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1715085108]
 environment = SubResource("Environment_hbn5l")
+
+[node name="Pots" type="Node3D" parent="." unique_id=1991643052]
+
+[node name="Pot" parent="Pots" unique_id=403097360 instance=ExtResource("3_vx7tg")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.383609, 0, -10.184721)
+
+[node name="Pot2" parent="Pots" unique_id=455381597 instance=ExtResource("3_vx7tg")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.8696752, 0, -9.51012)
+
+[node name="Pot3" parent="Pots" unique_id=1726402632 instance=ExtResource("3_vx7tg")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 7.5547304, 0, -10.387066)

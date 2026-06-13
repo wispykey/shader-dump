@@ -9,11 +9,6 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
 albedo_color = Color(8.710439, 7.4863234, 4.390033, 1)
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_l1h41"]
 _data = [Vector2(0, 0.011170268), 0.0, 0.0, 0, 0, Vector2(0.2178478, 0.0005091429), 0.0, 0.0, 0, 0, Vector2(0.4332425, 0), -0.002363767, 0.0, 1, 0]
@@ -30,7 +25,7 @@ point_count = 4
 curve = SubResource("Curve_dbn7j")
 
 [sub_resource type="Curve" id="Curve_i667s"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.08991825, 1), 0.0, 0.0, 0, 0, Vector2(0.46049047, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.08991825, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_m8g47"]
@@ -42,13 +37,11 @@ particle_flag_align_y = true
 emission_shape_offset = Vector3(0, 1, 0)
 emission_shape = 1
 emission_sphere_radius = 1.0
-angle_min = -134.99998
-angle_max = 135.00002
 direction = Vector3(0, 1, 0)
-initial_velocity_min = 30.0
-initial_velocity_max = 30.0
+initial_velocity_min = 25.0
+initial_velocity_max = 35.0
 radial_velocity_curve = SubResource("CurveTexture_i667s")
-gravity = Vector3(0, -80, 0)
+gravity = Vector3(0, -140, 0)
 scale_min = 0.14999999
 scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_m8g47")
@@ -60,7 +53,8 @@ collision_friction = 0.8
 collision_bounce = 0.3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_04r48"]
-radius = 0.2
+radius = 0.23
+height = 5.0
 
 [node name="LightningSparks" type="Node3D" unique_id=690520521]
 
