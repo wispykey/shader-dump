@@ -30,6 +30,7 @@ sky_material = SubResource("ShaderMaterial_js6ts")
 background_mode = 2
 sky = SubResource("Sky_r852y")
 glow_enabled = true
+glow_levels/5 = 0.75
 
 [node name="Campfire" type="Node3D" unique_id=687467483]
 
@@ -48,6 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017076373, 4.7683716e-07, 
 
 [node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D/ProtoController" unique_id=1401040011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017076373, 0.4253831, -0.04227352)
+visible = false
 light_energy = 5.719
 spot_range = 16.407
 
@@ -80,3 +82,7 @@ environment = SubResource("Environment_mmue3")
 
 [node name="FireLeLu" parent="." unique_id=361957385 instance=ExtResource("4_js6ts")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06315464, -9.536743e-07, 0.39095783)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2011922993]
+transform = Transform3D(-0.8516139, -0.20102906, -0.4840881, -0.49717805, 0.60232925, 0.6245104, 0.16603567, 0.7725198, -0.6128993, 53.32296, 71.34089, -107.611565)
+visible = false

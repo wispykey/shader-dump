@@ -13,5 +13,13 @@ albedo_color = Color(0.6090358, 0.2303893, 7.70092e-07, 1)
 [node name="foliage" parent="." index="0" unique_id=1594250591]
 material_override = SubResource("StandardMaterial3D_frons")
 
+[node name="StaticBody3D" parent="foliage" index="0" unique_id=318060045]
+collision_layer = 16
+collision_mask = 0
+
 [node name="trunk" parent="." index="1" unique_id=1781501866]
 material_override = SubResource("StandardMaterial3D_pte31")
+
+[node name="StaticBody3D" parent="trunk" index="0" unique_id=1533252112]
+collision_layer = 16
+collision_mask = 0
