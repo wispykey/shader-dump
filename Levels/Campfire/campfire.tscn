@@ -30,7 +30,8 @@ sky_material = SubResource("ShaderMaterial_js6ts")
 background_mode = 2
 sky = SubResource("Sky_r852y")
 glow_enabled = true
-glow_levels/5 = 0.75
+glow_levels/5 = 0.1
+glow_levels/6 = 0.1
 
 [node name="Campfire" type="Node3D" unique_id=687467483]
 

@@ -102,6 +102,28 @@ color = Color(1.685791, 1.0032248, 0.4812626, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_qrrq7"]
 
+[sub_resource type="Animation" id="Animation_yhixh"]
+resource_name = "init"
+length = 2.8333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2133203, 0.36666667, 0.72642875, 0.92, 1.2666667, 1.5246128, 1.6779592, 1.7818519, 1.9351983, 2.0386872, 2.4, 2.73),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.45, 0.9, 0.77, 0.45, 1.1, 0.77, 0.9, 0.77, 0.9, 0.77, 0.77, 0.89, 0.54]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yorb7"]
+_data = {
+&"init": SubResource("Animation_yhixh")
+}
+
 [node name="FireLeLu" type="Node3D" unique_id=361957385]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=968679131]
@@ -121,3 +143,12 @@ material_override = SubResource("StandardMaterial3D_yhixh")
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_4jcac")
 draw_pass_1 = SubResource("QuadMesh_qrrq7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=524780996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0978181, 0)
+light_color = Color(0.5507801, 0.33999196, 0.16082564, 1)
+light_indirect_energy = 1.185
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1479688020]
+libraries/ = SubResource("AnimationLibrary_yorb7")
+autoplay = &"init"
