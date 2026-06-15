@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_42bif"]
 [ext_resource type="Script" uid="uid://bl7b415eiryk2" path="res://demo_map.gd" id="1_yjjny"]
-[ext_resource type="PackedScene" uid="uid://clxxo0prv2fdb" path="res://3D/LeLu/Lightning/lightning.tscn" id="2_kbhvk"]
-[ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3D/LeLu/Earth/earth.tscn" id="3_xis5h"]
-[ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]
-[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="5_i1pmm"]
-[ext_resource type="PackedScene" uid="uid://b15xnhpujreg6" path="res://3D/Elfire/elfire.tscn" id="6_ofcdo"]
-[ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Breakables/pot.tscn" id="6_yjjny"]
-[ext_resource type="PackedScene" uid="uid://b4basvojj1a5q" path="res://3D/LeLu/FullScreen/full_screen_exhibit.tscn" id="12_tqj63"]
-[ext_resource type="PackedScene" uid="uid://bphcglb2qcwhk" path="res://Fireball (LeLu)/fireball_le_lu.tscn" id="14_3epoi"]
+[ext_resource type="PackedScene" uid="uid://clxxo0prv2fdb" path="res://3DSpells/LeLu/Lightning/lightning.tscn" id="2_kbhvk"]
+[ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3DSpells/LeLu/Earth/earth.tscn" id="3_xis5h"]
+[ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3DSpells/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3DSpells/Sky/starry_sky.gdshader" id="5_i1pmm"]
+[ext_resource type="PackedScene" uid="uid://b15xnhpujreg6" path="res://3DSpells/Elfire/elfire.tscn" id="6_ofcdo"]
+[ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Objects/Pots/pot.tscn" id="6_yjjny"]
+[ext_resource type="PackedScene" uid="uid://b4basvojj1a5q" path="res://3DSpells/LeLu/FullScreen/full_screen_exhibit.tscn" id="12_tqj63"]
+[ext_resource type="PackedScene" uid="uid://bphcglb2qcwhk" path="res://3DSpells/Fireball (LeLu)/fireball_le_lu.tscn" id="14_3epoi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gilj"]
 shader = ExtResource("5_i1pmm")

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ieiym5frefq7"]
+
+[ext_resource type="Texture2D" uid="uid://pq2ufm81lrnf" path="res://3DSpells/SoulFreeze/Puff.png" id="1_m6krk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqosr"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_m6krk")
+
+[sub_resource type="Curve" id="Curve_5ydq1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11337209, 0.47316533), 0.0, 0.0, 0, 0, Vector2(0.2994186, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g0pmh"]
+curve = SubResource("Curve_5ydq1")
+
+[sub_resource type="Curve" id="Curve_3e3ww"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.07267442, 1), 0.0, 0.0, 0, 0, Vector2(0.14244185, -0.82089543), 0.0, 0.0, 0, 0, Vector2(0.22093022, -0.014925361), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f4ndi"]
+curve = SubResource("Curve_3e3ww")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oqnsf"]
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 0.2, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.2
+emission_ring_radius = 1.8
+emission_ring_inner_radius = 1.85
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.99999774
+radial_accel_max = 7.9999976
+radial_accel_curve = SubResource("CurveTexture_f4ndi")
+scale_min = 3.0
+scale_max = 3.5
+color = Color(0.7647059, 0.8862745, 1, 0.5764706)
+alpha_curve = SubResource("CurveTexture_g0pmh")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8wj0r"]
+orientation = 1
+
+[node name="ColdPulseWave" type="GPUParticles3D" unique_id=1093937821]
+material_override = SubResource("StandardMaterial3D_fqosr")
+amount = 25
+lifetime = 4.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_oqnsf")
+draw_pass_1 = SubResource("QuadMesh_8wj0r")

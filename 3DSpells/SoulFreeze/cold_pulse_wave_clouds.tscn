@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://u83vbkphih0v"]
+
+[ext_resource type="Texture2D" uid="uid://pq2ufm81lrnf" path="res://3DSpells/SoulFreeze/Puff.png" id="1_wfa1h"]
+[ext_resource type="ArrayMesh" uid="uid://bo6bdejicob8v" path="res://3DSpells/SoulFreeze/Cloud_Metaball2.obj" id="2_1skmf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqosr"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(1, 1, 1, 0.22745098)
+albedo_texture = ExtResource("1_wfa1h")
+
+[sub_resource type="Curve" id="Curve_5ydq1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.15406977, 1), 0.0, 0.0, 0, 0, Vector2(0.3866279, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g0pmh"]
+curve = SubResource("Curve_5ydq1")
+
+[sub_resource type="Curve" id="Curve_3e3ww"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0.07267442, 1), 0.0, 0.0, 0, 0, Vector2(0.14244185, -0.82089543), 0.0, 0.0, 0, 0, Vector2(0.22093022, -0.014925361), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f4ndi"]
+curve = SubResource("Curve_3e3ww")
+
+[sub_resource type="Curve" id="Curve_wfa1h"]
+_data = [Vector2(0, 0.7089552), 0.0, 0.0, 0, 0, Vector2(1, 0.73134327), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1skmf"]
+curve = SubResource("Curve_wfa1h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oqnsf"]
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 0.1, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.05
+emission_ring_radius = 1.8
+emission_ring_inner_radius = 1.85
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 0.99999774
+radial_accel_max = 7.9999976
+radial_accel_curve = SubResource("CurveTexture_f4ndi")
+scale_min = 0.39999998
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_1skmf")
+color = Color(0.76, 0.884, 1, 1)
+alpha_curve = SubResource("CurveTexture_g0pmh")
+
+[node name="ColdPulseWaveClouds" type="GPUParticles3D" unique_id=1093937821]
+material_override = SubResource("StandardMaterial3D_fqosr")
+amount = 25
+lifetime = 4.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_oqnsf")
+draw_pass_1 = ExtResource("2_1skmf")

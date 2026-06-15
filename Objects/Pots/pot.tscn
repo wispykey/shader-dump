@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cajyueg0vupep"]
+
+[ext_resource type="Script" uid="uid://k6hqk2h0hg7s" path="res://Objects/Pots/pot.gd" id="1_xh2hh"]
+[ext_resource type="PackedScene" uid="uid://dsa48par2atgj" path="res://Objects/Pots/sm_pot_pieces_modified.tscn" id="2_v8r0c"]
+[ext_resource type="PackedScene" uid="uid://dxyo880ug4wwp" path="res://Objects/Pots/sm_pot_modified.tscn" id="4_ei45b"]
+
+[node name="Pot" type="Node3D" unique_id=403097360]
+script = ExtResource("1_xh2hh")
+broken_model = ExtResource("2_v8r0c")
+despawn_time = 2.0
+
+[node name="PotMesh" parent="." unique_id=458921749 instance=ExtResource("4_ei45b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

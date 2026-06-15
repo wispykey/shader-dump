@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://copatq6msjvqq" path="res://Levels/Campfire/pine_tree.tscn" id="1_1vyra"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_mmue3"]
-[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3D/Sky/starry_sky.gdshader" id="3_ut61h"]
-[ext_resource type="PackedScene" uid="uid://cki3qt18dg0sx" path="res://3D/LeLu/Fire/fire.tscn" id="4_js6ts"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3DSpells/Sky/starry_sky.gdshader" id="3_ut61h"]
+[ext_resource type="PackedScene" uid="uid://cki3qt18dg0sx" path="res://3DSpells/LeLu/Fire/fire.tscn" id="4_js6ts"]
 [ext_resource type="ArrayMesh" uid="uid://bij0qn0ektyqg" path="res://Levels/Campfire/grass.tres" id="5_r852y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r852y"]

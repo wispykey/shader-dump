@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://5vagdbl70pr"]
+
+[ext_resource type="Script" uid="uid://b44ovxth6i2q7" path="res://Studies/ThirdPersonCamera/camera_spring_arm.gd" id="1_4sunn"]
+[ext_resource type="Script" uid="uid://c4krhx6mns472" path="res://Studies/ThirdPersonCamera/player.gd" id="1_yn7sq"]
+[ext_resource type="Script" uid="uid://7vytnko6w6jd" path="res://Studies/ThirdPersonCamera/camera_follow.gd" id="2_yn7sq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i3wod"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqakr"]
+
+[sub_resource type="Environment" id="Environment_rqakr"]
+
+[node name="ThirdPersonCamera" type="Node3D" unique_id=1678119258]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=137491515]
+script = ExtResource("1_yn7sq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=118945189]
+mesh = SubResource("BoxMesh_i3wod")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1000349993]
+shape = SubResource("BoxShape3D_rqakr")
+
+[node name="SpringArmPivot" type="Node3D" parent="Player" unique_id=660690215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9216542, 0)
+script = ExtResource("1_4sunn")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/SpringArmPivot" unique_id=1810836645]
+spring_length = 4.0
+
+[node name="SpringPosition" type="Node3D" parent="Player/SpringArmPivot/SpringArm3D" unique_id=575764786]
+
+[node name="Camera3D" type="Camera3D" parent="Player/SpringArmPivot" unique_id=681505822 node_paths=PackedStringArray("spring_arm")]
+script = ExtResource("2_yn7sq")
+spring_arm = NodePath("../SpringArm3D/SpringPosition")
+lerp_power = 6.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1552822051]
+transform = Transform3D(3.4790604, 0, 0, 0, 1, 0, 0, 0, 6.1187387, -0.37691242, -1.2208579, 0)
+size = Vector3(2.131958, 1, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=566372660]
+environment = SubResource("Environment_rqakr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1608398688]
+transform = Transform3D(0.83251524, -0.43280113, 0.34583443, 1.7379449e-08, 0.6242477, 0.78122646, -0.5540019, -0.650383, 0.5196958, 0, 2.450849, 4.0778055)

@@ -1,0 +1,7 @@
+[gd_resource type="GradientTexture1D" format=3 uid="uid://djw3afarh8b8f"]
+
+[ext_resource type="Gradient" uid="uid://cfc87jei6xx3v" path="res://3DSpells/Elthunder/elthunder_color.tres" id="1_l2fq3"]
+
+[resource]
+gradient = ExtResource("1_l2fq3")
+use_hdr = true

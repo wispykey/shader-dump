@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://iqbq0jj363sw" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
-[ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3D/LeLu/Tornado/Tornado.tscn" id="2_ujot4"]
-[ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3D/MagicCircle/magic_circle.tscn" id="2_wr06p"]
-[ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3D/Elwind/elwind.tscn" id="3_1tksx"]
-[ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3D/SoulFreeze/soul_freeze.tscn" id="4_ths8c"]
-[ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3D/Elthunder/elthunder.tscn" id="5_x436g"]
-[ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3D/LeLu/Earth/earth.tscn" id="6_q1ipm"]
-[ext_resource type="PackedScene" uid="uid://dq0ib4li3i04" path="res://book.tscn" id="8_1tksx"]
+[ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3DSpells/LeLu/Tornado/Tornado.tscn" id="2_ujot4"]
+[ext_resource type="PackedScene" uid="uid://bm7g4s8qkwoi5" path="res://3DSpells/MagicCircle/magic_circle.tscn" id="2_wr06p"]
+[ext_resource type="PackedScene" uid="uid://dbubugulykh38" path="res://3DSpells/Elwind/elwind.tscn" id="3_1tksx"]
+[ext_resource type="PackedScene" uid="uid://cjpalh4qj3hl5" path="res://3DSpells/SoulFreeze/soul_freeze.tscn" id="4_ths8c"]
+[ext_resource type="PackedScene" uid="uid://c0hrjggs1cwyl" path="res://3DSpells/Elthunder/elthunder.tscn" id="5_x436g"]
+[ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3DSpells/LeLu/Earth/earth.tscn" id="6_q1ipm"]
+[ext_resource type="PackedScene" uid="uid://dq0ib4li3i04" path="res://Objects/book.tscn" id="8_1tksx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)

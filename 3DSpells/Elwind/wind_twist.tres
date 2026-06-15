@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d1kdyc8vfkpvc"]
+
+[ext_resource type="Shader" uid="uid://bsws2sdiroxeg" path="res://3DSpells/Elwind/wind_twist.gdshader" id="1_yirvu"]
+[ext_resource type="Texture2D" uid="uid://bnutl5lmqwnpl" path="res://3DSpells/Elwind/wind_twist_one_shot.png" id="2_yirvu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yirvu")
+shader_parameter/albedo = Color(0.54102784, 1, 0.60038817, 0)
+shader_parameter/texture_albedo = ExtResource("2_yirvu")
+shader_parameter/albedo_texture_size = Vector2i(2160, 2160)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1.6, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0.2, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/time_since_spawn = 0.0

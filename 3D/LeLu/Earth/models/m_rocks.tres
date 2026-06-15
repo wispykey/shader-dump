@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://d2wgbur387a1p"]
-
-[ext_resource type="Texture2D" uid="uid://bbxbsx3rkt7eg" path="res://3D/LeLu/Earth/assets/T_rocks_A_color.png" id="1_k41hd"]
-
-[resource]
-resource_name = "m_rocks"
-cull_mode = 2
-diffuse_mode = 3
-albedo_texture = ExtResource("1_k41hd")

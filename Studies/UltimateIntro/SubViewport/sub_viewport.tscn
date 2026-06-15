@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bikxqakujgka5"]
+
+[ext_resource type="Shader" uid="uid://lrt7v17xkrjf" path="res://Studies/UltimateIntro/SubViewport/sub_viewport.gdshader" id="1_wa5rq"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_ynfvg"]
+[ext_resource type="Shader" uid="uid://bq2n64rvjrf0p" path="res://Studies/UltimateIntro/SubViewport/sub_viewport_outer.gdshader" id="3_ebila"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aivv2"]
+shader = ExtResource("1_wa5rq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wa5rq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynfvg"]
+shader = ExtResource("3_ebila")
+shader_parameter/line_count = 20.0
+shader_parameter/line_width = 0.49400002020512
+shader_parameter/speed = 0.27200001292
+shader_parameter/wobble_speed = 0.41000001621512
+shader_parameter/frequency_y = 0.5
+shader_parameter/amplitude_y = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_ebila"]
+size = Vector2(256, -256)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aivv2"]
+viewport_path = NodePath("SubViewport")
+
+[node name="SubViewport" type="Node2D" unique_id=1346282242]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1166865448]
+transparent_bg = true
+size = Vector2i(256, 256)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=1679024386]
+material = SubResource("ShaderMaterial_aivv2")
+texture = ExtResource("2_ynfvg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SubViewport" unique_id=1565832502]
+material = SubResource("ShaderMaterial_wa5rq")
+position = Vector2(128, 128)
+texture = ExtResource("2_ynfvg")
+centered = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=491082165]
+material = SubResource("ShaderMaterial_ynfvg")
+mesh = SubResource("QuadMesh_ebila")
+texture = SubResource("ViewportTexture_aivv2")

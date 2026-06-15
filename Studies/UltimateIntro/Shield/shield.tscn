@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cair1cefs5qad"]
+
+[ext_resource type="Shader" uid="uid://qk1k4a7wkilx" path="res://Studies/UltimateIntro/Shield/shield.gdshader" id="1_ffst0"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_dmnlx"]
+
+
+[sub_resource type="Gradient" id="Gradient_fkli5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g1miq"]
+gradient = SubResource("Gradient_fkli5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fkli5"]
+noise_type = 2
+frequency = 0.002
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g1miq"]
+noise = SubResource("FastNoiseLite_fkli5")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vxx4"]
+shader = ExtResource("1_ffst0")
+shader_parameter/radius = 0.5
+shader_parameter/width = 0.35200001672
+shader_parameter/highlight_intensity = 0.9650000458375
+shader_parameter/highlight_center = Vector2(0.25, 0.125)
+shader_parameter/main_color = Color(0, 0.65882355, 0.7882353, 1)
+shader_parameter/highlight_color = Color(0.7490196, 0, 1, 1)
+shader_parameter/glow = 0.9050000429875
+shader_parameter/noise = SubResource("NoiseTexture2D_g1miq")
+
+[node name="Shield" type="Node2D" unique_id=1431445972]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=71342209]
+scale = Vector2(1, 134)
+texture = SubResource("GradientTexture1D_g1miq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=370085325]
+material = SubResource("ShaderMaterial_0vxx4")
+texture = ExtResource("2_dmnlx")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=1061929746]
+zoom = Vector2(5, 5)

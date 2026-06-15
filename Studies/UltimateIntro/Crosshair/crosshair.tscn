@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dntwdlmk1mv2a"]
+
+[ext_resource type="Script" uid="uid://dn4kqawie8xth" path="res://Studies/UltimateIntro/Crosshair/crosshair.gd" id="1_4sp0m"]
+[ext_resource type="Shader" uid="uid://y1g4mueajoa0" path="res://Studies/UltimateIntro/Crosshair/crosshair.gdshader" id="1_ly6fr"]
+[ext_resource type="Texture2D" uid="uid://bv7uix8iuhdyq" path="res://icon.svg" id="2_4sp0m"]
+
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7w1k"]
+shader = ExtResource("1_ly6fr")
+shader_parameter/center_size = 0.5
+shader_parameter/ring_distance = 0.5
+shader_parameter/ring_width = 0.5
+shader_parameter/cutout_width = 0.5
+shader_parameter/line_width = 0.5
+shader_parameter/line_length = 0.5
+shader_parameter/line_position = 1.0
+
+[node name="Crosshair" type="Node2D" unique_id=1485500324]
+script = ExtResource("1_4sp0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=507903980]
+material = SubResource("ShaderMaterial_p7w1k")
+texture = ExtResource("2_4sp0m")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D" unique_id=1773363307]
+zoom = Vector2(5, 5)

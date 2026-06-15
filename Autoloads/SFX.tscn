@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dfkls8uj5e1a1"]
 
 [ext_resource type="Script" uid="uid://btdywv25scyln" path="res://Autoloads/sfx.gd" id="1_7ftl1"]
-[ext_resource type="AudioStream" uid="uid://3rf1c8l2tp6i" path="res://Breakables/SFX_Pot_Shatter.wav" id="2_wo455"]
-[ext_resource type="AudioStream" uid="uid://utqhl3v08ktd" path="res://3D/Elwind/Elwind_gust3.wav" id="3_wo455"]
+[ext_resource type="AudioStream" uid="uid://3rf1c8l2tp6i" path="res://Objects/Pots/SFX_Pot_Shatter.wav" id="2_wo455"]
+[ext_resource type="AudioStream" uid="uid://utqhl3v08ktd" path="res://3DSpells/Elwind/Elwind_gust3.wav" id="3_wo455"]
 
 [node name="SFX" type="Node" unique_id=2049389586]
 script = ExtResource("1_7ftl1")

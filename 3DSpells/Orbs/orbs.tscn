@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c22am5e3q40xf"]
+
+[ext_resource type="Texture2D" uid="uid://bh1prxfgbnhni" path="res://3DSpells/Orbs/eight_sided_shine_alpha.png" id="1_dptli"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trq21"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1.0533231, 1.5394491, 1.5562121, 1)
+albedo_texture = ExtResource("1_dptli")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fb7x8"]
+
+[sub_resource type="Animation" id="Animation_trq21"]
+resource_name = "init"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 0.23333333, 0.5),
+"transitions": PackedFloat32Array(0.78458315, 1.8660617, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fb7x8"]
+_data = {
+&"init": SubResource("Animation_trq21")
+}
+
+[node name="Orbs" type="Node3D" unique_id=1061822025]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1986956834]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_trq21")
+mesh = SubResource("QuadMesh_fb7x8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1404982907]
+libraries/ = SubResource("AnimationLibrary_fb7x8")
+autoplay = &"init"
