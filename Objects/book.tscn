@@ -44,6 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_0gek4")
 cull_mode = 2
 shading_mode = 0
 albedo_color = Color(1, 1, 0.8865197, 1)
+refraction_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aamt7"]
 
@@ -105,11 +106,9 @@ mesh = SubResource("ArrayMesh_wc5vp")
 
 [node name="Pages" type="MeshInstance3D" parent="." unique_id=647771167]
 material_override = SubResource("StandardMaterial3D_kh36y")
-gi_mode = 0
 mesh = SubResource("ArrayMesh_478cx")
 
 [node name="ActivePage" type="MeshInstance3D" parent="." unique_id=1231952061]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66424847, -0.05078876, 0.028523743)
-visible = false
 material_override = SubResource("ShaderMaterial_f0xhj")
 mesh = SubResource("BoxMesh_3r6c0")
