@@ -46,7 +46,7 @@ extends CharacterBody3D
 ## Name of Input Action to move Forward.
 @export var input_forward: String = "move_forward"
 ## Name of Input Action to move Backward.
-@export var input_back: String = "move_back"
+@export var input_back: String = "move_backward"
 ## Name of Input Action to Jump.
 @export var input_jump: String = "move_jump"
 ## Name of Input Action to Sprint.

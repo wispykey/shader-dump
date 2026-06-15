@@ -12,8 +12,9 @@
 
 [node name="ThirdPersonCamera" type="Node3D" unique_id=1678119258]
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=137491515]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=137491515 node_paths=PackedStringArray("camera")]
 script = ExtResource("1_yn7sq")
+camera = NodePath("SpringArmPivot/Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=118945189]
 mesh = SubResource("BoxMesh_i3wod")
@@ -36,8 +37,8 @@ spring_arm = NodePath("../SpringArm3D/SpringPosition")
 lerp_power = 6.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1552822051]
-transform = Transform3D(3.4790604, 0, 0, 0, 1, 0, 0, 0, 6.1187387, -0.37691242, -1.2208579, 0)
-size = Vector3(2.131958, 1, 1)
+transform = Transform3D(3.4790604, 0, 0, 0, 1, 0, 0, 0, 6.1187387, 0, -2.4534569, 0)
+size = Vector3(20, 1, 20)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=566372660]
 environment = SubResource("Environment_rqakr")
