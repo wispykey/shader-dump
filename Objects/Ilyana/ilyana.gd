@@ -11,11 +11,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		play_cast_animation()
 		var skill_inst = skill.instantiate()
 		var spring_rotation = $SpringArmPivot.rotation.y + PI/2
-		print($SpringArmPivot.rotation.y)
-		print(spring_rotation)
-		var asdf = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * 10.
-		print(asdf)
-		skill_inst.position = asdf
+		var distance = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * 10.
+		skill_inst.position = distance
 		add_child(skill_inst)
 		
 

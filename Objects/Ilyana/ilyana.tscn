@@ -588,6 +588,7 @@ skill = ExtResource("2_1g0u3")
 
 [node name="GeneralSkeleton" type="Skeleton3D" parent="." unique_id=1854331489]
 unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 motion_scale = 0.66105896
 bones/0/name = "Hips"
 bones/0/parent = -1
