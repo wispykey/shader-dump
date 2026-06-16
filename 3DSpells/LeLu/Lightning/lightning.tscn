@@ -2,15 +2,9 @@
 
 [ext_resource type="ArrayMesh" uid="uid://3n2c1yksimg3" path="res://3DSpells/LeLu/Lightning/good_thunder_editable.tres" id="1_viw4g"]
 
-[sub_resource type="Environment" id="Environment_viw4g"]
-glow_enabled = true
-glow_levels/2 = 0.75
-glow_levels/3 = 1.2
-glow_levels/4 = 0.6
-glow_levels/5 = 2.8
-glow_levels/6 = 0.5
-
 [sub_resource type="Gradient" id="Gradient_tehw4"]
+offsets = PackedFloat32Array(0, 0.4789644)
+colors = PackedColorArray(0, 0, 0, 1, 0.91909385, 0.91909385, 0.91909385, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1q348"]
 gradient = SubResource("Gradient_tehw4")
@@ -91,9 +85,6 @@ _data = {
 }
 
 [node name="LightningLeLu" type="Node3D" unique_id=1530353930]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=923855393]
-environment = SubResource("Environment_viw4g")
 
 [node name="LightningMeshRotated" type="MeshInstance3D" parent="." unique_id=179363423]
 visible = false

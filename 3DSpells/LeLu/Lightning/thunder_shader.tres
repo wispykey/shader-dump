@@ -14,7 +14,7 @@ use_hdr = true
 texture = SubResource("GradientTexture1D_aujyk")
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_ejitg"]
-constant = 0.7
+constant = 0.75
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_aujyk"]
 expanded_output_ports = [0]
@@ -27,7 +27,7 @@ texture = ExtResource("1_ejitg")
 input_name = "time"
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_05pfg"]
-default_input_values = [0, Vector2(0, 0), 1, Vector2(-1, 0)]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(-0.35, 0)]
 op_type = 0
 operator = 2
 
@@ -41,7 +41,7 @@ expanded_output_ports = [0]
 input_name = "color"
 
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_atyd4"]
-default_input_values = [1, 0.0, 2, 1.0, 3, 0.0, 4, 0.5]
+default_input_values = [1, 0.0, 2, 1.0, 3, 0.0, 4, 0.735]
 
 [resource]
 modes/cull = 2
@@ -67,4 +67,4 @@ nodes/fragment/10/node = SubResource("VisualShaderNodeTexture_2h5rb")
 nodes/fragment/10/position = Vector2(380, 60)
 nodes/fragment/11/node = SubResource("VisualShaderNodeFloatConstant_ejitg")
 nodes/fragment/11/position = Vector2(-400, 400)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 6, 0, 2, 2, 10, 0, 0, 0, 7, 0, 0, 1, 7, 0, 10, 0, 11, 0, 7, 1, 9, 0, 7, 0, 3, 0, 2, 0, 11, 0, 9, 4, 8, 1, 9, 0, 2, 1, 7, 2, 5, 0, 3, 2)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 6, 0, 2, 2, 10, 0, 0, 0, 7, 0, 0, 1, 7, 0, 10, 0, 11, 0, 7, 1, 9, 0, 7, 0, 3, 0, 2, 0, 8, 1, 9, 0, 2, 1, 7, 2, 11, 0, 9, 4, 5, 0, 3, 2)
