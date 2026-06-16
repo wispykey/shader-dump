@@ -19,6 +19,23 @@ uniform int ITER_GEOMETRY = 3;
 uniform int ITER_FRAGMENT = 5;
 const mat2 octave_m = mat2(vec2(1.6, 1.2), vec2(-1.2, 1.6));
 
+// refraction settings
+uniform float refraction_strength : hint_range(0.0, 2.0, 0.01) = 1.0;
+uniform float refraction_distance_fade : hint_range(0.0, 100.0, 1.0) = 5.0;
+//for smoothness part
+uniform float normal_epsilon : hint_range(0.001, 1.0) = 0.01;
+uniform float normal_smoothness_dist : hint_range(0.0, 1000.0) = 50.0;
+
+uniform vec3 base_tint_color : source_color = vec3(0.439, 0.973, 1.0);
+uniform vec3 deep_color : source_color = vec3(0.0, 0.341, 0.29);
+// beer-lambert absorption
+uniform vec3 water_absorption : source_color = vec3(0.3, 0.06, 0.02);
+
+uniform float roughness : hint_range(0.0, 1.0) = 0.125;
+uniform float metallic : hint_range(0.0, 1.0) = 0.0;
+uniform float specular : hint_range(0.0, 1.0) = 0.5;
+
+
 varying vec3 world_vert;
 varying float wave_height;
 varying vec3 vertex_normal_world;
@@ -107,6 +124,7 @@ float get_linear_depth(sampler2D d_tex, vec2 uv, mat4 inv_proj) {
 
 void vertex() {
     vec3 world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	world_pos.y -= water_level;
     wave_height = -map(world_pos, TIME);
     VERTEX.y = wave_height;
     world_vert = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -122,9 +140,17 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 	
-    float lod_epsilon = 0.01;
-    vec3 detailed_normal = get_normal_detailed(world_vert, lod_epsilon, TIME);
-    NORMAL = (VIEW_MATRIX * vec4(detailed_normal, 0.0)).xyz;
+    //float lod_epsilon = 0.01;
+    //vec3 detailed_normal = get_normal_detailed(world_vert, lod_epsilon, TIME);
+    //NORMAL = (VIEW_MATRIX * vec4(detailed_normal, 0.0)).xyz;
+	//
+	float dist_to_cam = length(VERTEX);
+	float lod_epsilon = max(normal_epsilon, dist_to_cam * 0.005);
+	vec3 detailed_normal = get_normal_detailed(world_vert, lod_epsilon, TIME);
+	float smooth_factor = clamp((dist_to_cam - normal_smoothness_dist) / 200., 0., 1. );
+	vec3 final_normal = mix(detailed_normal, vertex_normal_world, smooth_factor);
+	NORMAL = (VIEW_MATRIX * vec4(final_normal, 0.)).xyz;
+	
 	
 	vec3 ndc;
 	if (CURRENT_RENDERER == RENDERER_COMPATIBILITY) {
@@ -146,17 +172,39 @@ void fragment() {
     float bg_linear_depth = get_linear_depth(DEPTH_TEXTURE, SCREEN_UV, INV_PROJECTION_MATRIX);
     float thickness = max(0.0, bg_linear_depth - water_linear_depth);
 	
+	vec3 view_vertex_normal = (VIEW_MATRIX * vec4(vertex_normal_world, 0.)).xyz;
+	vec2 normal_offset = NORMAL.xy - view_vertex_normal.xy;
+	float ref_dist_factor = clamp(refraction_distance_fade / max(0.1, dist_to_cam), 0., 1.);
+	float ref_depth_mask = smoothstep(0., max_depth, thickness);
+	vec2 refraction_offset = normal_offset * refraction_strength * ref_dist_factor * ref_depth_mask * 0.05;
+	
+	vec2 distorted_uv = SCREEN_UV + refraction_offset;
+	
+	float distorted_bg_depth = get_linear_depth(DEPTH_TEXTURE, distorted_uv, INV_PROJECTION_MATRIX);
+	if (distorted_bg_depth < water_linear_depth - 0.001) {
+		distorted_uv = SCREEN_UV;
+		distorted_bg_depth = bg_linear_depth;
+	}
+	
 	//float grayscale = clamp(thickness / max_depth, 0., 1.);
 	//ALBEDO = vec3(grayscale);
 	
-	vec3 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	vec3 screen_color = texture(SCREEN_TEXTURE, distorted_uv).rgb;
+	thickness = max(0., distorted_bg_depth - water_linear_depth);
 	float fade_range = max(0.001, max_depth - fade_start_depth);
 	float depth_ratio = clamp((thickness - fade_start_depth) / fade_range, 0., 1.);
 	
-	ALBEDO = mix(screen_color, underwater_fog_color, depth_ratio);
+	vec3 trasmittance = exp(-thickness * water_absorption);
+	vec3 water_volume_color = mix(base_tint_color, deep_color, depth_ratio);
+	vec3 apparent_seabed_color = screen_color * water_volume_color;
+	ALBEDO = mix(underwater_fog_color, apparent_seabed_color, trasmittance);
+	
+	//ALBEDO = mix(screen_color, underwater_fog_color, depth_ratio);
 	
 	
-	
+	ROUGHNESS = roughness;
+	METALLIC = metallic;
+	SPECULAR = specular;
 	//ALBEDO = vec3(clamp(thickness, 0.0, 1.0));
 	//ALBEDO = vec3(depth_ratio);
 	
