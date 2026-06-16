@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bqdkuqv33idks" path="res://3DSpells/LeLu/Lightning/lightning_2.png" id="1_ejitg"]
 
-[sub_resource type="Gradient" id="Gradient_ejitg"]
-offsets = PackedFloat32Array(0.30989584, 0.9036458)
-colors = PackedColorArray(0.4576631, 0, 9.061582, 1, 8.383831, 5.3339577, 1.1319094, 1)
+[sub_resource type="Gradient" id="Gradient_icyu5"]
+offsets = PackedFloat32Array(0.296, 0.8053333)
+colors = PackedColorArray(0, 0, 9.418578, 1, 1.1877904, 2.4736125, 12.348364, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_aujyk"]
-gradient = SubResource("Gradient_ejitg")
+gradient = SubResource("Gradient_icyu5")
 use_hdr = true
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2h5rb"]
@@ -27,17 +27,17 @@ texture = ExtResource("1_ejitg")
 input_name = "time"
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_05pfg"]
-default_input_values = [0, Vector2(0, 0), 1, Vector2(-0.5, 0)]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(-1, 0)]
 op_type = 0
 operator = 2
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ejitg"]
 parameter_name = "Bolt"
-texture_type = 1
 
 [sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_aujyk"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_2h5rb"]
+expanded_output_ports = [0]
 input_name = "color"
 
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_atyd4"]
@@ -62,9 +62,9 @@ nodes/fragment/7/position = Vector2(120, 400)
 nodes/fragment/8/node = SubResource("VisualShaderNodeInput_2h5rb")
 nodes/fragment/8/position = Vector2(-480, 140)
 nodes/fragment/9/node = SubResource("VisualShaderNodeRemap_atyd4")
-nodes/fragment/9/position = Vector2(-120, 120)
+nodes/fragment/9/position = Vector2(-120, 140)
 nodes/fragment/10/node = SubResource("VisualShaderNodeTexture_2h5rb")
 nodes/fragment/10/position = Vector2(380, 60)
 nodes/fragment/11/node = SubResource("VisualShaderNodeFloatConstant_ejitg")
-nodes/fragment/11/position = Vector2(-400, 340)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 6, 0, 2, 2, 8, 0, 9, 0, 10, 0, 0, 0, 7, 0, 0, 1, 7, 0, 10, 0, 2, 0, 7, 2, 11, 0, 7, 1, 9, 0, 7, 0, 3, 0, 2, 0, 5, 0, 3, 2)
+nodes/fragment/11/position = Vector2(-400, 400)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 6, 0, 2, 2, 10, 0, 0, 0, 7, 0, 0, 1, 7, 0, 10, 0, 11, 0, 7, 1, 9, 0, 7, 0, 3, 0, 2, 0, 11, 0, 9, 4, 8, 1, 9, 0, 2, 1, 7, 2, 5, 0, 3, 2)

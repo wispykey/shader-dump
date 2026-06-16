@@ -87,7 +87,7 @@ flags/unshaded = true
 preview_params/Zoom_Strength = "0.445"
 preview_params/Repeat_Circle = "1.0"
 preview_params/Offset = "Vector2(0.53, 0.14)"
-preview_params/Base_Texture = "Resource(\"uid://cd2sx5fwisbpi\", \"res://3D/LeLu/FullScreen/T_Noise_Wf4.png\")"
+preview_params/Base_Texture = "Resource(\"uid://cd2sx5fwisbpi\", \"res://3DSpells/LeLu/FullScreen/T_Noise_Wf4.png\")"
 preview_params/Mask_Texture = "Object(GradientTexture2D,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"gradient\":Object(Gradient,\"resource_local_to_scene\":false,\"resource_name\":\"\",\"interpolation_mode\":0,\"interpolation_color_space\":0,\"offsets\":PackedFloat32Array(0.21818182, 0.56060606),\"colors\":PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1),\"script\":null)
 ,\"width\":64,\"height\":64,\"use_hdr\":false,\"fill\":2,\"fill_from\":Vector2(0.5, 0.5),\"fill_to\":Vector2(1, 0),\"repeat\":0,\"script\":null)
 "
