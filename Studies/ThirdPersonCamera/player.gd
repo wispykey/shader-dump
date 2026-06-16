@@ -3,6 +3,12 @@ extends CharacterBody3D
 @export var max_speed: float = 100.
 @export var camera: Node3D
 
+@onready var ilyana: Ilyana = $Ilyana
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("hotbar_1_skill_1"):
+		ilyana.play_cast_animation()
+
 func _physics_process(delta: float) -> void:
 	
 	var input_dir := Input.get_vector(&"move_right", &"move_left", &"move_forward", &"move_backward")
