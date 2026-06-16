@@ -1,29 +1,10 @@
 [gd_scene format=3 uid="uid://5vagdbl70pr"]
 
-[ext_resource type="Script" uid="uid://b44ovxth6i2q7" path="res://Studies/ThirdPersonCamera/camera_spring_arm.gd" id="1_4sunn"]
-[ext_resource type="Script" uid="uid://7vytnko6w6jd" path="res://Studies/ThirdPersonCamera/camera_follow.gd" id="2_yn7sq"]
 [ext_resource type="PackedScene" uid="uid://co871j66krf2w" path="res://Objects/Ilyana/ilyana.tscn" id="4_u52ew"]
 
 [sub_resource type="Environment" id="Environment_rqakr"]
 
 [node name="ThirdPersonCamera" type="Node3D" unique_id=1678119258]
-
-[node name="Ilyana" parent="." unique_id=2010041 node_paths=PackedStringArray("camera") instance=ExtResource("4_u52ew")]
-camera = NodePath("SpringArmPivot/Camera3D")
-
-[node name="SpringArmPivot" type="Node3D" parent="Ilyana" unique_id=660690215]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9216542, 0)
-script = ExtResource("1_4sunn")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="Ilyana/SpringArmPivot" unique_id=1810836645]
-spring_length = 4.0
-
-[node name="SpringPosition" type="Node3D" parent="Ilyana/SpringArmPivot/SpringArm3D" unique_id=575764786]
-
-[node name="Camera3D" type="Camera3D" parent="Ilyana/SpringArmPivot" unique_id=681505822 node_paths=PackedStringArray("spring_arm")]
-script = ExtResource("2_yn7sq")
-spring_arm = NodePath("../SpringArm3D/SpringPosition")
-lerp_power = 6.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1552822051]
 transform = Transform3D(3.4790604, 0, 0, 0, 1, 0, 0, 0, 6.1187387, 0, -0.5, 0)
@@ -37,3 +18,5 @@ environment = SubResource("Environment_rqakr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1608398688]
 transform = Transform3D(0.83251524, -0.43280113, 0.34583443, 1.7379449e-08, 0.6242477, 0.78122646, -0.5540019, -0.650383, 0.5196958, 0, 2.450849, 4.0778055)
+
+[node name="Ilyana" parent="." unique_id=2010041 instance=ExtResource("4_u52ew")]

@@ -4,6 +4,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dkg6y5iswt1p2" path="res://Objects/Ilyana/ilyana_mesh.tres" id="2_1teqv"]
 [ext_resource type="Script" uid="uid://b67p8ihfdeg5m" path="res://Objects/Ilyana/ilyana.gd" id="2_douj4"]
 [ext_resource type="AnimationLibrary" uid="uid://cvr8g472g3b3u" path="res://Animations/arm_raise_cast.fbx" id="4_1g0u3"]
+[ext_resource type="Script" uid="uid://b44ovxth6i2q7" path="res://Studies/ThirdPersonCamera/camera_spring_arm.gd" id="5_ctgib"]
+[ext_resource type="Script" uid="uid://7vytnko6w6jd" path="res://Studies/ThirdPersonCamera/camera_follow.gd" id="6_hmttx"]
 
 [sub_resource type="Skin" id="Skin_oe7nk"]
 resource_name = "Skin"
@@ -576,10 +578,12 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uc2yg"]
 
-[node name="Ilyana" type="CharacterBody3D" unique_id=2010041]
+[node name="Ilyana" type="CharacterBody3D" unique_id=2010041 node_paths=PackedStringArray("camera")]
 collision_layer = 0
 collision_mask = 48
 script = ExtResource("2_douj4")
+camera = NodePath("SpringArmPivot/Camera3D")
+extra_rotation = 32.74
 skill = ExtResource("2_1g0u3")
 
 [node name="GeneralSkeleton" type="Skeleton3D" parent="." unique_id=1854331489]
@@ -1054,3 +1058,17 @@ autoplay = &"mixamo_com"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=909618710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5252605, 0)
 shape = SubResource("BoxShape3D_uc2yg")
+
+[node name="SpringArmPivot" type="Node3D" parent="." unique_id=572377322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9216542, 0)
+script = ExtResource("5_ctgib")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot" unique_id=1411690585]
+spring_length = 4.0
+
+[node name="SpringPosition" type="Node3D" parent="SpringArmPivot/SpringArm3D" unique_id=880197886]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot" unique_id=940764721 node_paths=PackedStringArray("spring_arm")]
+script = ExtResource("6_hmttx")
+spring_arm = NodePath("../SpringArm3D/SpringPosition")
+lerp_power = 6.0

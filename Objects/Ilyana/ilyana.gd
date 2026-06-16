@@ -2,6 +2,7 @@ extends CharacterBody3D
 @export var acceleration: float = 100.
 @export var max_speed: float = 100.
 @export var camera: Node3D
+@export var extra_rotation: float = 45.
 
 @export var skill: PackedScene
 
@@ -9,7 +10,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("hotbar_1_skill_1"):
 		play_cast_animation()
 		var skill_inst = skill.instantiate()
-		skill_inst.position = $SpringArmPivot/Camera3D.position
+		var spring_rotation = $SpringArmPivot.rotation.y + PI/2
+		print($SpringArmPivot.rotation.y)
+		print(spring_rotation)
+		var asdf = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * 10.
+		print(asdf)
+		skill_inst.position = asdf
 		add_child(skill_inst)
 		
 
@@ -32,6 +38,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 	
 	move_and_slide()
+	
+	$GeneralSkeleton.rotation.y = $SpringArmPivot.rotation.y + PI
 
 
 func _ready() -> void:
@@ -39,6 +47,7 @@ func _ready() -> void:
 
 func play_cast_animation():
 	$AnimationPlayer.play("arm_raise_cast/mixamo_com")
+	$AnimationPlayer.seek(0.4)
 	
 func _on_cast_animation_finished(anim_name: String):
 	$AnimationPlayer.play("mixamo_com")
