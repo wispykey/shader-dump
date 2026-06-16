@@ -3,11 +3,17 @@ extends CharacterBody3D
 @export var max_speed: float = 100.
 @export var camera: Node3D
 
+@export var skill: PackedScene
+
 @onready var ilyana: Ilyana = $Ilyana
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("hotbar_1_skill_1"):
 		ilyana.play_cast_animation()
+		var skill_inst = skill.instantiate()
+		skill_inst.position = $SpringArmPivot/Camera3D.position
+		add_child(skill_inst)
+		
 
 func _physics_process(delta: float) -> void:
 	

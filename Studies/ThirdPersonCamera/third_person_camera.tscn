@@ -1,47 +1,35 @@
 [gd_scene format=3 uid="uid://5vagdbl70pr"]
 
 [ext_resource type="Script" uid="uid://b44ovxth6i2q7" path="res://Studies/ThirdPersonCamera/camera_spring_arm.gd" id="1_4sunn"]
-[ext_resource type="Script" uid="uid://c4krhx6mns472" path="res://Studies/ThirdPersonCamera/player.gd" id="1_yn7sq"]
 [ext_resource type="Script" uid="uid://7vytnko6w6jd" path="res://Studies/ThirdPersonCamera/camera_follow.gd" id="2_yn7sq"]
 [ext_resource type="PackedScene" uid="uid://co871j66krf2w" path="res://Objects/Ilyana/ilyana.tscn" id="4_u52ew"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_i3wod"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rqakr"]
 
 [sub_resource type="Environment" id="Environment_rqakr"]
 
 [node name="ThirdPersonCamera" type="Node3D" unique_id=1678119258]
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=137491515 node_paths=PackedStringArray("camera")]
-script = ExtResource("1_yn7sq")
+[node name="Ilyana" parent="." unique_id=2010041 node_paths=PackedStringArray("camera") instance=ExtResource("4_u52ew")]
 camera = NodePath("SpringArmPivot/Camera3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=118945189]
-visible = false
-mesh = SubResource("BoxMesh_i3wod")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1000349993]
-shape = SubResource("BoxShape3D_rqakr")
-
-[node name="SpringArmPivot" type="Node3D" parent="Player" unique_id=660690215]
+[node name="SpringArmPivot" type="Node3D" parent="Ilyana" unique_id=660690215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9216542, 0)
 script = ExtResource("1_4sunn")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Player/SpringArmPivot" unique_id=1810836645]
+[node name="SpringArm3D" type="SpringArm3D" parent="Ilyana/SpringArmPivot" unique_id=1810836645]
 spring_length = 4.0
 
-[node name="SpringPosition" type="Node3D" parent="Player/SpringArmPivot/SpringArm3D" unique_id=575764786]
+[node name="SpringPosition" type="Node3D" parent="Ilyana/SpringArmPivot/SpringArm3D" unique_id=575764786]
 
-[node name="Camera3D" type="Camera3D" parent="Player/SpringArmPivot" unique_id=681505822 node_paths=PackedStringArray("spring_arm")]
+[node name="Camera3D" type="Camera3D" parent="Ilyana/SpringArmPivot" unique_id=681505822 node_paths=PackedStringArray("spring_arm")]
 script = ExtResource("2_yn7sq")
 spring_arm = NodePath("../SpringArm3D/SpringPosition")
 lerp_power = 6.0
 
-[node name="Ilyana" parent="Player" unique_id=1888073334 instance=ExtResource("4_u52ew")]
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1552822051]
-transform = Transform3D(3.4790604, 0, 0, 0, 1, 0, 0, 0, 6.1187387, 0, -2.4534569, 0)
+transform = Transform3D(3.4790604, 0, 0, 0, 1, 0, 0, 0, 6.1187387, 0, -0.5, 0)
+use_collision = true
+collision_layer = 48
+collision_mask = 0
 size = Vector3(20, 1, 20)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=566372660]
