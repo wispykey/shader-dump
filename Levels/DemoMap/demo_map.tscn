@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyye5q6cal2k0"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_42bif"]
-[ext_resource type="Script" uid="uid://bl7b415eiryk2" path="res://demo_map.gd" id="1_yjjny"]
+[ext_resource type="Script" uid="uid://bl7b415eiryk2" path="res://Levels/DemoMap/demo_map.gd" id="1_yjjny"]
 [ext_resource type="PackedScene" uid="uid://clxxo0prv2fdb" path="res://3DSpells/LeLu/Lightning/lightning.tscn" id="2_kbhvk"]
 [ext_resource type="PackedScene" uid="uid://dewnt83fr5nb1" path="res://3DSpells/LeLu/Earth/earth.tscn" id="3_xis5h"]
 [ext_resource type="PackedScene" uid="uid://djpspfjbp1nkn" path="res://3DSpells/LeLu/Tornado/Tornado.tscn" id="4_ywkik"]

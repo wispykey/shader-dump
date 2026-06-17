@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ba830ywqpwawi"]
+
+[ext_resource type="Script" uid="uid://clwcw2dmk5qgu" path="res://Autoloads/scene_switcher.gd" id="1_p5byr"]
+
+[node name="SceneSwitcher" type="Control" unique_id=2061386189]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_p5byr")
+
+[node name="SceneList" type="VBoxContainer" parent="." unique_id=1473543507]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
