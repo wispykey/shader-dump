@@ -62,7 +62,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_1pjik"]
 resource_name = "init"
-length = 1.0666667
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -362,7 +361,7 @@ shader_parameter/flip_speed = 1.0
 shader_parameter/current_lifetime = 0.3600000171
 shader_parameter/uv_x_scale = 1.0
 shader_parameter/uv_y_scale = 1.0
-shader_parameter/alpha_cutoff_threshold = 0.02
+shader_parameter/alpha_cutoff_threshold = 0.06
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cxk1c"]
 resource_name = "sm_lightning_elthunder_2_Plane"
@@ -420,12 +419,12 @@ render_priority = 10
 transparency = 1
 cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.84, 0.70728004, 0.17639998, 0.06666666)
+albedo_color = Color(0.84, 0.70728004, 0.17639998, 0)
 albedo_texture_msdf = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_fqosr"]
-radius = 0.001
-height = 0.001
+radius = 4.0
+height = 8.0
 
 [node name="Elthunder" type="Node3D" unique_id=680647525]
 script = ExtResource("1_4ax67")
@@ -506,6 +505,7 @@ metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=908260966]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 7.970395, -0.3505708)
+light_energy = 0.0
 shadow_enabled = true
 
 [node name="Decal" type="MeshInstance3D" parent="." unique_id=1287089249]
@@ -514,7 +514,7 @@ material_override = SubResource("ShaderMaterial_h6cps")
 mesh = SubResource("BoxMesh_gkn5c")
 
 [node name="BoltHead" type="MeshInstance3D" parent="." unique_id=571388094]
-transform = Transform3D(-0.8886085, 2.3890405, 1.3439573, 0.30984086, -5.761966, 0.86039716, 1.4406617, 2.712791, 0.64391637, -0.52, 7.321, -1.817)
+transform = Transform3D(-1.6675103, -0.5488668, -0.40157384, 0.13197242, -6.7796144, 0.04504515, -0.40388787, 0.050803766, 1.6726753, 0.38, 2.341, 0.003)
 material_override = SubResource("ShaderMaterial_i0hpu")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_qf1l1")
@@ -528,3 +528,4 @@ mesh = SubResource("SphereMesh_fqosr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.471086, 0)
 visible = false
 omni_range = 20.0
+omni_attenuation = 3.0

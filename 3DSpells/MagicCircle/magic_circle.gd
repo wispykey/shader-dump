@@ -13,7 +13,7 @@ var inner_ring_rotation_speed: float = base_inner_ring_rotation_speed
 
 
 @export var cast_rotation_speed_increase_per_frame: float = 0.5
-@export var cast_color_intensity_multiplier: float = 5.
+@export var cast_color_intensity_multiplier: float = 2.5
 
 func _process(delta: float) -> void:
 	$OuterRing.rotation.y = fmod($OuterRing.rotation.y + outer_ring_rotation_speed * delta, 360.)
