@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dc14vwfqf3jno"]
 
 [ext_resource type="PackedScene" uid="uid://copatq6msjvqq" path="res://Levels/Campfire/pine_tree.tscn" id="1_1vyra"]
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_mmue3"]
 [ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3DSpells/Sky/starry_sky.gdshader" id="3_ut61h"]
 [ext_resource type="PackedScene" uid="uid://cki3qt18dg0sx" path="res://3DSpells/LeLu/Fire/fire.tscn" id="4_js6ts"]
 [ext_resource type="ArrayMesh" uid="uid://bij0qn0ektyqg" path="res://Levels/Campfire/grass.tres" id="5_r852y"]
+[ext_resource type="PackedScene" uid="uid://co871j66krf2w" path="res://Objects/Ilyana/ilyana.tscn" id="6_f7huc"]
 [ext_resource type="Shader" uid="uid://b2rc0pic7ehg" path="res://Studies/Ocean/ocean.gdshader" id="6_l3ln6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_js6ts"]
@@ -111,15 +111,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1440011263]
 shape = SubResource("ConcavePolygonShape3D_js6ts")
 
-[node name="ProtoController" parent="Floor" unique_id=2018465170 instance=ExtResource("1_mmue3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017076373, 4.7683716e-07, 0.04227352)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Floor/ProtoController" unique_id=1401040011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017076373, 0.4253831, -0.04227352)
-visible = false
-light_energy = 5.719
-spot_range = 16.407
-
 [node name="Trees" type="Node3D" parent="." unique_id=694618766]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
@@ -165,3 +156,5 @@ mesh = SubResource("BoxMesh_dr0cw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=105080669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.822461, 0)
 mesh = SubResource("PlaneMesh_dr0cw")
+
+[node name="Ilyana" parent="." unique_id=2010041 instance=ExtResource("6_f7huc")]

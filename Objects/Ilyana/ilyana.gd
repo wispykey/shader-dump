@@ -8,39 +8,42 @@ extends CharacterBody3D
 @onready var anim_tree := $AnimationTree
 @onready var anim_player := $AnimationPlayer
 
+@export var cast_distance = 15.
+
 
 enum AnimationNames {
-	RUN_FORWARDS = 0,
-	RUN_FORWARDS_CASTING = 1
+	IDLE = 0,
+	RUN_FORWARDS = 1,
+	RUN_FORWARDS_CASTING = 2,
 }
 
 var anim_vals: Dictionary = {
-	AnimationNames.RUN_FORWARDS: 1.,
+	AnimationNames.IDLE: 1.,
+	AnimationNames.RUN_FORWARDS: 0.,
 	AnimationNames.RUN_FORWARDS_CASTING: 0.,
 }
 
-var blend_speed: float = 25.
-var curr_anim_enum = AnimationNames.RUN_FORWARDS
+var blend_speed: float = 10.
+var curr_anim_enum = AnimationNames.IDLE
 
-func _process(delta: float) -> void:
-	$MagicCircle.visible = anim_vals[AnimationNames.RUN_FORWARDS_CASTING] > 0.05
-	$MagicCircle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
-		
+
 
 func handle_animations(delta: float):
-	match curr_anim_enum:
-		AnimationNames.RUN_FORWARDS:
-			anim_vals[AnimationNames.RUN_FORWARDS] = lerpf(anim_vals[AnimationNames.RUN_FORWARDS], 1., blend_speed * delta)
-			anim_vals[AnimationNames.RUN_FORWARDS_CASTING] = lerpf(anim_vals[AnimationNames.RUN_FORWARDS_CASTING], 0., blend_speed * delta)
-		AnimationNames.RUN_FORWARDS_CASTING:
-			anim_vals[AnimationNames.RUN_FORWARDS] = lerpf(anim_vals[AnimationNames.RUN_FORWARDS], 0., blend_speed * delta)
-			anim_vals[AnimationNames.RUN_FORWARDS_CASTING] = lerpf(anim_vals[AnimationNames.RUN_FORWARDS_CASTING], 1., blend_speed * delta)
-				
+	for anim in anim_vals.keys():
+		if anim == curr_anim_enum:
+			anim_vals[anim] = lerpf(anim_vals[anim], 1., blend_speed * delta)
+		else:
+			anim_vals[anim] = lerpf(anim_vals[anim], 0., blend_speed * delta)
+
 	update_animation_tree()
 	
 	
 func update_animation_tree():
-	anim_tree["parameters/RunForwardCasting/blend_amount"] = anim_vals[AnimationNames.RUN_FORWARDS_CASTING]
+	# This is annoying, relies on coupled animation name strings :(
+	anim_tree["parameters/RunForwards/blend_amount"] = anim_vals[AnimationNames.RUN_FORWARDS]
+	anim_tree["parameters/RunForwardsCasting/blend_amount"] = anim_vals[AnimationNames.RUN_FORWARDS_CASTING]
+	#anim_tree["parameters/Idle/blend_amount"] = anim_vals[AnimationNames.IDLE]
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -49,9 +52,10 @@ func _physics_process(delta: float) -> void:
 		
 		var skill_inst = skill.instantiate()
 		var spring_rotation = $SpringArmPivot.rotation.y + PI/2
-		var distance = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * 10.
-		skill_inst.position = distance
-		add_child(skill_inst)
+		var distance = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * cast_distance
+		owner.add_child(skill_inst) if owner else add_child(skill_inst)
+		skill_inst.global_position = global_position + distance
+		$MagicCircle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
 		
 		# TODO: When exactly should the animation revert anyways?
 		# Also, this doesn't account for other strafe directions
@@ -66,11 +70,14 @@ func _physics_process(delta: float) -> void:
 		direction *= max_speed
 		velocity.x = move_toward(velocity.x, direction.x, delta * acceleration)
 		velocity.z = move_toward(velocity.z, direction.z, delta * acceleration)
+		if curr_anim_enum != AnimationNames.RUN_FORWARDS_CASTING:
+			curr_anim_enum = AnimationNames.RUN_FORWARDS
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, delta * acceleration)
 		velocity.z = move_toward(velocity.z, 0, delta * acceleration)
-		
+		if curr_anim_enum != AnimationNames.RUN_FORWARDS_CASTING:
+			curr_anim_enum = AnimationNames.IDLE
 		velocity = Vector3.ZERO
 	
 	move_and_slide()
