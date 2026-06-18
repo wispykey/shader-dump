@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bij0qn0ektyqg" path="res://Levels/Campfire/grass.tres" id="5_r852y"]
 [ext_resource type="PackedScene" uid="uid://co871j66krf2w" path="res://Objects/Ilyana/ilyana.tscn" id="6_f7huc"]
 [ext_resource type="Shader" uid="uid://b2rc0pic7ehg" path="res://Studies/Ocean/ocean.gdshader" id="6_l3ln6"]
+[ext_resource type="PackedScene" uid="uid://bjiv7uvbv8k0r" path="res://Enemies/WinstonSlimehill/winston_slimehill.tscn" id="7_f7huc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_js6ts"]
 shader = ExtResource("3_ut61h")
@@ -115,7 +116,7 @@ shape = SubResource("ConcavePolygonShape3D_js6ts")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="PineTree" parent="Trees" unique_id=1314316725 instance=ExtResource("1_1vyra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.498572, 2.3841858e-07, 6.0240035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9349964, 2.3841858e-07, 6.786852)
 
 [node name="PineTree2" parent="Trees" unique_id=1346263470 instance=ExtResource("1_1vyra")]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 4.0644584, 0, -6.290557)
@@ -158,3 +159,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.822461, 0)
 mesh = SubResource("PlaneMesh_dr0cw")
 
 [node name="Ilyana" parent="." unique_id=2010041 instance=ExtResource("6_f7huc")]
+
+[node name="GeneralSkeleton" parent="Ilyana" index="0" unique_id=1854331489]
+bones/0/position = Vector3(0.029901737, 0.65656585, 0.004507469)
+bones/0/rotation = Quaternion(-0.003192987, -0.041783962, -0.028369643, 0.9987188)
+bones/1/rotation = Quaternion(0.0068608327, 0.005319552, 0.017894475, 0.99980223)
+bones/2/rotation = Quaternion(0.01910194, 0.011083654, 0.025659634, 0.99942684)
+bones/3/rotation = Quaternion(0.019101946, 0.011083657, 0.025659641, 0.99942684)
+bones/4/rotation = Quaternion(-0.09261645, 0.00011308306, 9.372837e-05, 0.9957019)
+bones/5/rotation = Quaternion(0.033983726, 0.006658068, -0.04380991, 0.99843955)
+bones/7/rotation = Quaternion(0.5141567, 0.4685688, 0.5808234, -0.42276525)
+bones/8/rotation = Quaternion(0.12844229, 0.809119, -0.55134135, -0.15764467)
+bones/9/rotation = Quaternion(0.07143874, -0.7062121, 0.07089377, 0.70081025)
+bones/10/rotation = Quaternion(0.026583979, 0.58018166, 0.17035386, 0.7960289)
+bones/15/rotation = Quaternion(0.11814597, -0.06828436, -0.09848124, 0.9857385)
+bones/16/rotation = Quaternion(0.099225625, 0.0038287542, -0.010134309, 0.9950061)
+bones/19/rotation = Quaternion(0.092865236, -0.012562906, -0.05930781, 0.99383146)
+bones/20/rotation = Quaternion(0.09043147, 9.521878e-05, 0.0025642377, 0.99589944)
+bones/23/rotation = Quaternion(0.16627221, 0.0070188562, -0.05910554, 0.9842819)
+bones/24/rotation = Quaternion(0.09110858, -0.00095308595, -0.0008826344, 0.9958402)
+bones/27/rotation = Quaternion(0.24405104, 0.041172024, -0.072563544, 0.966167)
+bones/28/rotation = Quaternion(0.14278063, -0.00080053584, 0.024849122, 0.9894421)
+bones/31/rotation = Quaternion(0.52003896, -0.4679141, -0.5519086, -0.45388627)
+bones/32/rotation = Quaternion(-0.11203795, 0.8012094, -0.535508, 0.24236812)
+bones/33/rotation = Quaternion(0.10065672, 0.7028245, -0.09983617, 0.6970931)
+bones/34/rotation = Quaternion(-0.089703314, -0.48143473, -0.20814915, 0.8466688)
+bones/39/rotation = Quaternion(0.12006191, 0.064710565, 0.06189369, 0.9887199)
+bones/40/rotation = Quaternion(0.046665665, -0.0001459881, 0.005055632, 0.9988978)
+bones/43/rotation = Quaternion(0.12115378, 0.0072356015, 0.053344, 0.991173)
+bones/44/rotation = Quaternion(0.09213465, 0.0004323395, -0.004146289, 0.9957379)
+bones/47/rotation = Quaternion(0.17783621, 0.011248617, 0.033552587, 0.98342365)
+bones/48/rotation = Quaternion(0.08246638, 0.0028011699, -0.004206002, 0.9965811)
+bones/51/rotation = Quaternion(0.19742095, -0.0067222784, 0.032627024, 0.9797527)
+bones/52/rotation = Quaternion(0.1122825, 0.007207773, -0.0368754, 0.99296576)
+bones/55/rotation = Quaternion(0.02665846, 0.0936121, 0.99168134, -0.08422708)
+bones/56/rotation = Quaternion(0.0051732813, 0.99277467, -0.119863346, -0.0021276318)
+bones/57/rotation = Quaternion(0.08554622, 0.69789237, -0.69725317, 0.1395216)
+bones/58/rotation = Quaternion(-0.03008153, 0.9994032, 0.0017960153, 0.016886447)
+bones/60/rotation = Quaternion(-0.06405332, 0.09349165, 0.99211085, -0.053596757)
+bones/61/rotation = Quaternion(-0.0013000364, 0.96071965, -0.27744266, -0.0064597256)
+bones/62/rotation = Quaternion(-0.08427634, 0.5603514, -0.82138175, -0.06508339)
+
+[node name="MagicCircle" parent="Ilyana" index="5" unique_id=198085887]
+visible = false
+
+[node name="WinstonSlimehill" parent="." unique_id=556421808 instance=ExtResource("7_f7huc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.978049)
+visible = false
+
+[editable path="Ilyana"]

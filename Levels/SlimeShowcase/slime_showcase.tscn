@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dtr68bxhysifw"]
+
+[ext_resource type="Script" uid="uid://k21ra8ikh8h2" path="res://Levels/SlimeShowcase/slime_showcase.gd" id="1_72r6p"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ntk5d"]
+[ext_resource type="PackedScene" uid="uid://c5skiubulb3xq" path="res://Enemies/WinstonSlimehill/slime v3.glb" id="2_72r6p"]
+[ext_resource type="Shader" uid="uid://ytfnog34gp0v" path="res://3DSpells/Sky/starry_sky.gdshader" id="4_h2i46"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxubv"]
+animation = &"slime_jump_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h2i46"]
+animation = &"Action_002"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xxubv"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_px771"]
+graph_offset = Vector2(-500.6942, 33.23967)
+nodes/output/position = Vector2(500, 220)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_h2i46")
+nodes/Animation/position = Vector2(-400, 160)
+nodes/Jump/node = SubResource("AnimationNodeOneShot_xxubv")
+nodes/Jump/position = Vector2(-20, 200)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_xxubv")
+"nodes/Animation 2/position" = Vector2(-400, 380)
+node_connections = [&"output", 0, &"Jump", &"Jump", 0, &"Animation", &"Jump", 1, &"Animation 2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxubv"]
+shader = ExtResource("4_h2i46")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.08
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_px771"]
+sky_material = SubResource("ShaderMaterial_xxubv")
+
+[sub_resource type="Environment" id="Environment_enucn"]
+sky = SubResource("Sky_px771")
+glow_enabled = true
+
+[node name="SlimeShowcase" type="Node3D" unique_id=644828908]
+script = ExtResource("1_72r6p")
+
+[node name="ProtoController" parent="." unique_id=2018465170 instance=ExtResource("1_ntk5d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.1155353)
+
+[node name="MagicCircle" parent="ProtoController" index="4" unique_id=198085887]
+visible = false
+
+[node name="Book" parent="ProtoController" index="5" unique_id=179891422]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=875395840]
+transform = Transform3D(13.17892, 0, 0, 0, 1, 0, 0, 0, 12.166841, 0, -0.5, 0)
+use_collision = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="slime v3" parent="." unique_id=556421808 instance=ExtResource("2_72r6p")]
+
+[node name="AnimationTree" type="AnimationTree" parent="slime v3" unique_id=748700339]
+tree_root = SubResource("AnimationNodeBlendTree_px771")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Jump/active = false
+parameters/Jump/internal_active = false
+parameters/Jump/request = 0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1513905634]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=110082438]
+environment = SubResource("Environment_enucn")
+
+[editable path="ProtoController"]
+[editable path="slime v3"]

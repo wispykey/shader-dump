@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_gk7yw"]
 [ext_resource type="MeshLibrary" uid="uid://bdvp4tiwhlyfn" path="res://Levels/Dungeon/tileset_dungeon.tres" id="2_n1138"]
 [ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Objects/Pots/pot.tscn" id="3_rvcha"]
+[ext_resource type="PackedScene" uid="uid://bjiv7uvbv8k0r" path="res://Enemies/WinstonSlimehill/winston_slimehill.tscn" id="4_b7scm"]
 
 [sub_resource type="Environment" id="Environment_hbn5l"]
 ambient_light_color = Color(1, 0.92941177, 0.8117647, 1)
@@ -67,3 +68,6 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.491217, 0, -1.7836065
 
 [node name="Pot9" parent="Pots" unique_id=1953724235 instance=ExtResource("3_rvcha")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.491217, 0, 2.3082943)
+
+[node name="WinstonSlimehill" parent="." unique_id=556421808 instance=ExtResource("4_b7scm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.386135)

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bjiv7uvbv8k0r"]
+
+[ext_resource type="PackedScene" uid="uid://c5skiubulb3xq" path="res://Enemies/WinstonSlimehill/slime v3.glb" id="1_1hhc5"]
+[ext_resource type="Script" uid="uid://ckankqltc34t5" path="res://Enemies/WinstonSlimehill/winston_slimehill.gd" id="2_fqo4a"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xxubv"]
+animation = &"slime_jump_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h2i46"]
+animation = &"Action_002"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xxubv"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_niv3w"]
+graph_offset = Vector2(-500.6942, 33.23967)
+nodes/output/position = Vector2(500, 220)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_h2i46")
+nodes/Animation/position = Vector2(-400, 160)
+nodes/Jump/node = SubResource("AnimationNodeOneShot_xxubv")
+nodes/Jump/position = Vector2(-20, 200)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_xxubv")
+"nodes/Animation 2/position" = Vector2(-400, 380)
+node_connections = [&"output", 0, &"Jump", &"Jump", 0, &"Animation", &"Jump", 1, &"Animation 2"]
+
+[node name="WinstonSlimehill" unique_id=556421808 instance=ExtResource("1_1hhc5")]
+script = ExtResource("2_fqo4a")
+jump_distance = 2.0
+
+[node name="bones-col" parent="." index="0" unique_id=71630612]
+transform = Transform3D(1.0031383, 0, 0.00095354335, 0, 0.99839634, 0, -0.00095515454, 0, 1.0014461, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1583929010]
+tree_root = SubResource("AnimationNodeBlendTree_niv3w")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Jump/active = false
+parameters/Jump/internal_active = false
+parameters/Jump/request = 0
