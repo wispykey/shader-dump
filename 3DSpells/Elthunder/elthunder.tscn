@@ -514,7 +514,7 @@ material_override = SubResource("ShaderMaterial_h6cps")
 mesh = SubResource("BoxMesh_gkn5c")
 
 [node name="BoltHead" type="MeshInstance3D" parent="." unique_id=571388094]
-transform = Transform3D(-1.6675103, -0.5488668, -0.40157384, 0.13197242, -6.7796144, 0.04504515, -0.40388787, 0.050803766, 1.6726753, 0.38, 2.341, 0.003)
+transform = Transform3D(-1.6675103, -0.54886717, -0.4015739, 0.13197252, -6.7796144, 0.045045152, -0.4038879, 0.05080369, 1.6726753, 0.38, 2.341, 0.003)
 material_override = SubResource("ShaderMaterial_i0hpu")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_qf1l1")

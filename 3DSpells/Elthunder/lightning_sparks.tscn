@@ -66,3 +66,4 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_m8g47")
 draw_pass_1 = SubResource("CapsuleMesh_04r48")
+metadata/_edit_lock_ = true

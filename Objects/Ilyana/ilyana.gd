@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		# Also, this doesn't account for other strafe directions
 		skill_inst.tree_exited.connect(set_next_anim_enum.bind(AnimationNames.RUN_FORWARDS))
 	
-	var input_dir := Input.get_vector(&"move_right", &"move_left", &"move_forward", &"move_backward")
+	var input_dir := Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_backward")
 	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	direction = direction.rotated(Vector3.UP, camera.global_rotation.y)

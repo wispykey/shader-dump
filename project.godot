@@ -8,6 +8,10 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://FMODBanks"
+
 [application]
 
 config/name="ShaderDump"
@@ -20,6 +24,11 @@ config/icon="res://icon.svg"
 
 SFX="*uid://dfkls8uj5e1a1"
 SceneSwitcher="*uid://ba830ywqpwawi"
+FmodManager="*uid://cds10pm7hwn3p"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [input]
 
