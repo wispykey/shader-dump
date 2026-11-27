@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://casr4fj3whacx"]
+
+[ext_resource type="Shader" uid="uid://bmrds4br66oa3" path="res://3DSpells/SoulFreeze/decal_copy.gdshader" id="1_uhwco"]
+[ext_resource type="Texture2D" uid="uid://chaodf1ywt72l" path="res://3DSpells/SoulFreeze/Decal_SoulFreeze_04_With_Transparency_Mask.png" id="2_j5ax4"]
+[ext_resource type="Texture2D" uid="uid://cw4a6qqg6jbyn" path="res://3DSpells/SoulFreeze/decal_color.tres" id="3_fdgxt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oqnsf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d1cuh"]
+noise = SubResource("FastNoiseLite_oqnsf")
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_uhwco")
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/Albedo = ExtResource("2_j5ax4")
+shader_parameter/Subtraction = SubResource("NoiseTexture2D_d1cuh")
+shader_parameter/Emission = ExtResource("3_fdgxt")
+shader_parameter/Albedo_Mix = 1.1
+shader_parameter/Emission_Energy = 3.6000000536443197
+shader_parameter/Modulate = Color(1.3262677, 1.3262677, 1.3262677, 0.1254902)
+shader_parameter/Modulate_Emission = Color(1, 1, 1, 1)
+shader_parameter/cube_half_size = 0.5
+shader_parameter/enable_y_fade = false
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 2.0

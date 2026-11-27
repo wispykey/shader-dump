@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c5vvmf2x4qkcc"]
+
+[ext_resource type="Texture2D" uid="uid://pq2ufm81lrnf" path="res://3DSpells/SoulFreeze/Puff.png" id="1_jrfo3"]
+
+[resource]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_jrfo3")
