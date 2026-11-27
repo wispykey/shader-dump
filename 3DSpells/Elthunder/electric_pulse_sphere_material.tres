@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3n4ht65uhbwt"]
+
+[ext_resource type="Texture2D" uid="uid://bo5f8nh83svg4" path="res://3DSpells/Elthunder/electric_pulse_sphere_gradient_material.tres" id="1_80gng"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 10
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.84, 0.70728004, 0.17639998, 0)
+albedo_texture = ExtResource("1_80gng")
+albedo_texture_msdf = true

@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dstttvg8lo6tu"]
+
+[ext_resource type="Shader" uid="uid://bgb3dc533iawa" path="res://3DSpells/Elthunder/lelu_decal_elthunder.gdshader" id="1_agp15"]
+[ext_resource type="Texture2D" uid="uid://dn7f0fqmjgi40" path="res://3DSpells/Elthunder/T_VFX_hit22.jpg" id="2_18rsv"]
+
+[sub_resource type="Gradient" id="Gradient_i0hpu"]
+offsets = PackedFloat32Array(0.34848484, 0.75151515)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qf1l1"]
+gradient = SubResource("Gradient_i0hpu")
+use_hdr = true
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_agp15")
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/Albedo = ExtResource("2_18rsv")
+shader_parameter/Emission = SubResource("GradientTexture2D_qf1l1")
+shader_parameter/Albedo_Mix = 1.1
+shader_parameter/Emission_Energy = 1.0
+shader_parameter/Modulate = Color(5.471667, 5.471667, 2.7804918, 1)
+shader_parameter/Modulate_Emission = Color(1, 1, 1, 1)
+shader_parameter/cube_half_size = 0.5
+shader_parameter/enable_y_fade = true
+shader_parameter/fade_start = 0.3
+shader_parameter/fade_end = 0.7
+shader_parameter/fade_power = 0.0

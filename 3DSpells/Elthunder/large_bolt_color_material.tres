@@ -1,0 +1,8 @@
+[gd_resource type="GradientTexture1D" format=3 uid="uid://bx80q8a4m3ii3"]
+
+[ext_resource type="Gradient" uid="uid://bcsma2sx1t8bg" path="res://3DSpells/Elthunder/large_bolt_color_gradient_material.tres" id="1_gomva"]
+
+[resource]
+resource_local_to_scene = true
+gradient = ExtResource("1_gomva")
+use_hdr = true

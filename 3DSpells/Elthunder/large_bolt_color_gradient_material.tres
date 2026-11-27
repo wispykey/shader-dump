@@ -1,0 +1,6 @@
+[gd_resource type="Gradient" format=3 uid="uid://bcsma2sx1t8bg"]
+
+[resource]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.3212121, 1)
+colors = PackedColorArray(5.912981, 1.5871515, 0, 0.5172074, 5.912981, 1.9420913, 0, 0.5172074, 10.5787325, 10.5787325, 10.5787325, 0.5172074)

@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://deyhyahnr5nlf"]
+
+[ext_resource type="Shader" uid="uid://ml3nuusq8l4d" path="res://3DSpells/Elthunder/elthunder_large_bolt.gdshader" id="1_fua4o"]
+[ext_resource type="Texture2D" uid="uid://bx80q8a4m3ii3" path="res://3DSpells/Elthunder/large_bolt_color_material.tres" id="2_6krvi"]
+[ext_resource type="Texture2D" uid="uid://bgbrnu170d1id" path="res://3DSpells/Elthunder/spark_05_mids_raised.png" id="2_rj5nl"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 3
+shader = ExtResource("1_fua4o")
+shader_parameter/color_gradient = ExtResource("2_6krvi")
+shader_parameter/texture_albedo = ExtResource("2_rj5nl")
+shader_parameter/albedo_texture_size = Vector2i(256, 512)
+shader_parameter/point_size = 0.0
+shader_parameter/flip_speed = 1.0
+shader_parameter/current_lifetime = 0.3600000171
+shader_parameter/uv_x_scale = 1.0
+shader_parameter/uv_y_scale = 1.0
+shader_parameter/alpha_cutoff_threshold = 0.06

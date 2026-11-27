@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://yd3uuffvxrkr"]
+
+[ext_resource type="Shader" uid="uid://dmth1sar5yhss" path="res://3DSpells/Elthunder/sphere_projection.gdshader" id="1_oy30u"]
+[ext_resource type="Texture2D" uid="uid://dn7f0fqmjgi40" path="res://3DSpells/Elthunder/T_VFX_hit22.jpg" id="2_l8ith"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 5
+shader = ExtResource("1_oy30u")
+shader_parameter/tex = ExtResource("2_l8ith")
+shader_parameter/color = Color(2.4835021, 2.5025156, 1.7324802, 1)
