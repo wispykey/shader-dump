@@ -4,6 +4,8 @@ const LEVEL_DIRECTORY = "res://Levels"
 
 @onready var scene_list := $SceneList
 
+var levels = {}
+
 func _ready() -> void:
 	discover_and_load_all_levels()
 	
@@ -27,6 +29,7 @@ func discover_and_load_all_levels():
 				var scene_to_load = expected_scene_path % [LEVEL_DIRECTORY, file_name, convert_camel_case_to_snake_case(file_name) + ".tscn"]
 				
 				add_button_to_scene_list(file_name, scene_to_load)
+				levels[file_name] = scene_to_load
 
 			else:
 				print("Found file: " + file_name)
@@ -41,6 +44,10 @@ func add_button_to_scene_list(scene_ref_name: String, scene_file_path: String):
 	button.text = scene_ref_name
 	button.pressed.connect(switch_to_scene.bind(scene_file_path))
 	scene_list.add_child(button)
+
+func go_to_level_by_name(name: String):
+	if levels.find_key(name):
+		switch_to_scene(levels[name])
 	
 	
 func switch_to_scene(scene_file_path: String):

@@ -58,6 +58,10 @@ func _process(delta: float) -> void:
 		use_skill(3)
 	elif Input.is_action_just_pressed("hotbar_1_skill_5"):
 		use_skill(4)
+	
+	if Input.is_action_just_pressed("interact"):
+		GameEvents.interact.emit()
+		
 
 
 
