@@ -4,12 +4,12 @@ extends CharacterBody3D
 @export var camera: Node3D
 @export var extra_rotation: float = 45.
 
-@export var skill: PackedScene
 @onready var anim_tree := $AnimationTree
 @onready var anim_player := $AnimationPlayer
+@onready var magic_circle: MagicCircle = $MagicCircle
 
-@export var cast_distance = 15.
-
+@export var skill_distance: float = 8.
+@export var skill_loadout: Array[PackedScene] = []
 
 enum AnimationNames {
 	IDLE = 0,
@@ -44,23 +44,21 @@ func update_animation_tree():
 	anim_tree["parameters/RunForwardsCasting/blend_amount"] = anim_vals[AnimationNames.RUN_FORWARDS_CASTING]
 	#anim_tree["parameters/Idle/blend_amount"] = anim_vals[AnimationNames.IDLE]
 	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("hotbar_1_skill_1"):
+		use_skill(0)
+	elif Input.is_action_just_pressed("hotbar_1_skill_2"):
+		use_skill(1)
+	elif Input.is_action_just_pressed("hotbar_1_skill_3"):
+		use_skill(2)
+	elif Input.is_action_just_pressed("hotbar_1_skill_4"):
+		use_skill(3)
+	elif Input.is_action_just_pressed("hotbar_1_skill_5"):
+		use_skill(4)
+
+
 
 func _physics_process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("hotbar_1_skill_1"):
-		curr_anim_enum = AnimationNames.RUN_FORWARDS_CASTING
-		
-		var skill_inst = skill.instantiate()
-		var spring_rotation = $SpringArmPivot.rotation.y + PI/2
-		var distance = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * cast_distance
-		owner.add_child(skill_inst) if owner else add_child(skill_inst)
-		skill_inst.global_position = global_position + distance
-		$MagicCircle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
-		
-		# TODO: When exactly should the animation revert anyways?
-		# Also, this doesn't account for other strafe directions
-		skill_inst.tree_exited.connect(set_next_anim_enum.bind(AnimationNames.RUN_FORWARDS))
-	
 	var input_dir := Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_backward")
 	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
@@ -88,3 +86,38 @@ func _physics_process(delta: float) -> void:
 	
 func set_next_anim_enum(anim_enum: AnimationNames):
 	curr_anim_enum = anim_enum
+	
+	
+func use_skill(skill_index: int):
+	if skill_index >= len(skill_loadout):
+		print("Skill index out of range")
+		return
+
+	# Eventually make this a lookup with other per-skill info
+	match skill_index:
+		0:
+			magic_circle.play_cast_finish(Color(1.0, 0.884, 0.42, 1.0))
+		1:
+			magic_circle.play_cast_finish(Color.POWDER_BLUE)
+		2: 
+			magic_circle.play_cast_finish(Color.PALE_GREEN)		
+			# Should rotation be random?
+		3:
+			magic_circle.play_cast_finish(Color.BURLYWOOD)
+		4:
+			magic_circle.play_cast_finish(Color.SKY_BLUE)
+		_:
+			magic_circle.play_cast_finish()
+			
+	curr_anim_enum = AnimationNames.RUN_FORWARDS_CASTING
+	
+	var skill_inst = skill_loadout[skill_index].instantiate()
+	var spring_rotation = $SpringArmPivot.rotation.y + PI/2
+	var distance = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * skill_distance
+	owner.add_child(skill_inst) if owner else add_child(skill_inst)
+	skill_inst.global_position = global_position + distance
+	skill_inst.rotation.y = $SpringArmPivot.rotation.y
+	
+	# TODO: When exactly should the animation revert anyways?
+	# Also, this doesn't account for other strafe directions
+	skill_inst.tree_exited.connect(set_next_anim_enum.bind(AnimationNames.RUN_FORWARDS))
