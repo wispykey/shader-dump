@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0e623dd8m0e8"]
+
+[ext_resource type="Texture2D" uid="uid://yh6rvewttmd5" path="res://3DSpells/Elwind/wind_blade.png" id="1_bi65d"]
+
+[resource]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1.1231815, 1.9749014, 1.6049453, 1)
+albedo_texture = ExtResource("1_bi65d")
