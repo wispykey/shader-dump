@@ -123,16 +123,15 @@ func use_skill(skill_index: int):
 		_:
 			magic_circle.play_cast_finish()
 			
-	curr_anim_enum = AnimationNames.RUN_FORWARDS_CASTING
 	
 	var skill_inst = skill_loadout[skill_index].instantiate()
 	var spring_rotation = $SpringArmPivot.rotation.y + PI/2
 	var distance = Vector3(cos(spring_rotation), 0, -sin(spring_rotation)) * skill_distance
 	owner.add_child(skill_inst) if owner else add_child(skill_inst)
 	skill_inst.global_position = global_position + distance
-	skill_inst.rotation.y = $SpringArmPivot.rotation.y
 	
-	# TODO: When exactly should the animation revert anyways?
-	# Also, this doesn't account for other strafe directions
+	# Always faces player at spawn time
+	skill_inst.rotation.y = $SpringArmPivot.rotation.y
 
+	curr_anim_enum = AnimationNames.RUN_FORWARDS_CASTING
 	$HackyAnimTimer.start()
