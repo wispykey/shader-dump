@@ -43,7 +43,10 @@ func update_animation_tree():
 	anim_tree["parameters/RunForwards/blend_amount"] = anim_vals[AnimationNames.RUN_FORWARDS]
 	anim_tree["parameters/RunForwardsCasting/blend_amount"] = anim_vals[AnimationNames.RUN_FORWARDS_CASTING]
 	#anim_tree["parameters/Idle/blend_amount"] = anim_vals[AnimationNames.IDLE]
-	
+
+func _ready() -> void:
+	$HackyAnimTimer.timeout.connect(set_next_anim_enum.bind(AnimationNames.RUN_FORWARDS))
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("hotbar_1_skill_1"):
 		use_skill(0)
@@ -86,7 +89,18 @@ func _physics_process(delta: float) -> void:
 	
 func set_next_anim_enum(anim_enum: AnimationNames):
 	curr_anim_enum = anim_enum
+
+func handle_left_footstep():
+	# Blending causes 'running' to be active even during 'idle'
+	# So we need to manually mute footsteps, currently
+	if anim_vals[AnimationNames.IDLE] > 0.5:
+		return
+	SFX.play_left_footstep()
 	
+func handle_right_footstep():
+	if anim_vals[AnimationNames.IDLE] > 0.5:
+		return
+	SFX.play_right_footstep()
 	
 func use_skill(skill_index: int):
 	if skill_index >= len(skill_loadout):
@@ -120,4 +134,5 @@ func use_skill(skill_index: int):
 	
 	# TODO: When exactly should the animation revert anyways?
 	# Also, this doesn't account for other strafe directions
-	skill_inst.tree_exited.connect(set_next_anim_enum.bind(AnimationNames.RUN_FORWARDS))
+
+	$HackyAnimTimer.start()

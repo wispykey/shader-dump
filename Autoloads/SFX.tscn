@@ -20,8 +20,16 @@ volume_db = 9.811
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=2140197762]
 bank_paths = ["res://FMODBanks/Master.strings.bank", "res://FMODBanks/Master.bank"]
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="." unique_id=1237813043]
+[node name="BGM" type="FmodEventEmitter3D" parent="." unique_id=1237813043]
 event_name = "event:/BGM"
 event_guid = "{1e6b92a2-d88c-4e78-9005-2c4fc966980f}"
 autoplay = true
-volume = 0.5
+volume = 0.2
+
+[node name="LeftFootstep" type="FmodEventEmitter3D" parent="." unique_id=1568340731]
+event_name = "event:/Left_Footstep_Stone"
+event_guid = "{14c87183-9cc0-4824-b0dd-611a7d878e3c}"
+
+[node name="RightFootstep" type="FmodEventEmitter3D" parent="." unique_id=1761064440]
+event_name = "event:/Left_Footstep_Stone"
+event_guid = "{14c87183-9cc0-4824-b0dd-611a7d878e3c}"

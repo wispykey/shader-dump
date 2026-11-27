@@ -1,7 +1,5 @@
 extends Node
 
-func _ready() -> void:
-	FmodBankLoader
 
 func play_pot_shatter():
 	$PotShatter.pitch_scale = 1. + randf_range(-0.05, 0.05)
@@ -10,3 +8,9 @@ func play_pot_shatter():
 func play_elwind():
 	$Elwind.pitch_scale = 1.45 + randf_range(-0.02, 0.02)
 	$Elwind.play()
+
+func play_left_footstep():
+	$LeftFootstep.play()
+
+func play_right_footstep():
+	$RightFootstep.play()

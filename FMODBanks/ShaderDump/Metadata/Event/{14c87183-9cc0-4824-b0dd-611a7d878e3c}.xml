@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{14c87183-9cc0-4824-b0dd-611a7d878e3c}">
 		<property name="name">
-			<value>Footsteps</value>
+			<value>Left_Footstep_Stone</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -59,7 +59,11 @@
 			<destination>{7c506345-d0b4-4bba-b057-984c886c1bda}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{755aa048-b355-47eb-8343-f112dc98310a}" />
+	<object class="EventAutomatableProperties" id="{755aa048-b355-47eb-8343-f112dc98310a}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{c43c3875-dda3-4127-b4b1-8e2daeff61c6}" />
 	<object class="Timeline" id="{17bcb009-0352-4354-85c7-5d84c4c9002c}">
 		<property name="isProxyEnabled">
@@ -85,7 +89,6 @@
 	<object class="MultiSound" id="{0ded61c6-8e1f-441c-9202-7fcee2b9f0b0}">
 		<relationship name="sounds">
 			<destination>{76d12238-8ee1-4e0a-97f9-27df0fd1dd87}</destination>
-			<destination>{f174a6e9-a970-4553-b74e-4e556e3a34ac}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{bab84dd9-18e6-4768-a465-cca8911926e4}">
@@ -103,11 +106,6 @@
 	<object class="SingleSound" id="{76d12238-8ee1-4e0a-97f9-27df0fd1dd87}">
 		<relationship name="audioFile">
 			<destination>{82960727-9a71-4d1b-acc9-0372c2f1673b}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{f174a6e9-a970-4553-b74e-4e556e3a34ac}">
-		<relationship name="audioFile">
-			<destination>{b52af7a5-940a-4659-bf7c-bf37e6ca70b1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{5221de40-38d7-45a7-bdda-9f3ca1850b3e}" />
