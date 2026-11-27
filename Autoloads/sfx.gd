@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	FmodBankLoader
+
 func play_pot_shatter():
 	$PotShatter.pitch_scale = 1. + randf_range(-0.05, 0.05)
 	$PotShatter.play()

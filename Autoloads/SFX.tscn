@@ -16,3 +16,12 @@ max_polyphony = 3
 [node name="Elwind" type="AudioStreamPlayer3D" parent="." unique_id=1646511913]
 stream = ExtResource("3_wo455")
 volume_db = 9.811
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=2140197762]
+bank_paths = ["res://FMODBanks/Master.strings.bank", "res://FMODBanks/Master.bank"]
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="." unique_id=1237813043]
+event_name = "event:/BGM"
+event_guid = "{1e6b92a2-d88c-4e78-9005-2c4fc966980f}"
+autoplay = true
+volume = 0.5
