@@ -145,6 +145,7 @@ debug_open_scene_switcher={
 
 3d_physics/layer_1="Breakables"
 3d_physics/layer_2="Attacks"
+3d_physics/layer_3="Player"
 3d_physics/layer_5="Terrain"
 3d_physics/layer_6="Solid Objects"
 
