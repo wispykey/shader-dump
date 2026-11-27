@@ -124,6 +124,7 @@ _data = {
 }
 
 [node name="TornadoLeLu" type="Node3D" unique_id=1063602833]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="VFX" type="Node3D" parent="." unique_id=788848853]
 transform = Transform3D(0.99112403, 0, 0.13294038, 0, 1, 0, -0.13294038, 0, 0.99112403, 0, -0.3, 0)

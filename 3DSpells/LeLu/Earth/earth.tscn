@@ -934,9 +934,10 @@ collision_friction = 0.8
 collision_bounce = 0.3
 
 [node name="EarthSpikesLeLu" type="Node3D" unique_id=1867633805]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 2.3164225)
 
 [node name="Spikes" type="Node3D" parent="." unique_id=725343792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4197721)
 
 [node name="Spike1" type="MeshInstance3D" parent="Spikes" unique_id=1608405159]
 transform = Transform3D(0.9925624, -0.04130326, -0.105061136, 0.04519161, 2.7720683, 0.44549063, 0.07564743, -1.1140909, 1.1123606, -0.03239071, -2.893133, 0.053637743)
