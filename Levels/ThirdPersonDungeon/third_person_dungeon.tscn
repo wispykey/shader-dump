@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cajyueg0vupep" path="res://Objects/Pots/pot.tscn" id="3_4pc0t"]
 [ext_resource type="PackedScene" uid="uid://co871j66krf2w" path="res://Objects/Ilyana/ilyana.tscn" id="3_wdeua"]
 [ext_resource type="PackedScene" uid="uid://b6g5wrmswfrqd" path="res://Levels/ThirdPersonDungeon/portal.tscn" id="4_aj21a"]
+[ext_resource type="PackedScene" uid="uid://dc14vwfqf3jno" path="res://Levels/Campfire/campfire.tscn" id="6_ifk4h"]
 
 [sub_resource type="Environment" id="Environment_hbn5l"]
 ambient_light_color = Color(1, 0.92941177, 0.8117647, 1)
@@ -62,9 +63,13 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.491217, 0, 2.3082943)
 
 [node name="Ilyana" parent="." unique_id=2010041 instance=ExtResource("3_wdeua")]
 
-[node name="Portal" parent="." unique_id=1931479158 instance=ExtResource("4_aj21a")]
+[node name="SpawnPortal" parent="." unique_id=1931479158 instance=ExtResource("4_aj21a")]
 transform = Transform3D(4, 0, 0, 0, -1.7484554e-07, -3.9999998, 0, 3.9999998, -1.7484554e-07, -0.038784266, 4.368433, 8.042505)
 enabled = false
+
+[node name="NextLevelPortal" parent="." unique_id=786437790 instance=ExtResource("4_aj21a")]
+transform = Transform3D(-1.7484555e-07, 3.9999998, -1.7484554e-07, 0, -1.7484554e-07, -3.9999998, -4, -1.7484554e-07, 7.642741e-15, -24.219105, 4.368433, -70.75068)
+destination_scene = ExtResource("6_ifk4h")
 
 [node name="Interact" type="Label" parent="." unique_id=133043247]
 visible = false

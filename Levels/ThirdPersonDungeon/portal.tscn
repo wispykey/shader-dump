@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://c1y13tsg3hobe" path="res://Levels/ThirdPersonDungeon/portal.gdshader" id="1_panst"]
 [ext_resource type="Script" uid="uid://5rn01wsxq3nk" path="res://Levels/ThirdPersonDungeon/portal.gd" id="2_eys8e"]
-[ext_resource type="PackedScene" uid="uid://dc14vwfqf3jno" path="res://Levels/Campfire/campfire.tscn" id="3_u4ge4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_aj21a"]
 
@@ -30,7 +29,6 @@ transform = Transform3D(4, 0, 0, 0, -1.7484554e-07, -3.9999998, 0, 3.9999998, -1
 material_override = SubResource("ShaderMaterial_3e7yn")
 mesh = SubResource("PlaneMesh_aj21a")
 script = ExtResource("2_eys8e")
-destination_scene = ExtResource("3_u4ge4")
 
 [node name="DetectionZone" type="Area3D" parent="." unique_id=817495905]
 collision_layer = 0
