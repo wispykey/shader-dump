@@ -14,3 +14,10 @@ func play_left_footstep():
 
 func play_right_footstep():
 	$RightFootstep.play()
+	
+	
+func play_elthunder():
+	$Elthunder.play()
+
+func play_soulfreeze():
+	$SoulFreeze.play()

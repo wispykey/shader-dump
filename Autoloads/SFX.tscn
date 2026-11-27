@@ -33,3 +33,12 @@ event_guid = "{14c87183-9cc0-4824-b0dd-611a7d878e3c}"
 [node name="RightFootstep" type="FmodEventEmitter3D" parent="." unique_id=1761064440]
 event_name = "event:/Left_Footstep_Stone"
 event_guid = "{14c87183-9cc0-4824-b0dd-611a7d878e3c}"
+
+[node name="Elthunder" type="FmodEventEmitter3D" parent="." unique_id=1456144633]
+event_name = "event:/Elthunder"
+event_guid = "{63bf15da-b536-4957-bfd1-0ffa8c6f84d7}"
+volume = 0.4
+
+[node name="SoulFreeze" type="FmodEventEmitter3D" parent="." unique_id=2074892400]
+event_name = "event:/SoulFreeze"
+event_guid = "{363663fa-23e2-4209-9e9b-be78b09c19aa}"

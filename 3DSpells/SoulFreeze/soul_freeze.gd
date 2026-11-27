@@ -6,6 +6,7 @@ extends Node3D
 func _ready():
 	var mat: StandardMaterial3D = $"LargeShard/LargeShard-rigid".material_override
 	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
+	SFX.play_soulfreeze()
 
 
 func _on_animation_finished(anim_name: String):
